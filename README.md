@@ -17,4 +17,4 @@
 **关 键 词**：DCNN， FPGA， HLS， 快速度， 低功耗， 高精度，小尺寸
 
 
-For more details, please refer to our [rs paper](http://www.mdpi.com/2072-4292/10/4/516).
+想要了解更多, 请参考本人的[论文](http://www.mdpi.com/2072-4292/10/4/516)及[代码](http://www.mdpi.com/2072-4292/10/4/516).
