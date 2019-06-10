@@ -3,7 +3,7 @@
 
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
-**作者：** [赵东升](https://generalzds.github.io/)
+**作者：** [赵东升](https://generalzds.github.io/)<br/>
 **致谢**：雷杰（副教授），李云松（长江学者）
 
 ### 摘要
