@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="moblie_net.wdb" id="1">
+         <top_modules>
+            <top_module name="apa_moblie_net_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0ns"></ZoomStartTime>
+      <ZoomEndTime time="2000ns"></ZoomEndTime>
+      <Cursor1Time time="0ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="257"></NameColumnWidth>
+      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="2" />
+   <wvobject type="group" fp_name="AESL_inst_moblie_net_group">
+      <obj_property name="label">AESL_inst_moblie_net</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/last_layer_512_4_32_4_U0_activity">
+         <obj_property name="ElementShortName">last_layer_512_4_32_4_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">last_layer_512_4_32_4_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="last_layer_512_4_32_4_U0_group">
+         <obj_property name="label">last_layer_512_4_32_4_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="last_layer_512_4_32_4_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="last_layer_512_4_32_4_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="last_layer_512_4_32_4_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_fc_SERIAL_FC_512_4_32_4_s_fu_84_group">
+            <obj_property name="label">grp_fc_SERIAL_FC_512_4_32_4_s_fu_84</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_apply_512_4_32_4_s_fu_74_group">
+               <obj_property name="label">grp_apply_512_4_32_4_s_fu_74</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="protoinst" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/load_data_512_4_32_4_13_U0_activity">
+                  <obj_property name="ElementShortName">load_data_512_4_32_4_13_U0_activity</obj_property>
+                  <obj_property name="ObjectShortName">load_data_512_4_32_4_13_U0_activity</obj_property>
+               </wvobject>
+               <wvobject type="protoinst" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/compute_pro_512_4_32_4_U0_activity">
+                  <obj_property name="ElementShortName">compute_pro_512_4_32_4_U0_activity</obj_property>
+                  <obj_property name="ObjectShortName">compute_pro_512_4_32_4_U0_activity</obj_property>
+               </wvobject>
+               <wvobject type="protoinst" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/output_result_512_4_32_4_U0_activity">
+                  <obj_property name="ElementShortName">output_result_512_4_32_4_U0_activity</obj_property>
+                  <obj_property name="ObjectShortName">output_result_512_4_32_4_U0_activity</obj_property>
+               </wvobject>
+               <wvobject type="group" fp_name="load_data_512_4_32_4_13_U0_group">
+                  <obj_property name="label">load_data_512_4_32_4_13_U0</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <wvobject type="group" fp_name="load_data_512_4_32_4_13_U0_Input_group">
+                     <obj_property name="label">Input Channels</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                  </wvobject>
+                  <wvobject type="group" fp_name="load_data_512_4_32_4_13_U0_Handshake_group">
+                     <obj_property name="label">Block-level handshake</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/ap_start">
+                        <obj_property name="ElementShortName">ap_start</obj_property>
+                        <obj_property name="ObjectShortName">ap_start</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/ap_ready">
+                        <obj_property name="ElementShortName">ap_ready</obj_property>
+                        <obj_property name="ObjectShortName">ap_ready</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/ap_done">
+                        <obj_property name="ElementShortName">ap_done</obj_property>
+                        <obj_property name="ObjectShortName">ap_done</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/ap_continue">
+                        <obj_property name="ElementShortName">ap_continue</obj_property>
+                        <obj_property name="ObjectShortName">ap_continue</obj_property>
+                     </wvobject>
+                  </wvobject>
+                  <wvobject type="group" fp_name="load_data_512_4_32_4_13_U0_Output_group">
+                     <obj_property name="label">Output Channels</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <wvobject type="group" fp_name="input_buffer_V_group">
+                        <obj_property name="label">input_buffer_V(input_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/input_buffer_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/input_buffer_V_full_n">
+                           <obj_property name="ElementShortName">input_buffer_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">input_buffer_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/input_buffer_V_write">
+                           <obj_property name="ElementShortName">input_buffer_V_write</obj_property>
+                           <obj_property name="ObjectShortName">input_buffer_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="weight_buffer_V_group">
+                        <obj_property name="label">weight_buffer_V(weight_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/weight_buffer_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/weight_buffer_V_full_n">
+                           <obj_property name="ElementShortName">weight_buffer_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">weight_buffer_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/weight_buffer_V_write">
+                           <obj_property name="ElementShortName">weight_buffer_V_write</obj_property>
+                           <obj_property name="ObjectShortName">weight_buffer_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="beta_buffer_V_group">
+                        <obj_property name="label">beta_buffer_V(beta_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/beta_buffer_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/beta_buffer_V_full_n">
+                           <obj_property name="ElementShortName">beta_buffer_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">beta_buffer_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/beta_buffer_V_write">
+                           <obj_property name="ElementShortName">beta_buffer_V_write</obj_property>
+                           <obj_property name="ObjectShortName">beta_buffer_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="data_buffer_V_group">
+                        <obj_property name="label">data_buffer_V(data_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_buffer_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_buffer_V_full_n">
+                           <obj_property name="ElementShortName">data_buffer_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">data_buffer_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_buffer_V_write">
+                           <obj_property name="ElementShortName">data_buffer_V_write</obj_property>
+                           <obj_property name="ObjectShortName">data_buffer_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="data_m_V_group">
+                        <obj_property name="label">data_m_V(data_m_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_m_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_m_V_full_n">
+                           <obj_property name="ElementShortName">data_m_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">data_m_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_m_V_write">
+                           <obj_property name="ElementShortName">data_m_V_write</obj_property>
+                           <obj_property name="ObjectShortName">data_m_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="data_n_V_group">
+                        <obj_property name="label">data_n_V(data_n_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_n_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_n_V_full_n">
+                           <obj_property name="ElementShortName">data_n_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">data_n_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/data_n_V_write">
+                           <obj_property name="ElementShortName">data_n_V_write</obj_property>
+                           <obj_property name="ObjectShortName">data_n_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="outputs_offset_out_group">
+                        <obj_property name="label">outputs_offset_out(outputs_offset_c_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/outputs_offset_out_blk_n">
+                           <obj_property name="ElementShortName">outputs_offset_out_blk_n</obj_property>
+                           <obj_property name="ObjectShortName">outputs_offset_out_blk_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/outputs_offset_out_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/outputs_offset_out_full_n">
+                           <obj_property name="ElementShortName">outputs_offset_out_full_n</obj_property>
+                           <obj_property name="ObjectShortName">outputs_offset_out_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/load_data_512_4_32_4_13_U0/outputs_offset_out_write">
+                           <obj_property name="ElementShortName">outputs_offset_out_write</obj_property>
+                           <obj_property name="ObjectShortName">outputs_offset_out_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                  </wvobject>
+               </wvobject>
+               <wvobject type="group" fp_name="compute_pro_512_4_32_4_U0_group">
+                  <obj_property name="label">compute_pro_512_4_32_4_U0</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <wvobject type="group" fp_name="compute_pro_512_4_32_4_U0_Input_group">
+                     <obj_property name="label">Input Channels</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <wvobject type="group" fp_name="input_buffer_V_group">
+                        <obj_property name="label">input_buffer_V(input_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/input_buffer_V_dout">
+                           <obj_property name="ElementShortName">input_buffer_V_dout[15:0]</obj_property>
+                           <obj_property name="ObjectShortName">input_buffer_V_dout[15:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/input_buffer_V_empty_n">
+                           <obj_property name="ElementShortName">input_buffer_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">input_buffer_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/input_buffer_V_read">
+                           <obj_property name="ElementShortName">input_buffer_V_read</obj_property>
+                           <obj_property name="ObjectShortName">input_buffer_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="weight_buffer_V_group">
+                        <obj_property name="label">weight_buffer_V(weight_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/weight_buffer_V_dout">
+                           <obj_property name="ElementShortName">weight_buffer_V_dout[15:0]</obj_property>
+                           <obj_property name="ObjectShortName">weight_buffer_V_dout[15:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/weight_buffer_V_empty_n">
+                           <obj_property name="ElementShortName">weight_buffer_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">weight_buffer_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/weight_buffer_V_read">
+                           <obj_property name="ElementShortName">weight_buffer_V_read</obj_property>
+                           <obj_property name="ObjectShortName">weight_buffer_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="beta_buffer_V_group">
+                        <obj_property name="label">beta_buffer_V(beta_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/beta_buffer_V_dout">
+                           <obj_property name="ElementShortName">beta_buffer_V_dout[15:0]</obj_property>
+                           <obj_property name="ObjectShortName">beta_buffer_V_dout[15:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/beta_buffer_V_empty_n">
+                           <obj_property name="ElementShortName">beta_buffer_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">beta_buffer_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/beta_buffer_V_read">
+                           <obj_property name="ElementShortName">beta_buffer_V_read</obj_property>
+                           <obj_property name="ObjectShortName">beta_buffer_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="data_buffer_V_group">
+                        <obj_property name="label">data_buffer_V(data_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_buffer_V_dout">
+                           <obj_property name="ElementShortName">data_buffer_V_dout[0:0]</obj_property>
+                           <obj_property name="ObjectShortName">data_buffer_V_dout[0:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_buffer_V_empty_n">
+                           <obj_property name="ElementShortName">data_buffer_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">data_buffer_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_buffer_V_read">
+                           <obj_property name="ElementShortName">data_buffer_V_read</obj_property>
+                           <obj_property name="ObjectShortName">data_buffer_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="data_m_V_group">
+                        <obj_property name="label">data_m_V(data_m_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_m_V_dout">
+                           <obj_property name="ElementShortName">data_m_V_dout[31:0]</obj_property>
+                           <obj_property name="ObjectShortName">data_m_V_dout[31:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_m_V_empty_n">
+                           <obj_property name="ElementShortName">data_m_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">data_m_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_m_V_read">
+                           <obj_property name="ElementShortName">data_m_V_read</obj_property>
+                           <obj_property name="ObjectShortName">data_m_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="data_n_V_group">
+                        <obj_property name="label">data_n_V(data_n_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_n_V_dout">
+                           <obj_property name="ElementShortName">data_n_V_dout[31:0]</obj_property>
+                           <obj_property name="ObjectShortName">data_n_V_dout[31:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_n_V_empty_n">
+                           <obj_property name="ElementShortName">data_n_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">data_n_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/data_n_V_read">
+                           <obj_property name="ElementShortName">data_n_V_read</obj_property>
+                           <obj_property name="ObjectShortName">data_n_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                  </wvobject>
+                  <wvobject type="group" fp_name="compute_pro_512_4_32_4_U0_Handshake_group">
+                     <obj_property name="label">Block-level handshake</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/ap_start">
+                        <obj_property name="ElementShortName">ap_start</obj_property>
+                        <obj_property name="ObjectShortName">ap_start</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/ap_ready">
+                        <obj_property name="ElementShortName">ap_ready</obj_property>
+                        <obj_property name="ObjectShortName">ap_ready</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/ap_done">
+                        <obj_property name="ElementShortName">ap_done</obj_property>
+                        <obj_property name="ObjectShortName">ap_done</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/ap_continue">
+                        <obj_property name="ElementShortName">ap_continue</obj_property>
+                        <obj_property name="ObjectShortName">ap_continue</obj_property>
+                     </wvobject>
+                  </wvobject>
+                  <wvobject type="group" fp_name="compute_pro_512_4_32_4_U0_Output_group">
+                     <obj_property name="label">Output Channels</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <wvobject type="group" fp_name="output_buffer_V_group">
+                        <obj_property name="label">output_buffer_V(output_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/output_buffer_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/output_buffer_V_full_n">
+                           <obj_property name="ElementShortName">output_buffer_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">output_buffer_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/output_buffer_V_write">
+                           <obj_property name="ElementShortName">output_buffer_V_write</obj_property>
+                           <obj_property name="ObjectShortName">output_buffer_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="result_buffer_V_group">
+                        <obj_property name="label">result_buffer_V(result_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_buffer_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_buffer_V_full_n">
+                           <obj_property name="ElementShortName">result_buffer_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">result_buffer_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_buffer_V_write">
+                           <obj_property name="ElementShortName">result_buffer_V_write</obj_property>
+                           <obj_property name="ObjectShortName">result_buffer_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="result_m_V_group">
+                        <obj_property name="label">result_m_V(result_m_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_m_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_m_V_full_n">
+                           <obj_property name="ElementShortName">result_m_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">result_m_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_m_V_write">
+                           <obj_property name="ElementShortName">result_m_V_write</obj_property>
+                           <obj_property name="ObjectShortName">result_m_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="result_n_V_group">
+                        <obj_property name="label">result_n_V(result_n_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_n_V_din">
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_n_V_full_n">
+                           <obj_property name="ElementShortName">result_n_V_full_n</obj_property>
+                           <obj_property name="ObjectShortName">result_n_V_full_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/result_n_V_write">
+                           <obj_property name="ElementShortName">result_n_V_write</obj_property>
+                           <obj_property name="ObjectShortName">result_n_V_write</obj_property>
+                        </wvobject>
+                     </wvobject>
+                  </wvobject>
+               </wvobject>
+               <wvobject type="group" fp_name="output_result_512_4_32_4_U0_group">
+                  <obj_property name="label">output_result_512_4_32_4_U0</obj_property>
+                  <obj_property name="DisplayName">label</obj_property>
+                  <wvobject type="group" fp_name="output_result_512_4_32_4_U0_Input_group">
+                     <obj_property name="label">Input Channels</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <wvobject type="group" fp_name="outputs_offset_group">
+                        <obj_property name="label">outputs_offset(outputs_offset_c_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/outputs_offset_blk_n">
+                           <obj_property name="ElementShortName">outputs_offset_blk_n</obj_property>
+                           <obj_property name="ObjectShortName">outputs_offset_blk_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/outputs_offset_dout">
+                           <obj_property name="ElementShortName">outputs_offset_dout[30:0]</obj_property>
+                           <obj_property name="ObjectShortName">outputs_offset_dout[30:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/outputs_offset_empty_n">
+                           <obj_property name="ElementShortName">outputs_offset_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">outputs_offset_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/outputs_offset_read">
+                           <obj_property name="ElementShortName">outputs_offset_read</obj_property>
+                           <obj_property name="ObjectShortName">outputs_offset_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="output_buffer_V_group">
+                        <obj_property name="label">output_buffer_V(output_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/output_buffer_V_dout">
+                           <obj_property name="ElementShortName">output_buffer_V_dout[15:0]</obj_property>
+                           <obj_property name="ObjectShortName">output_buffer_V_dout[15:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/output_buffer_V_empty_n">
+                           <obj_property name="ElementShortName">output_buffer_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">output_buffer_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/output_buffer_V_read">
+                           <obj_property name="ElementShortName">output_buffer_V_read</obj_property>
+                           <obj_property name="ObjectShortName">output_buffer_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="result_buffer_V_group">
+                        <obj_property name="label">result_buffer_V(result_buffer_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_buffer_V_dout">
+                           <obj_property name="ElementShortName">result_buffer_V_dout[0:0]</obj_property>
+                           <obj_property name="ObjectShortName">result_buffer_V_dout[0:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_buffer_V_empty_n">
+                           <obj_property name="ElementShortName">result_buffer_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">result_buffer_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_buffer_V_read">
+                           <obj_property name="ElementShortName">result_buffer_V_read</obj_property>
+                           <obj_property name="ObjectShortName">result_buffer_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="result_m_V_group">
+                        <obj_property name="label">result_m_V(result_m_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_m_V_dout">
+                           <obj_property name="ElementShortName">result_m_V_dout[31:0]</obj_property>
+                           <obj_property name="ObjectShortName">result_m_V_dout[31:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_m_V_empty_n">
+                           <obj_property name="ElementShortName">result_m_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">result_m_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_m_V_read">
+                           <obj_property name="ElementShortName">result_m_V_read</obj_property>
+                           <obj_property name="ObjectShortName">result_m_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                     <wvobject type="group" fp_name="result_n_V_group">
+                        <obj_property name="label">result_n_V(result_n_V_U, FIFO)</obj_property>
+                        <obj_property name="DisplayName">label</obj_property>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_n_V_dout">
+                           <obj_property name="ElementShortName">result_n_V_dout[31:0]</obj_property>
+                           <obj_property name="ObjectShortName">result_n_V_dout[31:0]</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_n_V_empty_n">
+                           <obj_property name="ElementShortName">result_n_V_empty_n</obj_property>
+                           <obj_property name="ObjectShortName">result_n_V_empty_n</obj_property>
+                        </wvobject>
+                        <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/result_n_V_read">
+                           <obj_property name="ElementShortName">result_n_V_read</obj_property>
+                           <obj_property name="ObjectShortName">result_n_V_read</obj_property>
+                        </wvobject>
+                     </wvobject>
+                  </wvobject>
+                  <wvobject type="group" fp_name="output_result_512_4_32_4_U0_Handshake_group">
+                     <obj_property name="label">Block-level handshake</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/ap_start">
+                        <obj_property name="ElementShortName">ap_start</obj_property>
+                        <obj_property name="ObjectShortName">ap_start</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/ap_ready">
+                        <obj_property name="ElementShortName">ap_ready</obj_property>
+                        <obj_property name="ObjectShortName">ap_ready</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/ap_done">
+                        <obj_property name="ElementShortName">ap_done</obj_property>
+                        <obj_property name="ObjectShortName">ap_done</obj_property>
+                     </wvobject>
+                     <wvobject type="logic" fp_name="/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/output_result_512_4_32_4_U0/ap_continue">
+                        <obj_property name="ElementShortName">ap_continue</obj_property>
+                        <obj_property name="ObjectShortName">ap_continue</obj_property>
+                     </wvobject>
+                  </wvobject>
+                  <wvobject type="group" fp_name="output_result_512_4_32_4_U0_Output_group">
+                     <obj_property name="label">Output Channels</obj_property>
+                     <obj_property name="DisplayName">label</obj_property>
+                  </wvobject>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>

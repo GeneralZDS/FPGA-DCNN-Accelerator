@@ -1,0 +1,353 @@
+
+
+================================================================
+== Vivado HLS Report for 'output_result_9'
+================================================================
+* Date:           Sun Apr 28 15:55:40 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.675|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+-----+-----+----------+-----------+-----------+--------+----------+
+        |                     |  Latency  | Iteration|  Initiation Interval  |  Trip  |          |
+        |      Loop Name      | min | max |  Latency |  achieved |   target  |  Count | Pipelined|
+        +---------------------+-----+-----+----------+-----------+-----------+--------+----------+
+        |- Loop 1             |    ?|    ?|         ?|          -|          -|       ?|    no    |
+        | + Loop 1.1          |    ?|    ?|         1|          -|          -|       ?|    no    |
+        | + Loop 1.2          |    ?|    ?|         ?|          -|          -| 2 ~ 32 |    no    |
+        |  ++ Loop 1.2.1      |    ?|    ?|         ?|          -|          -|  1 ~ 8 |    no    |
+        |   +++ Loop 1.2.1.1  |    ?|    ?|         2|          1|          1|       ?|    yes   |
+        +---------------------+-----+-----+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 14
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 8 9 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	3  / (!tmp)
+	4  / (tmp)
+4 --> 
+	5  / true
+5 --> 
+	6  / (tmp_615_i_i_i)
+	2  / (!tmp_615_i_i_i & tmp_20)
+6 --> 
+	7  / (tmp_616_i_i_i)
+	5  / (!tmp_616_i_i_i)
+7 --> 
+	8  / true
+8 --> 
+	10  / (!tmp_618_i_i_i)
+	9  / (tmp_618_i_i_i)
+9 --> 
+	8  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	6  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.83>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %outputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 262144, [7 x i8]* @p_str27, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 15 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %outputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 262144, [7 x i8]* @p_str27, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 16 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i18* %inputs_offset_c, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 17 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %output_buffer_0_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 18 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %output_buffer_1_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 19 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %result_buffer_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 20 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_c_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 21 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_r_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 22 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_n_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 23 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %cntl_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 24 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i31* %outputs_offset, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 25 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (1.83ns)   --->   "%outputs_offset_read = call i31 @_ssdm_op_Read.ap_fifo.i31P(i31* %outputs_offset)"   --->   Operation 26 'read' 'outputs_offset_read' <Predicate = true> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_n_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 27 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_r_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 28 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_c_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 29 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %result_buffer_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 30 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %output_buffer_1_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 31 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %output_buffer_0_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 32 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %cntl_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 33 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %outputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 262144, [7 x i8]* @p_str27, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 34 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i18* %inputs_offset_c, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 35 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (1.83ns)   --->   "%inputs_offset_c_read = call i18 @_ssdm_op_Read.ap_fifo.i18P(i18* %inputs_offset_c)"   --->   Operation 36 'read' 'inputs_offset_c_read' <Predicate = true> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore(half* %output_buffer_0_V, half* %output_buffer_1_V, [1 x i8]* @p_str, [10 x i8]* @p_str71, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 37 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %outputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 262144, [7 x i8]* @p_str27, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 38 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%outputs_offset_cast_s = zext i18 %inputs_offset_c_read to i33" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 39 'zext' 'outputs_offset_cast_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%sext_cast_i_i = zext i31 %outputs_offset_read to i34" [mobile_net_hls_v1/conv.hpp:845->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 40 'zext' 'sext_cast_i_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "br label %._crit_edge1.i.i.i" [mobile_net_hls_v1/conv.hpp:845->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 41 'br' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "br label %._crit_edge.i.i.i" [mobile_net_hls_v1/conv.hpp:847->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 42 'br' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 1.83>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.ap_fifo.i1P(i1* %result_buffer_V, i32 1)" [mobile_net_hls_v1/conv.hpp:848->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 43 'nbreadreq' 'tmp' <Predicate = true> <Delay = 0.00> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "br i1 %tmp, label %0, label %._crit_edge.i.i.i" [mobile_net_hls_v1/conv.hpp:848->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 44 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 45 [1/1] (1.83ns)   --->   "%result_n_V_read = call { i1, i32 } @_ssdm_op_NbRead.ap_fifo.volatile.i32P(i32* %result_n_V)" [mobile_net_hls_v1/conv.hpp:853->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 45 'nbread' 'result_n_V_read' <Predicate = (tmp)> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_19 = extractvalue { i1, i32 } %result_n_V_read, 1" [mobile_net_hls_v1/conv.hpp:853->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 46 'extractvalue' 'tmp_19' <Predicate = (tmp)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 3.30>
+ST_4 : Operation 47 [1/1] (1.83ns)   --->   "%result_c_V_read = call { i1, i32 } @_ssdm_op_NbRead.ap_fifo.volatile.i32P(i32* %result_c_V)" [mobile_net_hls_v1/conv.hpp:851->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 47 'nbread' 'result_c_V_read' <Predicate = true> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%tmp_17 = extractvalue { i1, i32 } %result_c_V_read, 1" [mobile_net_hls_v1/conv.hpp:851->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 48 'extractvalue' 'tmp_17' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 49 [1/1] (1.83ns)   --->   "%result_r_V_read = call { i1, i32 } @_ssdm_op_NbRead.ap_fifo.volatile.i32P(i32* %result_r_V)" [mobile_net_hls_v1/conv.hpp:852->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 49 'nbread' 'result_r_V_read' <Predicate = true> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%tmp_18 = extractvalue { i1, i32 } %result_r_V_read, 1" [mobile_net_hls_v1/conv.hpp:852->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 50 'extractvalue' 'tmp_18' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%tmp_9 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %tmp_17, i32 31)" [mobile_net_hls_v1/conv.hpp:855->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 51 'bitselect' 'tmp_9' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (1.01ns)   --->   "%tmp_607_i_i_i = sub nsw i32 16, %tmp_17" [mobile_net_hls_v1/conv.hpp:855->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 52 'sub' 'tmp_607_i_i_i' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 53 [1/1] (0.44ns)   --->   "%cLoops = select i1 %tmp_9, i32 16, i32 %tmp_607_i_i_i" [mobile_net_hls_v1/conv.hpp:855->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 53 'select' 'cLoops' <Predicate = true> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%tmp_10 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %tmp_18, i32 31)" [mobile_net_hls_v1/conv.hpp:856->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 54 'bitselect' 'tmp_10' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (1.01ns)   --->   "%tmp_609_i_i_i = sub nsw i32 16, %tmp_18" [mobile_net_hls_v1/conv.hpp:856->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 55 'sub' 'tmp_609_i_i_i' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 56 [1/1] (0.44ns)   --->   "%rLoops = select i1 %tmp_10, i32 16, i32 %tmp_609_i_i_i" [mobile_net_hls_v1/conv.hpp:856->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 56 'select' 'rLoops' <Predicate = true> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 57 [1/1] (1.01ns)   --->   "%tmp_610_i_i_i = sub nsw i32 512, %tmp_19" [mobile_net_hls_v1/conv.hpp:857->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 57 'sub' 'tmp_610_i_i_i' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 58 [1/1] (0.99ns)   --->   "%tmp_611_i_i_i = icmp sgt i32 %tmp_610_i_i_i, 2" [mobile_net_hls_v1/conv.hpp:857->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 58 'icmp' 'tmp_611_i_i_i' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 59 [1/1] (0.44ns)   --->   "%nLoops = select i1 %tmp_611_i_i_i, i32 2, i32 %tmp_610_i_i_i" [mobile_net_hls_v1/conv.hpp:857->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 59 'select' 'nLoops' <Predicate = true> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%tmp_11 = shl i32 %tmp_19, 8" [mobile_net_hls_v1/conv.hpp:810->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 60 'shl' 'tmp_11' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%tmp_12 = shl i32 %tmp_18, 4" [mobile_net_hls_v1/conv.hpp:810->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 61 'shl' 'tmp_12' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 62 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp1_i_i = add i32 %tmp_12, %tmp_11" [mobile_net_hls_v1/conv.hpp:810->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 62 'add' 'tmp1_i_i' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 63 [1/1] (0.73ns) (root node of TernaryAdder)   --->   "%base_addr = add i32 %tmp1_i_i, %tmp_17" [mobile_net_hls_v1/conv.hpp:810->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 63 'add' 'base_addr' <Predicate = true> <Delay = 0.73> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.36> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 64 [1/1] (0.65ns)   --->   "br label %1" [mobile_net_hls_v1/conv.hpp:812->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 64 'br' <Predicate = true> <Delay = 0.65>
+
+State 5 <SV = 4> <Delay = 1.83>
+ST_5 : Operation 65 [1/1] (0.00ns)   --->   "%base_addr_d2 = phi i32 [ %base_addr, %0 ], [ %base_addr_d1_1, %9 ]"   --->   Operation 65 'phi' 'base_addr_d2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 66 [1/1] (0.00ns)   --->   "%tn_0_i_i_i_i = phi i2 [ 0, %0 ], [ %tn, %9 ]"   --->   Operation 66 'phi' 'tn_0_i_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 67 [1/1] (0.00ns)   --->   "%tn_0_i_cast_i_i_i = zext i2 %tn_0_i_i_i_i to i32" [mobile_net_hls_v1/conv.hpp:812->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 67 'zext' 'tn_0_i_cast_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 68 [1/1] (0.99ns)   --->   "%tmp_615_i_i_i = icmp slt i32 %tn_0_i_cast_i_i_i, %nLoops" [mobile_net_hls_v1/conv.hpp:812->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 68 'icmp' 'tmp_615_i_i_i' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 69 [1/1] (0.54ns)   --->   "%tn = add i2 %tn_0_i_i_i_i, 1" [mobile_net_hls_v1/conv.hpp:812->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 69 'add' 'tn' <Predicate = true> <Delay = 0.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 70 [1/1] (0.00ns)   --->   "br i1 %tmp_615_i_i_i, label %2, label %"copy_output_fbuffer2mem<16, 2, 16, 16, 256, 1>.exit.i.i.i"" [mobile_net_hls_v1/conv.hpp:812->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 70 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "%tmp_951_i_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([14 x i8]* @p_str89)" [mobile_net_hls_v1/conv.hpp:813->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 71 'specregionbegin' 'tmp_951_i_i_i' <Predicate = (tmp_615_i_i_i)> <Delay = 0.00>
+ST_5 : Operation 72 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i32 2, i32 32, i32 17, [1 x i8]* @p_str) nounwind" [mobile_net_hls_v1/conv.hpp:814->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 72 'speclooptripcount' <Predicate = (tmp_615_i_i_i)> <Delay = 0.00>
+ST_5 : Operation 73 [1/1] (0.00ns)   --->   "%tmp_13 = trunc i2 %tn_0_i_i_i_i to i1" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 73 'trunc' 'tmp_13' <Predicate = (tmp_615_i_i_i)> <Delay = 0.00>
+ST_5 : Operation 74 [1/1] (0.65ns)   --->   "br label %3" [mobile_net_hls_v1/conv.hpp:816->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 74 'br' <Predicate = (tmp_615_i_i_i)> <Delay = 0.65>
+ST_5 : Operation 75 [1/1] (1.83ns)   --->   "%result_buffer_V_read = call { i1, i1 } @_ssdm_op_NbRead.ap_fifo.volatile.i1P(i1* %result_buffer_V)" [mobile_net_hls_v1/conv.hpp:862->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 75 'nbread' 'result_buffer_V_read' <Predicate = (!tmp_615_i_i_i)> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_5 : Operation 76 [1/1] (0.00ns)   --->   "%tmp_20 = extractvalue { i1, i1 } %result_buffer_V_read, 1" [mobile_net_hls_v1/conv.hpp:862->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 76 'extractvalue' 'tmp_20' <Predicate = (!tmp_615_i_i_i)> <Delay = 0.00>
+ST_5 : Operation 77 [1/1] (0.00ns)   --->   "br i1 %tmp_20, label %._crit_edge1.i.i.i, label %.exit" [mobile_net_hls_v1/conv.hpp:864->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 77 'br' <Predicate = (!tmp_615_i_i_i)> <Delay = 0.00>
+ST_5 : Operation 78 [1/1] (1.83ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i1P(i1* %cntl_V, i1 undef)" [mobile_net_hls_v1/conv.hpp:866->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 78 'write' <Predicate = (!tmp_615_i_i_i & !tmp_20)> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_5 : Operation 79 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 79 'ret' <Predicate = (!tmp_615_i_i_i & !tmp_20)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 2.03>
+ST_6 : Operation 80 [1/1] (0.00ns)   --->   "%base_addr_d2_0_i_i_i = phi i32 [ %base_addr_d2, %2 ], [ %base_addr_d2_1, %8 ]"   --->   Operation 80 'phi' 'base_addr_d2_0_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 81 [1/1] (0.00ns)   --->   "%tr_divS_0_i_i_i_i = phi i31 [ 0, %2 ], [ %tr_divS, %8 ]"   --->   Operation 81 'phi' 'tr_divS_0_i_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 82 [1/1] (0.00ns)   --->   "%tr_divS_0_i_cast_i_i = zext i31 %tr_divS_0_i_i_i_i to i32" [mobile_net_hls_v1/conv.hpp:816->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 82 'zext' 'tr_divS_0_i_cast_i_i' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 83 [1/1] (0.99ns)   --->   "%tmp_616_i_i_i = icmp slt i32 %tr_divS_0_i_cast_i_i, %rLoops" [mobile_net_hls_v1/conv.hpp:816->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 83 'icmp' 'tmp_616_i_i_i' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 84 [1/1] (1.00ns)   --->   "%tr_divS = add i31 %tr_divS_0_i_i_i_i, 1" [mobile_net_hls_v1/conv.hpp:816->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 84 'add' 'tr_divS' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 85 [1/1] (0.00ns)   --->   "br i1 %tmp_616_i_i_i, label %4, label %9" [mobile_net_hls_v1/conv.hpp:816->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 85 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 86 [1/1] (0.00ns)   --->   "%tmp_cast_i_i = sext i32 %base_addr_d2_0_i_i_i to i33" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 86 'sext' 'tmp_cast_i_i' <Predicate = (tmp_616_i_i_i)> <Delay = 0.00>
+ST_6 : Operation 87 [1/1] (1.01ns)   --->   "%tmp_1_i_i = add i33 %outputs_offset_cast_s, %tmp_cast_i_i" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 87 'add' 'tmp_1_i_i' <Predicate = (tmp_616_i_i_i)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 88 [1/1] (0.00ns)   --->   "%tmp_1_cast_i_i = sext i33 %tmp_1_i_i to i34" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 88 'sext' 'tmp_1_cast_i_i' <Predicate = (tmp_616_i_i_i)> <Delay = 0.00>
+ST_6 : Operation 89 [1/1] (1.01ns)   --->   "%sum_i_i = add i34 %sext_cast_i_i, %tmp_1_cast_i_i" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 89 'add' 'sum_i_i' <Predicate = (tmp_616_i_i_i)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 90 [1/1] (0.00ns)   --->   "%sum_cast_i_i = sext i34 %sum_i_i to i64" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 90 'sext' 'sum_cast_i_i' <Predicate = (tmp_616_i_i_i)> <Delay = 0.00>
+ST_6 : Operation 91 [1/1] (0.00ns)   --->   "%outputs_addr = getelementptr half* %outputs, i64 %sum_cast_i_i" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 91 'getelementptr' 'outputs_addr' <Predicate = (tmp_616_i_i_i)> <Delay = 0.00>
+ST_6 : Operation 92 [1/1] (1.01ns)   --->   "%base_addr_d1_1 = add nsw i32 %base_addr_d2, 256" [mobile_net_hls_v1/conv.hpp:827->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 92 'add' 'base_addr_d1_1' <Predicate = (!tmp_616_i_i_i)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 93 [1/1] (0.00ns)   --->   "%empty_24 = call i32 (...)* @_ssdm_op_SpecRegionEnd([14 x i8]* @p_str89, i32 %tmp_951_i_i_i)" [mobile_net_hls_v1/conv.hpp:828->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 93 'specregionend' 'empty_24' <Predicate = (!tmp_616_i_i_i)> <Delay = 0.00>
+ST_6 : Operation 94 [1/1] (0.00ns)   --->   "br label %1" [mobile_net_hls_v1/conv.hpp:812->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 94 'br' <Predicate = (!tmp_616_i_i_i)> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 3.67>
+ST_7 : Operation 95 [1/1] (0.00ns)   --->   "%tmp_954_i_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([14 x i8]* @p_str90)" [mobile_net_hls_v1/conv.hpp:817->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 95 'specregionbegin' 'tmp_954_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 96 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i32 1, i32 8, i32 4, [1 x i8]* @p_str) nounwind" [mobile_net_hls_v1/conv.hpp:819->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 96 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 97 [1/1] (3.67ns)   --->   "%outputs_addr_i_i_wr_s = call i1 @_ssdm_op_WriteReq.m_axi.halfP(half* %outputs_addr, i32 %cLoops)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 97 'writereq' 'outputs_addr_i_i_wr_s' <Predicate = true> <Delay = 3.67> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 98 [1/1] (0.65ns)   --->   "br label %5" [mobile_net_hls_v1/conv.hpp:820->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 98 'br' <Predicate = true> <Delay = 0.65>
+
+State 8 <SV = 7> <Delay = 1.63>
+ST_8 : Operation 99 [1/1] (0.00ns)   --->   "%i_0_i_i_i_i = phi i31 [ 0, %4 ], [ %i, %7 ]"   --->   Operation 99 'phi' 'i_0_i_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 100 [1/1] (0.00ns)   --->   "%i_0_i_cast_i_i_i = zext i31 %i_0_i_i_i_i to i32" [mobile_net_hls_v1/conv.hpp:820->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 100 'zext' 'i_0_i_cast_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 101 [1/1] (0.99ns)   --->   "%tmp_618_i_i_i = icmp slt i32 %i_0_i_cast_i_i_i, %cLoops" [mobile_net_hls_v1/conv.hpp:820->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 101 'icmp' 'tmp_618_i_i_i' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 102 [1/1] (1.00ns)   --->   "%i = add i31 %i_0_i_i_i_i, 1" [mobile_net_hls_v1/conv.hpp:820->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 102 'add' 'i' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 103 [1/1] (0.00ns)   --->   "br i1 %tmp_618_i_i_i, label %6, label %8" [mobile_net_hls_v1/conv.hpp:820->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 103 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 104 [1/1] (0.00ns)   --->   "br i1 %tmp_13, label %branch1.i.i.i, label %branch0.i.i.i" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 104 'br' <Predicate = (tmp_618_i_i_i)> <Delay = 0.00>
+ST_8 : Operation 105 [1/1] (1.63ns)   --->   "%output_buffer_0_V_r = call { i1, half } @_ssdm_op_NbRead.ap_fifo.volatile.halfP(half* %output_buffer_0_V)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 105 'nbread' 'output_buffer_0_V_r' <Predicate = (tmp_618_i_i_i & !tmp_13)> <Delay = 1.63> <Core = "FIFO_BRAM">   --->   Core 34 'FIFO_BRAM' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 0> <FIFO>
+ST_8 : Operation 106 [1/1] (0.00ns)   --->   "%tmp_16 = extractvalue { i1, half } %output_buffer_0_V_r, 1" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 106 'extractvalue' 'tmp_16' <Predicate = (tmp_618_i_i_i & !tmp_13)> <Delay = 0.00>
+ST_8 : Operation 107 [1/1] (0.65ns)   --->   "br label %7" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 107 'br' <Predicate = (tmp_618_i_i_i & !tmp_13)> <Delay = 0.65>
+ST_8 : Operation 108 [1/1] (1.63ns)   --->   "%output_buffer_1_V_r = call { i1, half } @_ssdm_op_NbRead.ap_fifo.volatile.halfP(half* %output_buffer_1_V)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 108 'nbread' 'output_buffer_1_V_r' <Predicate = (tmp_618_i_i_i & tmp_13)> <Delay = 1.63> <Core = "FIFO_BRAM">   --->   Core 34 'FIFO_BRAM' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 0> <FIFO>
+ST_8 : Operation 109 [1/1] (0.00ns)   --->   "%tmp_15 = extractvalue { i1, half } %output_buffer_1_V_r, 1" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 109 'extractvalue' 'tmp_15' <Predicate = (tmp_618_i_i_i & tmp_13)> <Delay = 0.00>
+ST_8 : Operation 110 [1/1] (0.65ns)   --->   "br label %7" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 110 'br' <Predicate = (tmp_618_i_i_i & tmp_13)> <Delay = 0.65>
+
+State 9 <SV = 8> <Delay = 3.67>
+ST_9 : Operation 111 [1/1] (0.00ns)   --->   "%tmp_955_i_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([14 x i8]* @p_str91)" [mobile_net_hls_v1/conv.hpp:821->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 111 'specregionbegin' 'tmp_955_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 112 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [mobile_net_hls_v1/conv.hpp:822->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 112 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 113 [1/1] (0.00ns)   --->   "%tmp_18_load_i_i = phi half [ %tmp_15, %branch1.i.i.i ], [ %tmp_16, %branch0.i.i.i ]"   --->   Operation 113 'phi' 'tmp_18_load_i_i' <Predicate = (tmp_618_i_i_i)> <Delay = 0.00>
+ST_9 : Operation 114 [1/1] (3.67ns)   --->   "call void @_ssdm_op_Write.m_axi.halfP(half* %outputs_addr, half %tmp_18_load_i_i, i2 -1)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 114 'write' <Predicate = (tmp_618_i_i_i)> <Delay = 3.67> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 115 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([14 x i8]* @p_str91, i32 %tmp_955_i_i_i)" [mobile_net_hls_v1/conv.hpp:824->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 115 'specregionend' 'empty' <Predicate = (tmp_618_i_i_i)> <Delay = 0.00>
+ST_9 : Operation 116 [1/1] (0.00ns)   --->   "br label %5" [mobile_net_hls_v1/conv.hpp:820->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 116 'br' <Predicate = (tmp_618_i_i_i)> <Delay = 0.00>
+
+State 10 <SV = 8> <Delay = 3.67>
+ST_10 : Operation 117 [5/5] (3.67ns)   --->   "%outputs_addr_i_i_wr_1 = call i1 @_ssdm_op_WriteResp.m_axi.halfP(half* %outputs_addr)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 117 'writeresp' 'outputs_addr_i_i_wr_1' <Predicate = true> <Delay = 3.67> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 118 [1/1] (1.01ns)   --->   "%base_addr_d2_1 = add nsw i32 %base_addr_d2_0_i_i_i, 16" [mobile_net_hls_v1/conv.hpp:825->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 118 'add' 'base_addr_d2_1' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 9> <Delay = 3.67>
+ST_11 : Operation 119 [4/5] (3.67ns)   --->   "%outputs_addr_i_i_wr_1 = call i1 @_ssdm_op_WriteResp.m_axi.halfP(half* %outputs_addr)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 119 'writeresp' 'outputs_addr_i_i_wr_1' <Predicate = true> <Delay = 3.67> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 12 <SV = 10> <Delay = 3.67>
+ST_12 : Operation 120 [3/5] (3.67ns)   --->   "%outputs_addr_i_i_wr_1 = call i1 @_ssdm_op_WriteResp.m_axi.halfP(half* %outputs_addr)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 120 'writeresp' 'outputs_addr_i_i_wr_1' <Predicate = true> <Delay = 3.67> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 13 <SV = 11> <Delay = 3.67>
+ST_13 : Operation 121 [2/5] (3.67ns)   --->   "%outputs_addr_i_i_wr_1 = call i1 @_ssdm_op_WriteResp.m_axi.halfP(half* %outputs_addr)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 121 'writeresp' 'outputs_addr_i_i_wr_1' <Predicate = true> <Delay = 3.67> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 14 <SV = 12> <Delay = 3.67>
+ST_14 : Operation 122 [1/5] (3.67ns)   --->   "%outputs_addr_i_i_wr_1 = call i1 @_ssdm_op_WriteResp.m_axi.halfP(half* %outputs_addr)" [mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 122 'writeresp' 'outputs_addr_i_i_wr_1' <Predicate = true> <Delay = 3.67> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 123 [1/1] (0.00ns)   --->   "%empty_23 = call i32 (...)* @_ssdm_op_SpecRegionEnd([14 x i8]* @p_str90, i32 %tmp_954_i_i_i)" [mobile_net_hls_v1/conv.hpp:826->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 123 'specregionend' 'empty_23' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 124 [1/1] (0.00ns)   --->   "br label %3" [mobile_net_hls_v1/conv.hpp:816->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056]   --->   Operation 124 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.2ns, clock uncertainty: 0.525ns.
+
+ <State 1>: 1.84ns
+The critical path consists of the following:
+	fifo read on port 'outputs_offset' [22]  (1.84 ns)
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 1.84ns
+The critical path consists of the following:
+	fifo read on port 'result_n_V' (mobile_net_hls_v1/conv.hpp:853->mobile_net_hls_v1/conv.hpp:1056) [48]  (1.84 ns)
+
+ <State 4>: 3.3ns
+The critical path consists of the following:
+	fifo read on port 'result_c_V' (mobile_net_hls_v1/conv.hpp:851->mobile_net_hls_v1/conv.hpp:1056) [44]  (1.84 ns)
+	'sub' operation ('tmp_607_i_i_i', mobile_net_hls_v1/conv.hpp:855->mobile_net_hls_v1/conv.hpp:1056) [51]  (1.02 ns)
+	'select' operation ('cLoops', mobile_net_hls_v1/conv.hpp:855->mobile_net_hls_v1/conv.hpp:1056) [52]  (0.449 ns)
+
+ <State 5>: 1.84ns
+The critical path consists of the following:
+	fifo read on port 'result_buffer_V' (mobile_net_hls_v1/conv.hpp:862->mobile_net_hls_v1/conv.hpp:1056) [127]  (1.84 ns)
+
+ <State 6>: 2.03ns
+The critical path consists of the following:
+	'phi' operation ('base_addr_d2') with incoming values : ('base_addr', mobile_net_hls_v1/conv.hpp:810->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) ('base_addr_d2', mobile_net_hls_v1/conv.hpp:825->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) ('base_addr_d1', mobile_net_hls_v1/conv.hpp:827->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [77]  (0 ns)
+	'add' operation ('tmp_1_i_i', mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [87]  (1.02 ns)
+	'add' operation ('sum_i_i', mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [89]  (1.02 ns)
+
+ <State 7>: 3.67ns
+The critical path consists of the following:
+	bus request on port 'outputs' (mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [92]  (3.67 ns)
+
+ <State 8>: 1.64ns
+The critical path consists of the following:
+	fifo read on port 'output_buffer_0_V' (mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [105]  (1.64 ns)
+
+ <State 9>: 3.67ns
+The critical path consists of the following:
+	'phi' operation ('tmp') with incoming values : ('tmp', mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [113]  (0 ns)
+	bus write on port 'outputs' (mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [114]  (3.67 ns)
+
+ <State 10>: 3.67ns
+The critical path consists of the following:
+	bus access on port 'outputs' (mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [118]  (3.67 ns)
+
+ <State 11>: 3.67ns
+The critical path consists of the following:
+	bus access on port 'outputs' (mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [118]  (3.67 ns)
+
+ <State 12>: 3.67ns
+The critical path consists of the following:
+	bus access on port 'outputs' (mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [118]  (3.67 ns)
+
+ <State 13>: 3.67ns
+The critical path consists of the following:
+	bus access on port 'outputs' (mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [118]  (3.67 ns)
+
+ <State 14>: 3.67ns
+The critical path consists of the following:
+	bus access on port 'outputs' (mobile_net_hls_v1/conv.hpp:823->mobile_net_hls_v1/conv.hpp:859->mobile_net_hls_v1/conv.hpp:1056) [118]  (3.67 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

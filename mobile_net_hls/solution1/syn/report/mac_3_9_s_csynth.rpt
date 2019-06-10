@@ -1,0 +1,183 @@
+
+
+================================================================
+== Vivado HLS Report for 'mac_3_9_s'
+================================================================
+* Date:           Sun Apr 28 15:59:03 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.604|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   19|   19|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|     34|    1667|    1202|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       -|    -|
+|Register         |        0|      -|     736|      96|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|     34|    2403|    1298|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      1|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |          Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT |
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |moblie_net_hadd_1bkb_U105  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U106  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U107  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U108  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U109  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U110  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U111  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U112  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hmul_1cud_U113  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U114  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U115  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U116  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U117  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U118  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U119  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U120  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U121  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |Total                      |                      |        0|     34| 1667| 1202|
+    +---------------------------+----------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    +---------------------------+----+----+-----+-----------+
+    |            Name           | FF | LUT| Bits| Const Bits|
+    +---------------------------+----+----+-----+-----------+
+    |input_regs_0_read_int_reg  |  16|   0|   16|          0|
+    |input_regs_1_read_int_reg  |  16|   0|   16|          0|
+    |input_regs_2_read_int_reg  |  16|   0|   16|          0|
+    |input_regs_3_read_int_reg  |  16|   0|   16|          0|
+    |input_regs_4_read_int_reg  |  16|   0|   16|          0|
+    |input_regs_5_read_int_reg  |  16|   0|   16|          0|
+    |input_regs_6_read_int_reg  |  16|   0|   16|          0|
+    |input_regs_7_read_int_reg  |  16|   0|   16|          0|
+    |input_regs_8_read_int_reg  |  16|   0|   16|          0|
+    |p_read1_int_reg            |  16|   0|   16|          0|
+    |p_read2_int_reg            |  16|   0|   16|          0|
+    |p_read3_int_reg            |  16|   0|   16|          0|
+    |p_read4_int_reg            |  16|   0|   16|          0|
+    |p_read5_int_reg            |  16|   0|   16|          0|
+    |p_read6_int_reg            |  16|   0|   16|          0|
+    |p_read7_int_reg            |  16|   0|   16|          0|
+    |p_read8_int_reg            |  16|   0|   16|          0|
+    |p_read_int_reg             |  16|   0|   16|          0|
+    |tmp10_reg_372              |  16|   0|   16|          0|
+    |tmp11_reg_397              |  16|   0|   16|          0|
+    |tmp12_reg_377              |  16|   0|   16|          0|
+    |tmp13_reg_392              |  16|   0|   16|          0|
+    |tmp14_reg_382              |  16|   0|   16|          0|
+    |tmp9_reg_367               |  16|   0|   16|          0|
+    |tmp_5_0_1_reg_327          |  16|   0|   16|          0|
+    |tmp_5_0_2_reg_332          |  16|   0|   16|          0|
+    |tmp_5_1_1_reg_342          |  16|   0|   16|          0|
+    |tmp_5_1_2_reg_347          |  16|   0|   16|          0|
+    |tmp_5_1_reg_337            |  16|   0|   16|          0|
+    |tmp_5_2_1_reg_357          |  16|   0|   16|          0|
+    |tmp_5_2_2_reg_362          |  16|   0|   16|          0|
+    |tmp_5_2_reg_352            |  16|   0|   16|          0|
+    |tmp_5_reg_322              |  16|   0|   16|          0|
+    |tmp_reg_387                |  16|   0|   16|          0|
+    |tmp12_reg_377              |  64|  32|   16|          0|
+    |tmp_5_2_2_reg_362          |  64|  32|   16|          0|
+    |tmp_reg_387                |  64|  32|   16|          0|
+    +---------------------------+----+----+-----+-----------+
+    |Total                      | 736|  96|  592|          0|
+    +---------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------+-----+-----+------------+-------------------+--------------+
+|     RTL Ports     | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++-------------------+-----+-----+------------+-------------------+--------------+
+|ap_clk             |  in |    1| ap_ctrl_hs |     mac<3, 9>     | return value |
+|ap_rst             |  in |    1| ap_ctrl_hs |     mac<3, 9>     | return value |
+|ap_return          | out |   16| ap_ctrl_hs |     mac<3, 9>     | return value |
+|input_regs_0_read  |  in |   16|   ap_none  | input_regs_0_read |    scalar    |
+|input_regs_1_read  |  in |   16|   ap_none  | input_regs_1_read |    scalar    |
+|input_regs_2_read  |  in |   16|   ap_none  | input_regs_2_read |    scalar    |
+|input_regs_3_read  |  in |   16|   ap_none  | input_regs_3_read |    scalar    |
+|input_regs_4_read  |  in |   16|   ap_none  | input_regs_4_read |    scalar    |
+|input_regs_5_read  |  in |   16|   ap_none  | input_regs_5_read |    scalar    |
+|input_regs_6_read  |  in |   16|   ap_none  | input_regs_6_read |    scalar    |
+|input_regs_7_read  |  in |   16|   ap_none  | input_regs_7_read |    scalar    |
+|input_regs_8_read  |  in |   16|   ap_none  | input_regs_8_read |    scalar    |
+|p_read             |  in |   16|   ap_none  |       p_read      |    scalar    |
+|p_read1            |  in |   16|   ap_none  |      p_read1      |    scalar    |
+|p_read2            |  in |   16|   ap_none  |      p_read2      |    scalar    |
+|p_read3            |  in |   16|   ap_none  |      p_read3      |    scalar    |
+|p_read4            |  in |   16|   ap_none  |      p_read4      |    scalar    |
+|p_read5            |  in |   16|   ap_none  |      p_read5      |    scalar    |
+|p_read6            |  in |   16|   ap_none  |      p_read6      |    scalar    |
+|p_read7            |  in |   16|   ap_none  |      p_read7      |    scalar    |
+|p_read8            |  in |   16|   ap_none  |      p_read8      |    scalar    |
++-------------------+-----+-----+------------+-------------------+--------------+
+

@@ -1,0 +1,143 @@
+
+
+================================================================
+== Vivado HLS Report for 'mac_1_1_s'
+================================================================
+* Date:           Sun Apr 28 15:50:28 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     2.098|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    3|    3|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 4, States = { 1 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.09>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%weight_regs_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %weight_regs_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 5 'read' 'weight_regs_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%input_regs_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 6 'read' 'input_regs_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [4/4] (2.09ns)   --->   "%tmp = fmul half %input_regs_read_1, %weight_regs_read_1" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 7 'hmul' 'tmp' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 2.09>
+ST_2 : Operation 8 [3/4] (2.09ns)   --->   "%tmp = fmul half %input_regs_read_1, %weight_regs_read_1" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 8 'hmul' 'tmp' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 3 <SV = 2> <Delay = 2.09>
+ST_3 : Operation 9 [2/4] (2.09ns)   --->   "%tmp = fmul half %input_regs_read_1, %weight_regs_read_1" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 9 'hmul' 'tmp' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 2.09>
+ST_4 : Operation 10 [1/4] (2.09ns)   --->   "%tmp = fmul half %input_regs_read_1, %weight_regs_read_1" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 10 'hmul' 'tmp' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 11 [1/1] (0.00ns)   --->   "ret half %tmp" [mobile_net_hls_v1/conv.hpp:106]   --->   Operation 11 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.2ns, clock uncertainty: 0.525ns.
+
+ <State 1>: 2.1ns
+The critical path consists of the following:
+	wire read on port 'weight_regs_read' (mobile_net_hls_v1/conv.hpp:34) [3]  (0 ns)
+	'hmul' operation ('tmp', mobile_net_hls_v1/conv.hpp:47) [5]  (2.1 ns)
+
+ <State 2>: 2.1ns
+The critical path consists of the following:
+	'hmul' operation ('tmp', mobile_net_hls_v1/conv.hpp:47) [5]  (2.1 ns)
+
+ <State 3>: 2.1ns
+The critical path consists of the following:
+	'hmul' operation ('tmp', mobile_net_hls_v1/conv.hpp:47) [5]  (2.1 ns)
+
+ <State 4>: 2.1ns
+The critical path consists of the following:
+	'hmul' operation ('tmp', mobile_net_hls_v1/conv.hpp:47) [5]  (2.1 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

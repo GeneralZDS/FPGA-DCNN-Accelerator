@@ -1,0 +1,306 @@
+
+
+================================================================
+== Vivado HLS Report for 'mac_1_1_s'
+================================================================
+* Date:           Sun Apr 28 15:50:29 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     2.098|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    3|    3|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 4, States = { 1 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.09>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%weight_regs_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %weight_regs_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 5 'read' 'weight_regs_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%input_regs_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 6 'read' 'input_regs_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [4/4] (2.09ns)   --->   "%tmp = fmul half %input_regs_read_1, %weight_regs_read_1" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 7 'hmul' 'tmp' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 2.09>
+ST_2 : Operation 8 [3/4] (2.09ns)   --->   "%tmp = fmul half %input_regs_read_1, %weight_regs_read_1" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 8 'hmul' 'tmp' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 3 <SV = 2> <Delay = 2.09>
+ST_3 : Operation 9 [2/4] (2.09ns)   --->   "%tmp = fmul half %input_regs_read_1, %weight_regs_read_1" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 9 'hmul' 'tmp' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 2.09>
+ST_4 : Operation 10 [1/4] (2.09ns)   --->   "%tmp = fmul half %input_regs_read_1, %weight_regs_read_1" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 10 'hmul' 'tmp' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 11 [1/1] (0.00ns)   --->   "ret half %tmp" [mobile_net_hls_v1/conv.hpp:106]   --->   Operation 11 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 1
+- Is pipelined: 1
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ input_regs_read]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ weight_regs_read]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+weight_regs_read_1 (read) [ 01111]
+input_regs_read_1  (read) [ 01111]
+tmp                (hmul) [ 00000]
+StgValue_11        (ret ) [ 00000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="input_regs_read">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="input_regs_read"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="weight_regs_read">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="weight_regs_read"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1001" name="const_4">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.half"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1004" name="weight_regs_read_1_read_fu_6">
+<pin_list>
+<pin id="7" dir="0" index="0" bw="16" slack="0"/>
+<pin id="8" dir="0" index="1" bw="16" slack="0"/>
+<pin id="9" dir="1" index="2" bw="16" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="weight_regs_read_1/1 "/>
+</bind>
+</comp>
+
+<comp id="12" class="1004" name="input_regs_read_1_read_fu_12">
+<pin_list>
+<pin id="13" dir="0" index="0" bw="16" slack="0"/>
+<pin id="14" dir="0" index="1" bw="16" slack="0"/>
+<pin id="15" dir="1" index="2" bw="16" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="input_regs_read_1/1 "/>
+</bind>
+</comp>
+
+<comp id="18" class="1004" name="grp_fu_18">
+<pin_list>
+<pin id="19" dir="0" index="0" bw="16" slack="0"/>
+<pin id="20" dir="0" index="1" bw="16" slack="0"/>
+<pin id="21" dir="1" index="2" bw="16" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="hmul(536) " fcode="hmul"/>
+<opset="tmp/1 "/>
+</bind>
+</comp>
+
+<comp id="24" class="1005" name="weight_regs_read_1_reg_24">
+<pin_list>
+<pin id="25" dir="0" index="0" bw="16" slack="1"/>
+<pin id="26" dir="1" index="1" bw="16" slack="1"/>
+</pin_list>
+<bind>
+<opset="weight_regs_read_1 "/>
+</bind>
+</comp>
+
+<comp id="29" class="1005" name="input_regs_read_1_reg_29">
+<pin_list>
+<pin id="30" dir="0" index="0" bw="16" slack="1"/>
+<pin id="31" dir="1" index="1" bw="16" slack="1"/>
+</pin_list>
+<bind>
+<opset="input_regs_read_1 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="10"><net_src comp="4" pin="0"/><net_sink comp="6" pin=0"/></net>
+
+<net id="11"><net_src comp="2" pin="0"/><net_sink comp="6" pin=1"/></net>
+
+<net id="16"><net_src comp="4" pin="0"/><net_sink comp="12" pin=0"/></net>
+
+<net id="17"><net_src comp="0" pin="0"/><net_sink comp="12" pin=1"/></net>
+
+<net id="22"><net_src comp="12" pin="2"/><net_sink comp="18" pin=0"/></net>
+
+<net id="23"><net_src comp="6" pin="2"/><net_sink comp="18" pin=1"/></net>
+
+<net id="27"><net_src comp="6" pin="2"/><net_sink comp="24" pin=0"/></net>
+
+<net id="28"><net_src comp="24" pin="1"/><net_sink comp="18" pin=1"/></net>
+
+<net id="32"><net_src comp="12" pin="2"/><net_sink comp="29" pin=0"/></net>
+
+<net id="33"><net_src comp="29" pin="1"/><net_sink comp="18" pin=0"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+	Port: mac<1, 1> : input_regs_read | {1 }
+	Port: mac<1, 1> : weight_regs_read | {1 }
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+		StgValue_11 : 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|------------------------------|---------|---------|---------|
+| Operation|        Functional Unit       |  DSP48E |    FF   |   LUT   |
+|----------|------------------------------|---------|---------|---------|
+|   hmul   |           grp_fu_18          |    2    |    91   |    34   |
+|----------|------------------------------|---------|---------|---------|
+|   read   | weight_regs_read_1_read_fu_6 |    0    |    0    |    0    |
+|          | input_regs_read_1_read_fu_12 |    0    |    0    |    0    |
+|----------|------------------------------|---------|---------|---------|
+|   Total  |                              |    2    |    91   |    34   |
+|----------|------------------------------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++-------------------------+--------+
+|                         |   FF   |
++-------------------------+--------+
+| input_regs_read_1_reg_29|   16   |
+|weight_regs_read_1_reg_24|   16   |
++-------------------------+--------+
+|          Total          |   32   |
++-------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|-----------|------|------|------|--------||---------||---------|
+|    Comp   |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|-----------|------|------|------|--------||---------||---------|
+| grp_fu_18 |  p0  |   2  |  16  |   32   ||    9    |
+| grp_fu_18 |  p1  |   2  |  16  |   32   ||    9    |
+|-----------|------|------|------|--------||---------||---------|
+|   Total   |      |      |      |   64   ||  1.312  ||    18   |
+|-----------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+
+|           | DSP48E |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+
+|  Function |    2   |    -   |   91   |   34   |
+|   Memory  |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    1   |    -   |   18   |
+|  Register |    -   |    -   |   32   |    -   |
++-----------+--------+--------+--------+--------+
+|   Total   |    2   |    1   |   123  |   52   |
++-----------+--------+--------+--------+--------+

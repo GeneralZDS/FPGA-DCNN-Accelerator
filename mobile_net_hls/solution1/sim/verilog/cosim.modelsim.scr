@@ -1,0 +1,85 @@
+# ==============================================================
+# File generated on Sat Mar 02 11:57:11 +0800 2019
+# Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+# ==============================================================
+onElabError {
+    set fl [open ".exit.err" w]
+    puts $fl "Elaboration errors in executing modelsim simulator"
+    close $fl
+    quit
+}
+onerror {
+    set fl [open ".exit.err" w]
+    puts $fl "Errors in executing modelsim simulator"
+    close $fl
+    quit
+}
+onbreak {
+    quit
+}
+
+if 0 {
+    vdel -all
+}
+
+if {[file exist [file join D:/work/software/modelsim_lib modelsim.ini]]} {
+    vmap -c -modelsimini [file join D:/work/software/modelsim_lib modelsim.ini]
+} else {
+    puts "ERROR: Please make sure the modelsim.ini is in the path D:/work/software/modelsim_lib."
+    exit -force
+}
+
+vlib xil_defaultlib
+vmap xil_defaultlib xil_defaultlib
+vlib work
+vmap work work
+
+vcom -work xil_defaultlib "ip/xil_defaultlib/moblie_net_ap_hadd_2_full_dsp_16.vhd"
+vcom -work xil_defaultlib "ip/xil_defaultlib/moblie_net_ap_hmul_1_max_dsp_16.vhd"
+vlog -sv -work work "glbl.v"
+vlog -sv -work work "AESL_axi_master_data18.v"
+vlog -sv -work work "AESL_axi_master_data33.v"
+vlog -sv -work work "AESL_axi_master_data34.v"
+vlog -sv -work work "AESL_axi_master_data9.v"
+vlog -sv -work work "AESL_deadlock_detection_unit.v"
+vlog -sv -work work "AESL_deadlock_detector.v"
+vlog -sv -work work "AESL_deadlock_report_unit.v"
+vlog -sv -work work "apply_512_4_32_4_s.v"
+vlog -sv -work work "compute_pro_512_4_32_4_s.v"
+vlog -sv -work work "compute_pro_512_4_32_4_s_input_regs.v"
+vlog -sv -work work "compute_pro_512_4_32_4_s_output_temp.v"
+vlog -sv -work work "copy_beta_fmem2buffer.v"
+vlog -sv -work work "copy_input_fmem2buffer.v"
+vlog -sv -work work "copy_weight_fmem2buffer_512_s.v"
+vlog -sv -work work "fc_SERIAL_FC_512_4_32_4_s.v"
+vlog -sv -work work "fifo_w16_d256_B.v"
+vlog -sv -work work "fifo_w16_d64_B.v"
+vlog -sv -work work "fifo_w16_d8_B.v"
+vlog -sv -work work "fifo_w1_d1_A.v"
+vlog -sv -work work "fifo_w1_d2_A.v"
+vlog -sv -work work "fifo_w31_d3_A.v"
+vlog -sv -work work "fifo_w32_d2_A.v"
+vlog -sv -work work "last_layer_512_4_32_4_s.v"
+vlog -sv -work work "load_data_512_4_32_4_13.v"
+vlog -sv -work work "moblie_net.autotb.v"
+vlog -sv -work work "moblie_net.v"
+vlog -sv -work work "moblie_net_data18_m_axi.v"
+vlog -sv -work work "moblie_net_data33_m_axi.v"
+vlog -sv -work work "moblie_net_data34_m_axi.v"
+vlog -sv -work work "moblie_net_data9_m_axi.v"
+vlog -sv -work work "moblie_net_hadd_16ns_16ns_16_4_full_dsp_1.v"
+vlog -sv -work work "moblie_net_hmul_16ns_16ns_16_3_max_dsp_1.v"
+vlog -sv -work work "output_result_512_4_32_4_s.v"
+vlog -sv -work work "start_for_compute_pro_512_4_32_4_U0.v"
+vlog -sv -work work "start_for_output_result_512_4_32_4_U0.v"
+
+vsim -debugDB -t 10ps -voptargs="+acc"  -L xil_defaultlib -L work -L unisims_ver -L xpm apatb_moblie_net_top glbl -suppress 6630 -wlf moblie_net.wlf
+set WildcardFilter [lsearch -not -all -inline $WildcardFilter Parameter]
+add wave -r /*
+set StdArithNoWarnings 1
+set NumericStdNoWarnings 1
+run -all
+abort

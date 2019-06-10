@@ -1,0 +1,646 @@
+load img_data success
+load conv1_w success
+load conv1_b success
+load conv2_w success
+load conv2_b success
+load conv3_w success
+load conv3_b success
+load conv4_w success
+load conv4_b success
+load conv5_w success
+load conv5_b success
+load conv6_w success
+load conv6_b success
+load conv7_w success
+load conv7_b success
+load fc9_w success
+load fc9_b success
+predict start
+last_layer start
+WARNING: Hls::stream 'hls::stream<bool>.9' contains leftover data, which may result in RTL simulation hanging.
+predict end
+-0.244141 -0.152832 -2.23242 1.35156 0 0 0 0 
+Reading D:/work/software/modelsim-10.5/exe/tcl/vsim/pref.tcl
+
+# 10.5
+
+# do cosim.modelsim.scr
+# 
+#     set fl [open ".exit.err" w]
+#     puts $fl "Elaboration errors in executing modelsim simulator"
+#     close $fl
+#     quit
+# 
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap -c -modelsimini D:/work/software/modelsim_lib/modelsim.ini 
+# Copying D:/work/software/modelsim_lib/modelsim.ini to modelsim.ini
+# ** Warning: Copied D:/work/software/modelsim_lib/modelsim.ini to modelsim.ini.
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap xil_defaultlib xil_defaultlib 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
+# vmap work work 
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vcom 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:13 on Mar 02,2019
+# vcom -work xil_defaultlib ip/xil_defaultlib/moblie_net_ap_hadd_2_full_dsp_16.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity moblie_net_ap_hadd_2_full_dsp_16
+# -- Compiling architecture moblie_net_ap_hadd_2_full_dsp_16_arch of moblie_net_ap_hadd_2_full_dsp_16
+# End time: 11:57:14 on Mar 02,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vcom 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:14 on Mar 02,2019
+# vcom -work xil_defaultlib ip/xil_defaultlib/moblie_net_ap_hmul_1_max_dsp_16.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity moblie_net_ap_hmul_1_max_dsp_16
+# -- Compiling architecture moblie_net_ap_hmul_1_max_dsp_16_arch of moblie_net_ap_hmul_1_max_dsp_16
+# End time: 11:57:14 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:14 on Mar 02,2019
+# vlog -sv -work work glbl.v 
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work AESL_axi_master_data18.v 
+# -- Compiling module AESL_axi_master_data18
+# 
+# Top level modules:
+# 	AESL_axi_master_data18
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work AESL_axi_master_data33.v 
+# -- Compiling module AESL_axi_master_data33
+# 
+# Top level modules:
+# 	AESL_axi_master_data33
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work AESL_axi_master_data34.v 
+# -- Compiling module AESL_axi_master_data34
+# 
+# Top level modules:
+# 	AESL_axi_master_data34
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work AESL_axi_master_data9.v 
+# -- Compiling module AESL_axi_master_data9
+# 
+# Top level modules:
+# 	AESL_axi_master_data9
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work AESL_deadlock_detection_unit.v 
+# -- Compiling module AESL_deadlock_detect_unit
+# 
+# Top level modules:
+# 	AESL_deadlock_detect_unit
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work AESL_deadlock_detector.v 
+# -- Compiling module AESL_deadlock_detector
+# 
+# Top level modules:
+# 	AESL_deadlock_detector
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work AESL_deadlock_report_unit.v 
+# -- Compiling module AESL_deadlock_report_unit
+# 
+# Top level modules:
+# 	AESL_deadlock_report_unit
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work apply_512_4_32_4_s.v 
+# -- Compiling module apply_512_4_32_4_s
+# 
+# Top level modules:
+# 	apply_512_4_32_4_s
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work compute_pro_512_4_32_4_s.v 
+# -- Compiling module compute_pro_512_4_32_4_s
+# 
+# Top level modules:
+# 	compute_pro_512_4_32_4_s
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work compute_pro_512_4_32_4_s_input_regs.v 
+# -- Compiling module compute_pro_512_4_32_4_s_input_regs_ram
+# -- Compiling module compute_pro_512_4_32_4_s_input_regs
+# 
+# Top level modules:
+# 	compute_pro_512_4_32_4_s_input_regs
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:15 on Mar 02,2019
+# vlog -sv -work work compute_pro_512_4_32_4_s_output_temp.v 
+# -- Compiling module compute_pro_512_4_32_4_s_output_temp_ram
+# -- Compiling module compute_pro_512_4_32_4_s_output_temp
+# 
+# Top level modules:
+# 	compute_pro_512_4_32_4_s_output_temp
+# End time: 11:57:15 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work copy_beta_fmem2buffer.v 
+# -- Compiling module copy_beta_fmem2buffer
+# 
+# Top level modules:
+# 	copy_beta_fmem2buffer
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work copy_input_fmem2buffer.v 
+# -- Compiling module copy_input_fmem2buffer
+# 
+# Top level modules:
+# 	copy_input_fmem2buffer
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work copy_weight_fmem2buffer_512_s.v 
+# -- Compiling module copy_weight_fmem2buffer_512_s
+# 
+# Top level modules:
+# 	copy_weight_fmem2buffer_512_s
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work fc_SERIAL_FC_512_4_32_4_s.v 
+# -- Compiling module fc_SERIAL_FC_512_4_32_4_s
+# 
+# Top level modules:
+# 	fc_SERIAL_FC_512_4_32_4_s
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work fifo_w16_d256_B.v 
+# -- Compiling module fifo_w16_d256_B
+# 
+# Top level modules:
+# 	fifo_w16_d256_B
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work fifo_w16_d64_B.v 
+# -- Compiling module fifo_w16_d64_B
+# 
+# Top level modules:
+# 	fifo_w16_d64_B
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work fifo_w16_d8_B.v 
+# -- Compiling module fifo_w16_d8_B
+# 
+# Top level modules:
+# 	fifo_w16_d8_B
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work fifo_w1_d1_A.v 
+# -- Compiling module fifo_w1_d1_A_shiftReg
+# -- Compiling module fifo_w1_d1_A
+# 
+# Top level modules:
+# 	fifo_w1_d1_A
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work fifo_w1_d2_A.v 
+# -- Compiling module fifo_w1_d2_A_shiftReg
+# -- Compiling module fifo_w1_d2_A
+# 
+# Top level modules:
+# 	fifo_w1_d2_A
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work fifo_w31_d3_A.v 
+# -- Compiling module fifo_w31_d3_A_shiftReg
+# -- Compiling module fifo_w31_d3_A
+# 
+# Top level modules:
+# 	fifo_w31_d3_A
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work fifo_w32_d2_A.v 
+# -- Compiling module fifo_w32_d2_A_shiftReg
+# -- Compiling module fifo_w32_d2_A
+# 
+# Top level modules:
+# 	fifo_w32_d2_A
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work last_layer_512_4_32_4_s.v 
+# -- Compiling module last_layer_512_4_32_4_s
+# 
+# Top level modules:
+# 	last_layer_512_4_32_4_s
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work load_data_512_4_32_4_13.v 
+# -- Compiling module load_data_512_4_32_4_13
+# 
+# Top level modules:
+# 	load_data_512_4_32_4_13
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work moblie_net.autotb.v 
+# -- Compiling module apatb_moblie_net_top
+# 
+# Top level modules:
+# 	apatb_moblie_net_top
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:16 on Mar 02,2019
+# vlog -sv -work work moblie_net.v 
+# -- Compiling module moblie_net
+# 
+# Top level modules:
+# 	moblie_net
+# End time: 11:57:16 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work moblie_net_data18_m_axi.v 
+# -- Compiling module moblie_net_data18_m_axi
+# -- Compiling module moblie_net_data18_m_axi_reg_slice
+# -- Compiling module moblie_net_data18_m_axi_fifo
+# -- Compiling module moblie_net_data18_m_axi_buffer
+# -- Compiling module moblie_net_data18_m_axi_decoder
+# -- Compiling module moblie_net_data18_m_axi_throttl
+# -- Compiling module moblie_net_data18_m_axi_read
+# -- Compiling module moblie_net_data18_m_axi_write
+# 
+# Top level modules:
+# 	moblie_net_data18_m_axi
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work moblie_net_data33_m_axi.v 
+# -- Compiling module moblie_net_data33_m_axi
+# -- Compiling module moblie_net_data33_m_axi_reg_slice
+# -- Compiling module moblie_net_data33_m_axi_fifo
+# -- Compiling module moblie_net_data33_m_axi_buffer
+# -- Compiling module moblie_net_data33_m_axi_decoder
+# -- Compiling module moblie_net_data33_m_axi_throttl
+# -- Compiling module moblie_net_data33_m_axi_read
+# -- Compiling module moblie_net_data33_m_axi_write
+# 
+# Top level modules:
+# 	moblie_net_data33_m_axi
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work moblie_net_data34_m_axi.v 
+# -- Compiling module moblie_net_data34_m_axi
+# -- Compiling module moblie_net_data34_m_axi_reg_slice
+# -- Compiling module moblie_net_data34_m_axi_fifo
+# -- Compiling module moblie_net_data34_m_axi_buffer
+# -- Compiling module moblie_net_data34_m_axi_decoder
+# -- Compiling module moblie_net_data34_m_axi_throttl
+# -- Compiling module moblie_net_data34_m_axi_read
+# -- Compiling module moblie_net_data34_m_axi_write
+# 
+# Top level modules:
+# 	moblie_net_data34_m_axi
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work moblie_net_data9_m_axi.v 
+# -- Compiling module moblie_net_data9_m_axi
+# -- Compiling module moblie_net_data9_m_axi_reg_slice
+# -- Compiling module moblie_net_data9_m_axi_fifo
+# -- Compiling module moblie_net_data9_m_axi_buffer
+# -- Compiling module moblie_net_data9_m_axi_decoder
+# -- Compiling module moblie_net_data9_m_axi_throttl
+# -- Compiling module moblie_net_data9_m_axi_read
+# -- Compiling module moblie_net_data9_m_axi_write
+# 
+# Top level modules:
+# 	moblie_net_data9_m_axi
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work moblie_net_hadd_16ns_16ns_16_4_full_dsp_1.v 
+# -- Compiling module moblie_net_hadd_16ns_16ns_16_4_full_dsp_1
+# 
+# Top level modules:
+# 	moblie_net_hadd_16ns_16ns_16_4_full_dsp_1
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work moblie_net_hmul_16ns_16ns_16_3_max_dsp_1.v 
+# -- Compiling module moblie_net_hmul_16ns_16ns_16_3_max_dsp_1
+# 
+# Top level modules:
+# 	moblie_net_hmul_16ns_16ns_16_3_max_dsp_1
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work output_result_512_4_32_4_s.v 
+# -- Compiling module output_result_512_4_32_4_s
+# 
+# Top level modules:
+# 	output_result_512_4_32_4_s
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work start_for_compute_pro_512_4_32_4_U0.v 
+# -- Compiling module start_for_compute_pro_512_4_32_4_U0_shiftReg
+# -- Compiling module start_for_compute_pro_512_4_32_4_U0
+# 
+# Top level modules:
+# 	start_for_compute_pro_512_4_32_4_U0
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+# Start time: 11:57:17 on Mar 02,2019
+# vlog -sv -work work start_for_output_result_512_4_32_4_U0.v 
+# -- Compiling module start_for_output_result_512_4_32_4_U0_shiftReg
+# -- Compiling module start_for_output_result_512_4_32_4_U0
+# 
+# Top level modules:
+# 	start_for_output_result_512_4_32_4_U0
+# End time: 11:57:17 on Mar 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -debugDB -t 10ps -voptargs=""+acc"" -L xil_defaultlib -L work -L unisims_ver -L xpm apatb_moblie_net_top glbl -suppress 6630 -wlf moblie_net.wlf 
+# Start time: 11:57:17 on Mar 02,2019
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vsim-8611) Generating debug db.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\xbip_dsp48_wrapper_v3_0\hdl\xbip_dsp48_wrapper_v3_0_vh_rfs.vhd(3106): (vopt-8617) Possible component instance "/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/moblie_net_hmul_16ns_16ns_16_3_max_dsp_1_U36/moblie_net_ap_hmul_1_max_dsp_16_u/U0/i_synth/MULT/OP/R_AND_R/LAT_OPT/PART/R_AND_R/TW_GT_2_DSP/ADD/i_synth_option/i_synth_model/opt_everest/i_uniwrap/i_primitive : DSP58" is not bound.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\xbip_dsp48_wrapper_v3_0\hdl\xbip_dsp48_wrapper_v3_0_vh_rfs.vhd(3106): (vopt-8617) Possible component instance "/apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/moblie_net_hmul_16ns_16ns_16_3_max_dsp_1_U36/moblie_net_ap_hmul_1_max_dsp_16_u/U0/i_synth/MULT/OP/R_AND_R/LAT_OPT/FULL/R_AND_R/OTHER_EXP_IP/ADD/i_synth_option/i_synth_model/opt_everest/i_uniwrap/i_primitive : DSP58" is not bound.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(32412): (vopt-1144) Value <protected> <protected> is out of range <protected> <protected> <protected>-2.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(32412): (vopt-1144) Value <protected> <protected> is out of range <protected> <protected> <protected>-2.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(32426): (vopt-1144) Value <protected> <protected> is out of range <protected> <protected> <protected>-2.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(32412): (vopt-1167) Index value -2 (of type std.STANDARD.NATURAL) is out of range 0 to 2147483647.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(32412): (vopt-1167) Index value -2 (of type ieee.std_logic_arith.UNSIGNED) is out of range 13 downto 0.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(32426): (vopt-1167) Index value -2 (of type std.STANDARD.NATURAL) is out of range 0 to 2147483647.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(32426): (vopt-1167) Index value -2 (of type ieee.std_logic_1164.STD_LOGIC_VECTOR) is out of range 13 downto 0.
+# ** Note: (vopt-143) Recognized 1 FSM in module "load_data_512_4_32_4_13(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "fc_SERIAL_FC_512_4_32_4_s(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "last_layer_512_4_32_4_s(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "output_result_512_4_32_4_s(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "compute_pro_512_4_32_4_s(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "copy_weight_fmem2buffer_512_s(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "copy_beta_fmem2buffer(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "copy_input_fmem2buffer(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "AESL_deadlock_report_unit(fast)".
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=35, depth=256, type=RAM at location moblie_net_data34_m_axi.v:556
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=18, depth=256, type=RAM at location moblie_net_data34_m_axi.v:556
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=35, depth=256, type=RAM at location moblie_net_data9_m_axi.v:556
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=18, depth=256, type=RAM at location moblie_net_data9_m_axi.v:556
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=35, depth=256, type=RAM at location moblie_net_data33_m_axi.v:556
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=35, depth=256, type=RAM at location moblie_net_data18_m_axi.v:556
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=18, depth=256, type=RAM at location moblie_net_data18_m_axi.v:556
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=18, depth=256, type=RAM at location moblie_net_data33_m_axi.v:556
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=16, depth=256, type=RAM at location fifo_w16_d256_B.v:39
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=16, depth=8, type=RAM at location fifo_w16_d8_B.v:39
+# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=16, depth=64, type=RAM at location fifo_w16_d64_B.v:39
+# ** Note: (vopt-143) Recognized 1 FSM in module "moblie_net_data34_m_axi_reg_slice(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "moblie_net_data9_m_axi_reg_slice(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "moblie_net_data33_m_axi_reg_slice(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "moblie_net_data34_m_axi_reg_slice(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "moblie_net_data33_m_axi_reg_slice(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "moblie_net_data18_m_axi_reg_slice(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "moblie_net_data9_m_axi_reg_slice(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "moblie_net_data18_m_axi_reg_slice(fast)".
+# ** Note: (vopt-4301) Memory core inferred for signal 'ram' width=16, depth=32, type=RAM at location compute_pro_512_4_32_4_s_input_regs.v:22
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(37791): (vopt-1167) Index value 13 (of type ieee.std_logic_1164.STD_LOGIC_VECTOR) is out of range 10 downto 0.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(49285): (vopt-1167) Index value 6 (of type ieee.std_logic_1164.STD_LOGIC_VECTOR) is out of range 4 downto 0.
+# ** Warning: D:\work\software\Vivado2018.3\exe\Vivado\2018.3\data\ip\xilinx\floating_point_v7_1\hdl\floating_point_v7_1_vh_rfs.vhd(49448): (vopt-1152) Index value 7 is out of index range 4 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.apatb_moblie_net_top(fast)
+# Loading work.moblie_net(fast)
+# Loading work.moblie_net_data9_m_axi(fast)
+# Loading work.moblie_net_data9_m_axi_throttl(fast)
+# Loading work.moblie_net_data9_m_axi_write(fast)
+# Loading work.moblie_net_data9_m_axi_reg_slice(fast)
+# Loading work.moblie_net_data9_m_axi_fifo(fast)
+# Loading work.moblie_net_data9_m_axi_buffer(fast)
+# Loading work.moblie_net_data9_m_axi_fifo(fast__3)
+# Loading work.moblie_net_data9_m_axi_decoder(fast)
+# Loading work.moblie_net_data9_m_axi_fifo(fast__1)
+# Loading work.moblie_net_data9_m_axi_fifo(fast__2)
+# Loading work.moblie_net_data9_m_axi_read(fast)
+# Loading work.moblie_net_data9_m_axi_buffer(fast__1)
+# Loading work.moblie_net_data9_m_axi_reg_slice(fast__1)
+# Loading work.moblie_net_data33_m_axi(fast)
+# Loading work.moblie_net_data33_m_axi_throttl(fast)
+# Loading work.moblie_net_data33_m_axi_write(fast)
+# Loading work.moblie_net_data33_m_axi_reg_slice(fast)
+# Loading work.moblie_net_data33_m_axi_fifo(fast)
+# Loading work.moblie_net_data33_m_axi_buffer(fast)
+# Loading work.moblie_net_data33_m_axi_fifo(fast__3)
+# Loading work.moblie_net_data33_m_axi_decoder(fast)
+# Loading work.moblie_net_data33_m_axi_fifo(fast__1)
+# Loading work.moblie_net_data33_m_axi_fifo(fast__2)
+# Loading work.moblie_net_data33_m_axi_read(fast)
+# Loading work.moblie_net_data33_m_axi_buffer(fast__1)
+# Loading work.moblie_net_data33_m_axi_reg_slice(fast__1)
+# Loading work.moblie_net_data34_m_axi(fast)
+# Loading work.moblie_net_data34_m_axi_throttl(fast)
+# Loading work.moblie_net_data34_m_axi_write(fast)
+# Loading work.moblie_net_data34_m_axi_reg_slice(fast)
+# Loading work.moblie_net_data34_m_axi_fifo(fast)
+# Loading work.moblie_net_data34_m_axi_buffer(fast)
+# Loading work.moblie_net_data34_m_axi_fifo(fast__3)
+# Loading work.moblie_net_data34_m_axi_decoder(fast)
+# Loading work.moblie_net_data34_m_axi_fifo(fast__1)
+# Loading work.moblie_net_data34_m_axi_fifo(fast__2)
+# Loading work.moblie_net_data34_m_axi_read(fast)
+# Loading work.moblie_net_data34_m_axi_buffer(fast__1)
+# Loading work.moblie_net_data34_m_axi_reg_slice(fast__1)
+# Loading work.moblie_net_data18_m_axi(fast)
+# Loading work.moblie_net_data18_m_axi_throttl(fast)
+# Loading work.moblie_net_data18_m_axi_write(fast)
+# Loading work.moblie_net_data18_m_axi_reg_slice(fast)
+# Loading work.moblie_net_data18_m_axi_fifo(fast)
+# Loading work.moblie_net_data18_m_axi_buffer(fast)
+# Loading work.moblie_net_data18_m_axi_fifo(fast__3)
+# Loading work.moblie_net_data18_m_axi_decoder(fast)
+# Loading work.moblie_net_data18_m_axi_fifo(fast__1)
+# Loading work.moblie_net_data18_m_axi_fifo(fast__2)
+# Loading work.moblie_net_data18_m_axi_read(fast)
+# Loading work.moblie_net_data18_m_axi_buffer(fast__1)
+# Loading work.moblie_net_data18_m_axi_reg_slice(fast__1)
+# Loading work.last_layer_512_4_32_4_s(fast)
+# Loading work.fc_SERIAL_FC_512_4_32_4_s(fast)
+# Loading work.apply_512_4_32_4_s(fast)
+# Loading work.load_data_512_4_32_4_13(fast)
+# Loading work.copy_weight_fmem2buffer_512_s(fast)
+# Loading work.copy_input_fmem2buffer(fast)
+# Loading work.copy_beta_fmem2buffer(fast)
+# Loading work.fifo_w1_d1_A(fast)
+# Loading work.fifo_w1_d1_A_shiftReg(fast)
+# Loading work.compute_pro_512_4_32_4_s(fast)
+# Loading work.compute_pro_512_4_32_4_s_input_regs(fast)
+# Loading work.compute_pro_512_4_32_4_s_input_regs_ram(fast)
+# Loading work.compute_pro_512_4_32_4_s_output_temp(fast)
+# Loading work.compute_pro_512_4_32_4_s_output_temp_ram(fast)
+# Loading work.moblie_net_hadd_16ns_16ns_16_4_full_dsp_1(fast)
+# Loading work.moblie_net_hmul_16ns_16ns_16_3_max_dsp_1(fast)
+# Loading work.output_result_512_4_32_4_s(fast)
+# Loading work.fifo_w16_d64_B(fast)
+# Loading work.fifo_w16_d256_B(fast)
+# Loading work.fifo_w16_d8_B(fast)
+# Loading work.fifo_w1_d2_A(fast)
+# Loading work.fifo_w1_d2_A_shiftReg(fast)
+# Loading work.fifo_w32_d2_A(fast)
+# Loading work.fifo_w32_d2_A_shiftReg(fast)
+# Loading work.fifo_w31_d3_A(fast)
+# Loading work.fifo_w31_d3_A_shiftReg(fast)
+# Loading work.start_for_compute_pro_512_4_32_4_U0(fast)
+# Loading work.start_for_compute_pro_512_4_32_4_U0_shiftReg(fast)
+# Loading work.start_for_output_result_512_4_32_4_U0(fast)
+# Loading work.start_for_output_result_512_4_32_4_U0_shiftReg(fast)
+# Loading work.AESL_axi_master_data9(fast)
+# Loading work.AESL_axi_master_data33(fast)
+# Loading work.AESL_axi_master_data34(fast)
+# Loading work.AESL_axi_master_data18(fast)
+# Loading work.AESL_deadlock_detector(fast)
+# Loading work.AESL_deadlock_detect_unit(fast)
+# Loading work.AESL_deadlock_detect_unit(fast__1)
+# Loading work.AESL_deadlock_detect_unit(fast__2)
+# Loading work.AESL_deadlock_report_unit(fast)
+# Loading work.glbl(fast)
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading xil_defaultlib.moblie_net_ap_hadd_2_full_dsp_16(moblie_net_ap_hadd_2_full_dsp_16_arch)#1
+# Loading ieee.math_real(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_signed(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading unisim.vpkg(body)
+# ** Warning: (vsim-3479) Time unit '<protected>' is less than the simulator resolution (<protected>).
+#    Time: 0 ps  Iteration: 0  Protected: /apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/moblie_net_hadd_16ns_16ns_16_4_full_dsp_1_U35/moblie_net_ap_hadd_2_full_dsp_16_u/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>
+# Loading unisim.dsp48e1(dsp48e1_v)#2
+# Loading unisim.muxcy(muxcy_v)#1
+# Loading unisim.lut5(lut5_v)#1
+# Loading unisim.lut6(lut6_v)#1
+# Loading unisim.fde(fde_v)#1
+# Loading unisim.fdre(fdre_v)#1
+# Loading unisim.fde(fde_v)#2
+# Loading unisim.fdre(fdre_v)#2
+# Loading unisim.xorcy(xorcy_v)#1
+# Loading unisim.lut6_2(lut6_2_v)#1
+# Loading xil_defaultlib.moblie_net_ap_hmul_1_max_dsp_16(moblie_net_ap_hmul_1_max_dsp_16_arch)#1
+# Loading unisim.dsp48e2(dsp48e2_v)#1
+# Loading unisim.dsp48e1(dsp48e1_v)#1
+# ** Warning: (vsim-8683) Uninitialized out port /apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/moblie_net_hadd_16ns_16ns_16_4_full_dsp_1_U35/moblie_net_ap_hadd_2_full_dsp_16_u/U0/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected> has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+# Variable Constant Generic SpecParam Memory Assertion Cover Endpoint ScVariable CellInternal ImmediateAssert VHDLFile
+# 1
+# 1
+# ** Warning: OPMODE Input Warning : The OPMODE 011XX11 with CARRYINSEL  000 to DSP48E1 instance is invalid.
+#    Time: 100010 ps  Iteration: 0  Protected: /apatb_moblie_net_top/AESL_inst_moblie_net/last_layer_512_4_32_4_U0/grp_fc_SERIAL_FC_512_4_32_4_s_fu_84/grp_apply_512_4_32_4_s_fu_74/compute_pro_512_4_32_4_U0/moblie_net_hmul_16ns_16ns_16_3_max_dsp_1_U36/moblie_net_ap_hmul_1_max_dsp_16_u/U0/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>/<protected>
+# ////////////////////////////////////////////////////////////////////////////////////
+# // Inter-Transaction Progress: Completed Transaction / Total Transaction
+# // Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+# //
+# // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+# ////////////////////////////////////////////////////////////////////////////////////
+# // RTL Simulation : 0 / 1 [n/a] @ "11300"
+# // RTL Simulation : 1 / 1 [n/a] @ "10609800"
+# ////////////////////////////////////////////////////////////////////////////////////
+# ** Note: $finish    : moblie_net.autotb.v(796)
+#    Time: 106117500 ps  Iteration: 1  Instance: /apatb_moblie_net_top
+# End time: 11:57:37 on Mar 02,2019, Elapsed time: 0:00:20
+# Errors: 0, Warnings: 15
+load img_data success
+load conv1_w success
+load conv1_b success
+load conv2_w success
+load conv2_b success
+load conv3_w success
+load conv3_b success
+load conv4_w success
+load conv4_b success
+load conv5_w success
+load conv5_b success
+load conv6_w success
+load conv6_b success
+load conv7_w success
+load conv7_b success
+load fc9_w success
+load fc9_b success
+predict start
+predict end
+-0.244141 -0.152832 -2.23242 1.35156 0 0 0 0 

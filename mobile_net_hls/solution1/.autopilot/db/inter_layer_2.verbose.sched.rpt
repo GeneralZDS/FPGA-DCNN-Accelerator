@@ -1,0 +1,208 @@
+
+
+================================================================
+== Vivado HLS Report for 'inter_layer_2'
+================================================================
+* Date:           Sun Apr 28 15:50:57 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.675|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / (tmp_513 & tmp_514)
+	3  / (!tmp_514) | (!tmp_513)
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	2  / (p_08_i_load)
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.83>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tmp = alloca i1"   --->   Operation 7 'alloca' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%cntl_V = alloca i1, align 1" [mobile_net_hls_v1/conv.hpp:1641]   --->   Operation 8 'alloca' 'cntl_V' <Predicate = true> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.02> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 15> <FIFO>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %inputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 1048576, [6 x i8]* @p_str5, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 9 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %weights, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 2048, [7 x i8]* @p_str37, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 10 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %betas, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 64, [7 x i8]* @p_str38, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 11 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %outputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 2097152, [7 x i8]* @p_str20, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 12 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %pre_ready_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 13 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %nxt_ready_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 14 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %outputs_offset, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 15 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %betas_offset, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 16 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %weights_offset, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 17 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %inputs_offset, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 18 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (1.83ns)   --->   "%inputs_offset_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %inputs_offset)"   --->   Operation 19 'read' 'inputs_offset_read' <Predicate = true> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_1 : Operation 20 [1/1] (1.83ns)   --->   "%weights_offset_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %weights_offset)"   --->   Operation 20 'read' 'weights_offset_read' <Predicate = true> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_1 : Operation 21 [1/1] (1.83ns)   --->   "%betas_offset_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %betas_offset)"   --->   Operation 21 'read' 'betas_offset_read' <Predicate = true> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_1 : Operation 22 [1/1] (1.83ns)   --->   "%outputs_offset_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %outputs_offset)"   --->   Operation 22 'read' 'outputs_offset_read' <Predicate = true> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%outputs_offset6_i = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %outputs_offset_read, i32 1, i32 31)" [mobile_net_hls_v1/conv.hpp:1635]   --->   Operation 23 'partselect' 'outputs_offset6_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%betas_offset4_i = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %betas_offset_read, i32 1, i32 31)" [mobile_net_hls_v1/conv.hpp:1635]   --->   Operation 24 'partselect' 'betas_offset4_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%weights_offset2_i = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %weights_offset_read, i32 1, i32 31)" [mobile_net_hls_v1/conv.hpp:1635]   --->   Operation 25 'partselect' 'weights_offset2_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%inputs_offset1_i = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %inputs_offset_read, i32 1, i32 31)" [mobile_net_hls_v1/conv.hpp:1635]   --->   Operation 26 'partselect' 'inputs_offset1_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %nxt_ready_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 27 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %pre_ready_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 28 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %betas, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 64, [7 x i8]* @p_str38, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 29 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %weights, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 2048, [7 x i8]* @p_str37, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 30 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %outputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 2097152, [7 x i8]* @p_str20, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 31 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %inputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 1048576, [6 x i8]* @p_str5, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 32 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecChannel([7 x i8]* @cntl_OC_V_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i1* %cntl_V, i1* %cntl_V)"   --->   Operation 33 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %cntl_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 34 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.65ns)   --->   "br label %._crit_edge3.i" [mobile_net_hls_v1/conv.hpp:1644]   --->   Operation 35 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%pingpang_flag_i = phi i1 [ false, %entry ], [ %pingpang_flag, %._crit_edge2.i ]"   --->   Operation 36 'phi' 'pingpang_flag_i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "br label %0" [mobile_net_hls_v1/conv.hpp:1646]   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.20>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%tmp_513 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i1P(i1* %pre_ready_V, i32 1)" [mobile_net_hls_v1/conv.hpp:1647]   --->   Operation 38 'nbreadreq' 'tmp_513' <Predicate = true> <Delay = 0.00> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "br i1 %tmp_513, label %1, label %._crit_edge.i" [mobile_net_hls_v1/conv.hpp:1647]   --->   Operation 39 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%tmp_514 = call i1 @_ssdm_op_NbWriteReq.ap_fifo.i1P(i1* %nxt_ready_V, i32 1)" [mobile_net_hls_v1/conv.hpp:1647]   --->   Operation 40 'nbwritereq' 'tmp_514' <Predicate = (tmp_513)> <Delay = 0.00> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "br i1 %tmp_514, label %2, label %._crit_edge.i" [mobile_net_hls_v1/conv.hpp:1647]   --->   Operation 41 'br' <Predicate = (tmp_513)> <Delay = 0.00>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "br label %0" [mobile_net_hls_v1/conv.hpp:1648]   --->   Operation 42 'br' <Predicate = (!tmp_514) | (!tmp_513)> <Delay = 0.00>
+ST_3 : Operation 43 [1/1] (0.36ns)   --->   "%tmp_i = select i1 %pingpang_flag_i, i20 -524288, i20 0" [mobile_net_hls_v1/conv.hpp:1650]   --->   Operation 43 'select' 'tmp_i' <Predicate = (tmp_513 & tmp_514)> <Delay = 0.36> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 44 [1/1] (0.35ns)   --->   "%tmp_135_i = select i1 %pingpang_flag_i, i21 -1048576, i21 0" [mobile_net_hls_v1/conv.hpp:1650]   --->   Operation 44 'select' 'tmp_135_i' <Predicate = (tmp_513 & tmp_514)> <Delay = 0.35> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 45 [2/2] (1.83ns)   --->   "call fastcc void @conv.2(half* %inputs, i31 %inputs_offset1_i, i20 %tmp_i, half* %weights, i31 %weights_offset2_i, half* %betas, i31 %betas_offset4_i, half* %outputs, i31 %outputs_offset6_i, i21 %tmp_135_i, i1* %cntl_V)" [mobile_net_hls_v1/conv.hpp:1650]   --->   Operation 45 'call' <Predicate = (tmp_513 & tmp_514)> <Delay = 1.83> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 46 [1/1] (0.28ns)   --->   "%pingpang_flag = xor i1 %pingpang_flag_i, true" [mobile_net_hls_v1/conv.hpp:1653]   --->   Operation 46 'xor' 'pingpang_flag' <Predicate = (tmp_513 & tmp_514)> <Delay = 0.28> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 47 [1/2] (0.00ns)   --->   "call fastcc void @conv.2(half* %inputs, i31 %inputs_offset1_i, i20 %tmp_i, half* %weights, i31 %weights_offset2_i, half* %betas, i31 %betas_offset4_i, half* %outputs, i31 %outputs_offset6_i, i21 %tmp_135_i, i1* %cntl_V)" [mobile_net_hls_v1/conv.hpp:1650]   --->   Operation 47 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 3.67>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%tmp_515 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i1P(i1* %cntl_V, i32 1)" [mobile_net_hls_v1/conv.hpp:1655]   --->   Operation 48 'nbreadreq' 'tmp_515' <Predicate = true> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.02> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 15> <FIFO>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "br i1 %tmp_515, label %3, label %._crit_edge2.i" [mobile_net_hls_v1/conv.hpp:1655]   --->   Operation 49 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (1.83ns)   --->   "%empty_n_i_0_i = call { i1, i1 } @_ssdm_op_NbRead.ap_fifo.volatile.i1P(i1* %cntl_V)" [mobile_net_hls_v1/conv.hpp:1657]   --->   Operation 50 'nbread' 'empty_n_i_0_i' <Predicate = (tmp_515)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.02> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 15> <FIFO>
+ST_5 : Operation 51 [1/1] (1.83ns)   --->   "%pre_ready_V_read = call { i1, i1 } @_ssdm_op_NbRead.ap_fifo.volatile.i1P(i1* %pre_ready_V)" [mobile_net_hls_v1/conv.hpp:1658]   --->   Operation 51 'nbread' 'pre_ready_V_read' <Predicate = (tmp_515)> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_5 : Operation 52 [1/1] (0.00ns)   --->   "%tmp_517 = extractvalue { i1, i1 } %pre_ready_V_read, 1" [mobile_net_hls_v1/conv.hpp:1658]   --->   Operation 52 'extractvalue' 'tmp_517' <Predicate = (tmp_515)> <Delay = 0.00>
+ST_5 : Operation 53 [1/1] (1.83ns)   --->   "%full_n_i_0_i = call i1 @_ssdm_op_NbWrite.ap_fifo.volatile.i1P(i1* %nxt_ready_V, i1 %tmp_517)" [mobile_net_hls_v1/conv.hpp:1659]   --->   Operation 53 'nbwrite' 'full_n_i_0_i' <Predicate = (tmp_515)> <Delay = 1.83> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1> <Depth = 0> <FIFO>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "store i1 %tmp_517, i1* %tmp" [mobile_net_hls_v1/conv.hpp:1658]   --->   Operation 54 'store' <Predicate = (tmp_515)> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "br label %._crit_edge2.i" [mobile_net_hls_v1/conv.hpp:1660]   --->   Operation 55 'br' <Predicate = (tmp_515)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 56 [1/1] (0.00ns)   --->   "%p_08_i_load = load i1* %tmp"   --->   Operation 56 'load' 'p_08_i_load' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %p_08_i_load, label %._crit_edge3.i, label %.exit" [mobile_net_hls_v1/conv.hpp:1661]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 58 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 58 'ret' <Predicate = (!p_08_i_load)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.2ns, clock uncertainty: 0.525ns.
+
+ <State 1>: 1.84ns
+The critical path consists of the following:
+	fifo read on port 'inputs_offset' [23]  (1.84 ns)
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 2.2ns
+The critical path consists of the following:
+	'select' operation ('tmp_i', mobile_net_hls_v1/conv.hpp:1650) [52]  (0.363 ns)
+	'call' operation (mobile_net_hls_v1/conv.hpp:1650) to 'conv.2' [54]  (1.84 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 3.67ns
+The critical path consists of the following:
+	fifo read on port 'pre_ready_V' (mobile_net_hls_v1/conv.hpp:1658) [60]  (1.84 ns)
+	fifo write on port 'nxt_ready_V' (mobile_net_hls_v1/conv.hpp:1659) [62]  (1.84 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

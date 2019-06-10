@@ -1,0 +1,202 @@
+
+
+================================================================
+== Vivado HLS Report for 'copy_beta_fmem2buffe_3'
+================================================================
+* Date:           Sun Apr 28 16:05:15 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.675|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    9|   13|    9|   13|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+-------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  |  Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count | Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+-------+----------+
+        |- Loop 1  |    0|    4|         3|          1|          1| 0 ~ 3 |    yes   |
+        +----------+-----+-----+----------+-----------+-----------+-------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      64|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     104|    -|
+|Register         |        -|      -|      66|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|      66|     168|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name           | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |i_25_fu_163_p2                     |     +    |      0|  0|   9|           2|           1|
+    |sum_fu_137_p2                      |     +    |      0|  0|  39|          32|          32|
+    |ap_block_pp0_stage0_01001          |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state10_pp0_stage0_iter1  |    and   |      0|  0|   2|           1|           1|
+    |exitcond_fu_158_p2                 |   icmp   |      0|  0|   8|           2|           2|
+    |ap_enable_pp0                      |    xor   |      0|  0|   2|           1|           2|
+    |ap_enable_reg_pp0_iter1            |    xor   |      0|  0|   2|           2|           1|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                              |          |      0|  0|  64|          41|          40|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------------+----+-----------+-----+-----------+
+    |                Name                | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                           |  50|         11|    1|         11|
+    |ap_enable_reg_pp0_iter1             |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter2             |   9|          2|    1|          2|
+    |ap_sig_ioackin_m_axi_betas_ARREADY  |   9|          2|    1|          2|
+    |betas_blk_n_AR                      |   9|          2|    1|          2|
+    |betas_blk_n_R                       |   9|          2|    1|          2|
+    |i_reg_118                           |   9|          2|    2|          4|
+    +------------------------------------+----+-----------+-----+-----------+
+    |Total                               | 104|         23|    8|         25|
+    +------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------+----+----+-----+-----------+
+    |                Name                | FF | LUT| Bits| Const Bits|
+    +------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                           |  10|   0|   10|          0|
+    |ap_enable_reg_pp0_iter0             |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1             |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2             |   1|   0|    1|          0|
+    |ap_reg_ioackin_m_axi_betas_ARREADY  |   1|   0|    1|          0|
+    |betas_addr_reg_169                  |  32|   0|   32|          0|
+    |exitcond_reg_185                    |   1|   0|    1|          0|
+    |exitcond_reg_185_pp0_iter1_reg      |   1|   0|    1|          0|
+    |i_reg_118                           |   2|   0|    2|          0|
+    |tmp_632_reg_194                     |  16|   0|   16|          0|
+    +------------------------------------+----+----+-----+-----------+
+    |Total                               |  66|   0|   66|          0|
+    +------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+------------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++----------------------+-----+-----+------------+------------------------+--------------+
+|ap_clk                |  in |    1| ap_ctrl_hs | copy_beta_fmem2buffe.3 | return value |
+|ap_rst                |  in |    1| ap_ctrl_hs | copy_beta_fmem2buffe.3 | return value |
+|ap_start              |  in |    1| ap_ctrl_hs | copy_beta_fmem2buffe.3 | return value |
+|ap_done               | out |    1| ap_ctrl_hs | copy_beta_fmem2buffe.3 | return value |
+|ap_idle               | out |    1| ap_ctrl_hs | copy_beta_fmem2buffe.3 | return value |
+|ap_ready              | out |    1| ap_ctrl_hs | copy_beta_fmem2buffe.3 | return value |
+|m_axi_betas_AWVALID   | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWREADY   |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWADDR    | out |   32|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWID      | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWLEN     | out |   32|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWSIZE    | out |    3|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWBURST   | out |    2|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWLOCK    | out |    2|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWCACHE   | out |    4|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWPROT    | out |    3|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWQOS     | out |    4|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWREGION  | out |    4|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_AWUSER    | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_WVALID    | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_WREADY    |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_WDATA     | out |   16|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_WSTRB     | out |    2|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_WLAST     | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_WID       | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_WUSER     | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARVALID   | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARREADY   |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARADDR    | out |   32|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARID      | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARLEN     | out |   32|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARSIZE    | out |    3|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARBURST   | out |    2|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARLOCK    | out |    2|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARCACHE   | out |    4|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARPROT    | out |    3|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARQOS     | out |    4|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARREGION  | out |    4|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_ARUSER    | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_RVALID    |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_RREADY    | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_RDATA     |  in |   16|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_RLAST     |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_RID       |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_RUSER     |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_RRESP     |  in |    2|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_BVALID    |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_BREADY    | out |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_BRESP     |  in |    2|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_BID       |  in |    1|    m_axi   |          betas         |    pointer   |
+|m_axi_betas_BUSER     |  in |    1|    m_axi   |          betas         |    pointer   |
+|betas_offset          |  in |   31|   ap_none  |      betas_offset      |    scalar    |
+|beta_buffer_V_din     | out |   16|   ap_fifo  |      beta_buffer_V     |    pointer   |
+|beta_buffer_V_full_n  |  in |    1|   ap_fifo  |      beta_buffer_V     |    pointer   |
+|beta_buffer_V_write   | out |    1|   ap_fifo  |      beta_buffer_V     |    pointer   |
+|n                     |  in |   10|   ap_none  |            n           |    scalar    |
+|nLoops                |  in |    2|   ap_none  |         nLoops         |    scalar    |
+|beta_cntl_V_din       | out |    1|   ap_fifo  |       beta_cntl_V      |    pointer   |
+|beta_cntl_V_full_n    |  in |    1|   ap_fifo  |       beta_cntl_V      |    pointer   |
+|beta_cntl_V_write     | out |    1|   ap_fifo  |       beta_cntl_V      |    pointer   |
++----------------------+-----+-----+------------+------------------------+--------------+
+

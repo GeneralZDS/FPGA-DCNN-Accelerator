@@ -1,0 +1,188 @@
+<stg><name>mac<1, 1></name>
+
+
+<trans_list>
+
+<trans id="16" from="1" to="2">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="17" from="2" to="3">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="18" from="3" to="4">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="3" bw="16" op_0_bw="16" op_1_bw="16">
+<![CDATA[
+:0  %weight_regs_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %weight_regs_read)
+
+]]></Node>
+<StgValue><ssdm name="weight_regs_read_1"/></StgValue>
+</operation>
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="16" op_0_bw="16" op_1_bw="16">
+<![CDATA[
+:1  %input_regs_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_read)
+
+]]></Node>
+<StgValue><ssdm name="input_regs_read_1"/></StgValue>
+</operation>
+
+<operation id="7" st_id="1" stage="4" lat="4">
+<core>HMul</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="16" op_0_bw="16" op_1_bw="16">
+<![CDATA[
+:2  %tmp = fmul half %input_regs_read_1, %weight_regs_read_1
+
+]]></Node>
+<StgValue><ssdm name="tmp"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="8" st_id="2" stage="3" lat="4">
+<core>HMul</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="16" op_0_bw="16" op_1_bw="16">
+<![CDATA[
+:2  %tmp = fmul half %input_regs_read_1, %weight_regs_read_1
+
+]]></Node>
+<StgValue><ssdm name="tmp"/></StgValue>
+</operation>
+</state>
+
+<state id="3" st_id="3">
+
+<operation id="9" st_id="3" stage="2" lat="4">
+<core>HMul</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="16" op_0_bw="16" op_1_bw="16">
+<![CDATA[
+:2  %tmp = fmul half %input_regs_read_1, %weight_regs_read_1
+
+]]></Node>
+<StgValue><ssdm name="tmp"/></StgValue>
+</operation>
+</state>
+
+<state id="4" st_id="4">
+
+<operation id="10" st_id="4" stage="1" lat="4">
+<core>HMul</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="16" op_0_bw="16" op_1_bw="16">
+<![CDATA[
+:2  %tmp = fmul half %input_regs_read_1, %weight_regs_read_1
+
+]]></Node>
+<StgValue><ssdm name="tmp"/></StgValue>
+</operation>
+
+<operation id="11" st_id="4" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="0" op_0_bw="16">
+<![CDATA[
+:3  ret half %tmp
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="19" name="input_regs_read" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="input_regs_read"/></StgValue>
+</port>
+<port id="20" name="weight_regs_read" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="weight_regs_read"/></StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="22" from="_ssdm_op_Read.ap_auto.half" to="weight_regs_read_1" fromId="21" toId="5">
+</dataflow>
+<dataflow id="23" from="weight_regs_read" to="weight_regs_read_1" fromId="20" toId="5">
+</dataflow>
+<dataflow id="24" from="_ssdm_op_Read.ap_auto.half" to="input_regs_read_1" fromId="21" toId="6">
+</dataflow>
+<dataflow id="25" from="input_regs_read" to="input_regs_read_1" fromId="19" toId="6">
+</dataflow>
+<dataflow id="26" from="input_regs_read_1" to="tmp" fromId="6" toId="7">
+</dataflow>
+<dataflow id="27" from="weight_regs_read_1" to="tmp" fromId="5" toId="7">
+</dataflow>
+<dataflow id="28" from="input_regs_read_1" to="tmp" fromId="6" toId="8">
+</dataflow>
+<dataflow id="29" from="weight_regs_read_1" to="tmp" fromId="5" toId="8">
+</dataflow>
+<dataflow id="30" from="input_regs_read_1" to="tmp" fromId="6" toId="9">
+</dataflow>
+<dataflow id="31" from="weight_regs_read_1" to="tmp" fromId="5" toId="9">
+</dataflow>
+<dataflow id="32" from="input_regs_read_1" to="tmp" fromId="6" toId="10">
+</dataflow>
+<dataflow id="33" from="weight_regs_read_1" to="tmp" fromId="5" toId="10">
+</dataflow>
+<dataflow id="34" from="tmp" to="StgValue_11" fromId="10" toId="11">
+</dataflow>
+</dataflows>
+
+
+</stg>

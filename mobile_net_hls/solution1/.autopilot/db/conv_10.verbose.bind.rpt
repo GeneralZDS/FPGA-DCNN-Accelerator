@@ -1,0 +1,677 @@
+
+
+================================================================
+== Vivado HLS Report for 'conv_10'
+================================================================
+* Date:           Sun Apr 28 15:56:58 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.675|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------+----------+-----+-----+-----+-----+----------+
+        |                    |          |  Latency  |  Interval | Pipeline |
+        |      Instance      |  Module  | min | max | min | max |   Type   |
+        +--------------------+----------+-----+-----+-----+-----+----------+
+        |grp_apply_11_fu_86  |apply_11  |    ?|    ?|    ?|    ?| dataflow |
+        +--------------------+----------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.83>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%outputs_offset_read = call i31 @_ssdm_op_Read.ap_auto.i31(i31 %outputs_offset)"   --->   Operation 3 'read' 'outputs_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%betas_offset_read = call i31 @_ssdm_op_Read.ap_auto.i31(i31 %betas_offset)"   --->   Operation 4 'read' 'betas_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%weights_offset_read = call i31 @_ssdm_op_Read.ap_auto.i31(i31 %weights_offset)"   --->   Operation 5 'read' 'weights_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%inputs_offset1_read = call i17 @_ssdm_op_Read.ap_auto.i17(i17 %inputs_offset1)"   --->   Operation 6 'read' 'inputs_offset1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%inputs_offset_read = call i31 @_ssdm_op_Read.ap_auto.i31(i31 %inputs_offset)"   --->   Operation 7 'read' 'inputs_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [2/2] (1.83ns)   --->   "call fastcc void @apply.11(half* %inputs, i31 %inputs_offset_read, i17 %inputs_offset1_read, half* %weights, i31 %weights_offset_read, half* %betas, i31 %betas_offset_read, half* %outputs, i31 %outputs_offset_read, i1* %cntl_V)" [mobile_net_hls_v1/conv.hpp:1587]   --->   Operation 8 'call' <Predicate = true> <Delay = 1.83> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %cntl_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 9 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %inputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 131072, [7 x i8]* @p_str14, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 10 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %outputs, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 131072, [7 x i8]* @p_str29, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 11 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %weights, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 2304, [7 x i8]* @p_str55, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 12 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(half* %betas, [6 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 256, [7 x i8]* @p_str56, [7 x i8]* @p_str3, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 13 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/2] (0.00ns)   --->   "call fastcc void @apply.11(half* %inputs, i31 %inputs_offset_read, i17 %inputs_offset1_read, half* %weights, i31 %weights_offset_read, half* %betas, i31 %betas_offset_read, half* %outputs, i31 %outputs_offset_read, i1* %cntl_V)" [mobile_net_hls_v1/conv.hpp:1587]   --->   Operation 14 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "ret void" [mobile_net_hls_v1/conv.hpp:1588]   --->   Operation 15 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ inputs]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ inputs_offset]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ inputs_offset1]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ weights]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ weights_offset]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ betas]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ betas_offset]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ outputs]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ outputs_offset]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ cntl_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+outputs_offset_read (read         ) [ 001]
+betas_offset_read   (read         ) [ 001]
+weights_offset_read (read         ) [ 001]
+inputs_offset1_read (read         ) [ 001]
+inputs_offset_read  (read         ) [ 001]
+StgValue_9          (specinterface) [ 000]
+StgValue_10         (specinterface) [ 000]
+StgValue_11         (specinterface) [ 000]
+StgValue_12         (specinterface) [ 000]
+StgValue_13         (specinterface) [ 000]
+StgValue_14         (call         ) [ 000]
+StgValue_15         (ret          ) [ 000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="inputs">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="inputs"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="inputs_offset">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="inputs_offset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="inputs_offset1">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="inputs_offset1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="weights">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="weights"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="weights_offset">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="weights_offset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="betas">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="betas"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="betas_offset">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="betas_offset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="outputs">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="outputs"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="outputs_offset">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="outputs_offset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="cntl_V">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="cntl_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i31"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i17"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="apply.11"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="ap_fifo_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str14"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str29"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str55"/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str56"/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1004" name="outputs_offset_read_read_fu_56">
+<pin_list>
+<pin id="57" dir="0" index="0" bw="31" slack="0"/>
+<pin id="58" dir="0" index="1" bw="31" slack="0"/>
+<pin id="59" dir="1" index="2" bw="31" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="outputs_offset_read/1 "/>
+</bind>
+</comp>
+
+<comp id="62" class="1004" name="betas_offset_read_read_fu_62">
+<pin_list>
+<pin id="63" dir="0" index="0" bw="31" slack="0"/>
+<pin id="64" dir="0" index="1" bw="31" slack="0"/>
+<pin id="65" dir="1" index="2" bw="31" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="betas_offset_read/1 "/>
+</bind>
+</comp>
+
+<comp id="68" class="1004" name="weights_offset_read_read_fu_68">
+<pin_list>
+<pin id="69" dir="0" index="0" bw="31" slack="0"/>
+<pin id="70" dir="0" index="1" bw="31" slack="0"/>
+<pin id="71" dir="1" index="2" bw="31" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="weights_offset_read/1 "/>
+</bind>
+</comp>
+
+<comp id="74" class="1004" name="inputs_offset1_read_read_fu_74">
+<pin_list>
+<pin id="75" dir="0" index="0" bw="17" slack="0"/>
+<pin id="76" dir="0" index="1" bw="17" slack="0"/>
+<pin id="77" dir="1" index="2" bw="17" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="inputs_offset1_read/1 "/>
+</bind>
+</comp>
+
+<comp id="80" class="1004" name="inputs_offset_read_read_fu_80">
+<pin_list>
+<pin id="81" dir="0" index="0" bw="31" slack="0"/>
+<pin id="82" dir="0" index="1" bw="31" slack="0"/>
+<pin id="83" dir="1" index="2" bw="31" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="inputs_offset_read/1 "/>
+</bind>
+</comp>
+
+<comp id="86" class="1004" name="grp_apply_11_fu_86">
+<pin_list>
+<pin id="87" dir="0" index="0" bw="0" slack="0"/>
+<pin id="88" dir="0" index="1" bw="16" slack="0"/>
+<pin id="89" dir="0" index="2" bw="31" slack="0"/>
+<pin id="90" dir="0" index="3" bw="17" slack="0"/>
+<pin id="91" dir="0" index="4" bw="16" slack="0"/>
+<pin id="92" dir="0" index="5" bw="31" slack="0"/>
+<pin id="93" dir="0" index="6" bw="16" slack="0"/>
+<pin id="94" dir="0" index="7" bw="31" slack="0"/>
+<pin id="95" dir="0" index="8" bw="16" slack="0"/>
+<pin id="96" dir="0" index="9" bw="31" slack="0"/>
+<pin id="97" dir="0" index="10" bw="1" slack="0"/>
+<pin id="98" dir="1" index="11" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="StgValue_8/1 "/>
+</bind>
+</comp>
+
+<comp id="110" class="1005" name="outputs_offset_read_reg_110">
+<pin_list>
+<pin id="111" dir="0" index="0" bw="31" slack="1"/>
+<pin id="112" dir="1" index="1" bw="31" slack="1"/>
+</pin_list>
+<bind>
+<opset="outputs_offset_read "/>
+</bind>
+</comp>
+
+<comp id="115" class="1005" name="betas_offset_read_reg_115">
+<pin_list>
+<pin id="116" dir="0" index="0" bw="31" slack="1"/>
+<pin id="117" dir="1" index="1" bw="31" slack="1"/>
+</pin_list>
+<bind>
+<opset="betas_offset_read "/>
+</bind>
+</comp>
+
+<comp id="120" class="1005" name="weights_offset_read_reg_120">
+<pin_list>
+<pin id="121" dir="0" index="0" bw="31" slack="1"/>
+<pin id="122" dir="1" index="1" bw="31" slack="1"/>
+</pin_list>
+<bind>
+<opset="weights_offset_read "/>
+</bind>
+</comp>
+
+<comp id="125" class="1005" name="inputs_offset1_read_reg_125">
+<pin_list>
+<pin id="126" dir="0" index="0" bw="17" slack="1"/>
+<pin id="127" dir="1" index="1" bw="17" slack="1"/>
+</pin_list>
+<bind>
+<opset="inputs_offset1_read "/>
+</bind>
+</comp>
+
+<comp id="130" class="1005" name="inputs_offset_read_reg_130">
+<pin_list>
+<pin id="131" dir="0" index="0" bw="31" slack="1"/>
+<pin id="132" dir="1" index="1" bw="31" slack="1"/>
+</pin_list>
+<bind>
+<opset="inputs_offset_read "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="60"><net_src comp="20" pin="0"/><net_sink comp="56" pin=0"/></net>
+
+<net id="61"><net_src comp="16" pin="0"/><net_sink comp="56" pin=1"/></net>
+
+<net id="66"><net_src comp="20" pin="0"/><net_sink comp="62" pin=0"/></net>
+
+<net id="67"><net_src comp="12" pin="0"/><net_sink comp="62" pin=1"/></net>
+
+<net id="72"><net_src comp="20" pin="0"/><net_sink comp="68" pin=0"/></net>
+
+<net id="73"><net_src comp="8" pin="0"/><net_sink comp="68" pin=1"/></net>
+
+<net id="78"><net_src comp="22" pin="0"/><net_sink comp="74" pin=0"/></net>
+
+<net id="79"><net_src comp="4" pin="0"/><net_sink comp="74" pin=1"/></net>
+
+<net id="84"><net_src comp="20" pin="0"/><net_sink comp="80" pin=0"/></net>
+
+<net id="85"><net_src comp="2" pin="0"/><net_sink comp="80" pin=1"/></net>
+
+<net id="99"><net_src comp="24" pin="0"/><net_sink comp="86" pin=0"/></net>
+
+<net id="100"><net_src comp="0" pin="0"/><net_sink comp="86" pin=1"/></net>
+
+<net id="101"><net_src comp="80" pin="2"/><net_sink comp="86" pin=2"/></net>
+
+<net id="102"><net_src comp="74" pin="2"/><net_sink comp="86" pin=3"/></net>
+
+<net id="103"><net_src comp="6" pin="0"/><net_sink comp="86" pin=4"/></net>
+
+<net id="104"><net_src comp="68" pin="2"/><net_sink comp="86" pin=5"/></net>
+
+<net id="105"><net_src comp="10" pin="0"/><net_sink comp="86" pin=6"/></net>
+
+<net id="106"><net_src comp="62" pin="2"/><net_sink comp="86" pin=7"/></net>
+
+<net id="107"><net_src comp="14" pin="0"/><net_sink comp="86" pin=8"/></net>
+
+<net id="108"><net_src comp="56" pin="2"/><net_sink comp="86" pin=9"/></net>
+
+<net id="109"><net_src comp="18" pin="0"/><net_sink comp="86" pin=10"/></net>
+
+<net id="113"><net_src comp="56" pin="2"/><net_sink comp="110" pin=0"/></net>
+
+<net id="114"><net_src comp="110" pin="1"/><net_sink comp="86" pin=9"/></net>
+
+<net id="118"><net_src comp="62" pin="2"/><net_sink comp="115" pin=0"/></net>
+
+<net id="119"><net_src comp="115" pin="1"/><net_sink comp="86" pin=7"/></net>
+
+<net id="123"><net_src comp="68" pin="2"/><net_sink comp="120" pin=0"/></net>
+
+<net id="124"><net_src comp="120" pin="1"/><net_sink comp="86" pin=5"/></net>
+
+<net id="128"><net_src comp="74" pin="2"/><net_sink comp="125" pin=0"/></net>
+
+<net id="129"><net_src comp="125" pin="1"/><net_sink comp="86" pin=3"/></net>
+
+<net id="133"><net_src comp="80" pin="2"/><net_sink comp="130" pin=0"/></net>
+
+<net id="134"><net_src comp="130" pin="1"/><net_sink comp="86" pin=2"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: outputs | {1 2 }
+	Port: cntl_V | {1 2 }
+ - Input state : 
+	Port: conv.10 : inputs | {1 2 }
+	Port: conv.10 : inputs_offset | {1 }
+	Port: conv.10 : inputs_offset1 | {1 }
+	Port: conv.10 : weights | {1 2 }
+	Port: conv.10 : weights_offset | {1 }
+	Port: conv.10 : betas | {1 2 }
+	Port: conv.10 : betas_offset | {1 }
+	Port: conv.10 : outputs_offset | {1 }
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|--------------------------------|---------|---------|---------|---------|---------|
+| Operation|         Functional Unit        |   BRAM  |  DSP48E |  Delay  |    FF   |   LUT   |
+|----------|--------------------------------|---------|---------|---------|---------|---------|
+|   call   |       grp_apply_11_fu_86       |    1    |    36   |  14.432 |   8773  |   3307  |
+|----------|--------------------------------|---------|---------|---------|---------|---------|
+|          | outputs_offset_read_read_fu_56 |    0    |    0    |    0    |    0    |    0    |
+|          |  betas_offset_read_read_fu_62  |    0    |    0    |    0    |    0    |    0    |
+|   read   | weights_offset_read_read_fu_68 |    0    |    0    |    0    |    0    |    0    |
+|          | inputs_offset1_read_read_fu_74 |    0    |    0    |    0    |    0    |    0    |
+|          |  inputs_offset_read_read_fu_80 |    0    |    0    |    0    |    0    |    0    |
+|----------|--------------------------------|---------|---------|---------|---------|---------|
+|   Total  |                                |    1    |    36   |  14.432 |   8773  |   3307  |
+|----------|--------------------------------|---------|---------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++---------------------------+--------+
+|                           |   FF   |
++---------------------------+--------+
+| betas_offset_read_reg_115 |   31   |
+|inputs_offset1_read_reg_125|   17   |
+| inputs_offset_read_reg_130|   31   |
+|outputs_offset_read_reg_110|   31   |
+|weights_offset_read_reg_120|   31   |
++---------------------------+--------+
+|           Total           |   141  |
++---------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|--------------------|------|------|------|--------||---------||---------|
+|        Comp        |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|--------------------|------|------|------|--------||---------||---------|
+| grp_apply_11_fu_86 |  p2  |   2  |  31  |   62   ||    9    |
+| grp_apply_11_fu_86 |  p3  |   2  |  17  |   34   ||    9    |
+| grp_apply_11_fu_86 |  p5  |   2  |  31  |   62   ||    9    |
+| grp_apply_11_fu_86 |  p7  |   2  |  31  |   62   ||    9    |
+| grp_apply_11_fu_86 |  p9  |   2  |  31  |   62   ||    9    |
+|--------------------|------|------|------|--------||---------||---------|
+|        Total       |      |      |      |   282  ||   3.28  ||    45   |
+|--------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+--------+
+|           |  BRAM  | DSP48E |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+--------+
+|  Function |    1   |   36   |   14   |  8773  |  3307  |
+|   Memory  |    -   |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    -   |    3   |    -   |   45   |
+|  Register |    -   |    -   |    -   |   141  |    -   |
++-----------+--------+--------+--------+--------+--------+
+|   Total   |    1   |   36   |   17   |  8914  |  3352  |
++-----------+--------+--------+--------+--------+--------+

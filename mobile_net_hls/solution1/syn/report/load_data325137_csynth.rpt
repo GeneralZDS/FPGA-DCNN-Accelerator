@@ -1,0 +1,517 @@
+
+
+================================================================
+== Vivado HLS Report for 'load_data325137'
+================================================================
+* Date:           Sun Apr 28 16:00:39 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.675|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------------+------------------------+-----+-----+-----+-----+---------+
+        |                                   |                        |  Latency  |  Interval | Pipeline|
+        |              Instance             |         Module         | min | max | min | max |   Type  |
+        +-----------------------------------+------------------------+-----+-----+-----+-----+---------+
+        |grp_copy_input_fmem2buff_5_fu_405  |copy_input_fmem2buff_5  |   45|  869|   45|  869|   none  |
+        |grp_copy_weight_fmem2buf_1_fu_425  |copy_weight_fmem2buf_1  |   25|  325|   25|  325|   none  |
+        |grp_copy_beta_fmem2buffe_1_fu_471  |copy_beta_fmem2buffe_1  |    1|   26|    1|   26|   none  |
+        +-----------------------------------+------------------------+-----+-----+-----+-----+---------+
+
+        * Loop: 
+        +-------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                         |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |        Loop Name        | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1                 |    ?|    ?|         ?|          -|          -|     8|    no    |
+        | + Loop 1.1              |    ?|    ?|         ?|          -|          -|     8|    no    |
+        |  ++ Loop 1.1.1          |    ?|    ?|         ?|          -|          -|     4|    no    |
+        |   +++ Loop 1.1.1.1      |    ?|    ?|         ?|          -|          -|    16|    no    |
+        |    ++++ Loop 1.1.1.1.1  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        +-------------------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     210|    -|
+|FIFO             |        0|      -|      15|      48|    -|
+|Instance         |        -|      -|     548|    1317|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     497|    -|
+|Register         |        -|      -|     149|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|     712|    2072|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------+------------------------+---------+-------+-----+-----+
+    |              Instance             |         Module         | BRAM_18K| DSP48E|  FF | LUT |
+    +-----------------------------------+------------------------+---------+-------+-----+-----+
+    |grp_copy_beta_fmem2buffe_1_fu_471  |copy_beta_fmem2buffe_1  |        0|      0|   81|  188|
+    |grp_copy_input_fmem2buff_5_fu_405  |copy_input_fmem2buff_5  |        0|      0|  327|  871|
+    |grp_copy_weight_fmem2buf_1_fu_425  |copy_weight_fmem2buf_1  |        0|      0|  140|  258|
+    +-----------------------------------+------------------------+---------+-------+-----+-----+
+    |Total                              |                        |        0|      0|  548| 1317|
+    +-----------------------------------+------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +----------------------+---------+---+----+------+-----+---------+
+    |         Name         | BRAM_18K| FF| LUT| Depth| Bits| Size:D*B|
+    +----------------------+---------+---+----+------+-----+---------+
+    |beta_cntl_V_fifo_U    |        0|  5|  16|     1|    1|        1|
+    |input_cntl_V_fifo_U   |        0|  5|  16|     1|    1|        1|
+    |weight_cntl_V_fifo_U  |        0|  5|  16|     1|    1|        1|
+    +----------------------+---------+---+----+------+-----+---------+
+    |Total                 |        0| 15|  48|     3|    3|        3|
+    +----------------------+---------+---+----+------+-----+---------+
+
+    * Expression: 
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |c_fu_584_p2                      |     +    |      0|  0|  15|           8|           5|
+    |m_fu_635_p2                      |     +    |      0|  0|  15|           7|           5|
+    |n_fu_685_p2                      |     +    |      0|  0|  15|           2|           6|
+    |r_fu_546_p2                      |     +    |      0|  0|  15|           8|           5|
+    |tmp_292_i_i_i_i_i_fu_526_p2      |     -    |      0|  0|  16|           9|           8|
+    |tmp_296_i_i_i_i_i_fu_564_p2      |     -    |      0|  0|  16|           9|           8|
+    |tmp_300_i_i_i_i_i_fu_615_p2      |     -    |      0|  0|  15|           8|           7|
+    |tmp_305_i_i_i_i_i_fu_661_p2      |     -    |      0|  0|  15|           7|           6|
+    |tmp4_i_i_i_demorgan_fu_699_p2    |    and   |      0|  0|   2|           1|           1|
+    |tmp_411_fu_590_p2                |    and   |      0|  0|   8|           8|           8|
+    |tmp_90_i_i_i_demorga_fu_704_p2   |    and   |      0|  0|   2|           1|           1|
+    |tmp_293_i_i_i_i_i_fu_532_p2      |   icmp   |      0|  0|  11|           8|           5|
+    |tmp_297_i_i_i_i_i_fu_570_p2      |   icmp   |      0|  0|  11|           8|           5|
+    |tmp_301_i_i_i_i_i_fu_621_p2      |   icmp   |      0|  0|  11|           7|           5|
+    |tmp_306_i_i_i_i_i_fu_671_p2      |   icmp   |      0|  0|  11|           6|           2|
+    |ap_block_state1                  |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state8_on_subcall_done  |    or    |      0|  0|   2|           1|           1|
+    |cLoops_fu_576_p3                 |  select  |      0|  0|   8|           1|           5|
+    |mLoops_fu_627_p3                 |  select  |      0|  0|   7|           1|           5|
+    |nLoops_fu_677_p3                 |  select  |      0|  0|   3|           1|           3|
+    |rLoops_fu_538_p3                 |  select  |      0|  0|   8|           1|           5|
+    |tmp_427_fu_709_p2                |    xor   |      0|  0|   2|           1|           2|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |Total                            |          |      0|  0| 210|         104|          99|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                 |  47|         10|    1|         10|
+    |ap_done                   |   9|          2|    1|          2|
+    |beta_buffer_0_write       |   9|          2|    1|          2|
+    |beta_buffer_10_write      |   9|          2|    1|          2|
+    |beta_buffer_11_write      |   9|          2|    1|          2|
+    |beta_buffer_12_write      |   9|          2|    1|          2|
+    |beta_buffer_13_write      |   9|          2|    1|          2|
+    |beta_buffer_14_write      |   9|          2|    1|          2|
+    |beta_buffer_15_write      |   9|          2|    1|          2|
+    |beta_buffer_1_write       |   9|          2|    1|          2|
+    |beta_buffer_2_write       |   9|          2|    1|          2|
+    |beta_buffer_3_write       |   9|          2|    1|          2|
+    |beta_buffer_4_write       |   9|          2|    1|          2|
+    |beta_buffer_5_write       |   9|          2|    1|          2|
+    |beta_buffer_6_write       |   9|          2|    1|          2|
+    |beta_buffer_7_write       |   9|          2|    1|          2|
+    |beta_buffer_8_write       |   9|          2|    1|          2|
+    |beta_buffer_9_write       |   9|          2|    1|          2|
+    |beta_cntl_V_write         |   9|          2|    1|          2|
+    |input_buffer_V_write      |   9|          2|    1|          2|
+    |input_cntl_V_write        |   9|          2|    1|          2|
+    |m_axi_betas_ARVALID       |   9|          2|    1|          2|
+    |m_axi_betas_RREADY        |   9|          2|    1|          2|
+    |m_axi_inputs_ARVALID      |   9|          2|    1|          2|
+    |m_axi_inputs_RREADY       |   9|          2|    1|          2|
+    |m_axi_weights_ARVALID     |   9|          2|    1|          2|
+    |m_axi_weights_RREADY      |   9|          2|    1|          2|
+    |outputs_offset_c_blk_n    |   9|          2|    1|          2|
+    |outputs_offset_out_blk_n  |   9|          2|    1|          2|
+    |real_start                |   9|          2|    1|          2|
+    |tmp_422_reg_369           |   9|          2|    8|         16|
+    |tmp_423_reg_357           |   9|          2|    8|         16|
+    |tmp_424_reg_381           |   9|          2|    7|         14|
+    |tmp_425_reg_393           |   9|          2|    6|         12|
+    |weight_buffer_0_write     |   9|          2|    1|          2|
+    |weight_buffer_10_write    |   9|          2|    1|          2|
+    |weight_buffer_11_write    |   9|          2|    1|          2|
+    |weight_buffer_12_write    |   9|          2|    1|          2|
+    |weight_buffer_13_write    |   9|          2|    1|          2|
+    |weight_buffer_14_write    |   9|          2|    1|          2|
+    |weight_buffer_15_write    |   9|          2|    1|          2|
+    |weight_buffer_1_write     |   9|          2|    1|          2|
+    |weight_buffer_2_write     |   9|          2|    1|          2|
+    |weight_buffer_3_write     |   9|          2|    1|          2|
+    |weight_buffer_4_write     |   9|          2|    1|          2|
+    |weight_buffer_5_write     |   9|          2|    1|          2|
+    |weight_buffer_6_write     |   9|          2|    1|          2|
+    |weight_buffer_7_write     |   9|          2|    1|          2|
+    |weight_buffer_8_write     |   9|          2|    1|          2|
+    |weight_buffer_9_write     |   9|          2|    1|          2|
+    |weight_cntl_V_write       |   9|          2|    1|          2|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     | 497|        110|   76|        160|
+    +--------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------------------+---+----+-----+-----------+
+    |                      Name                      | FF| LUT| Bits| Const Bits|
+    +------------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                       |  9|   0|    9|          0|
+    |ap_done_reg                                     |  1|   0|    1|          0|
+    |cLoops_reg_797                                  |  8|   0|    8|          0|
+    |c_reg_802                                       |  8|   0|    8|          0|
+    |grp_copy_beta_fmem2buffe_1_fu_471_ap_start_reg  |  1|   0|    1|          0|
+    |grp_copy_input_fmem2buff_5_fu_405_ap_start_reg  |  1|   0|    1|          0|
+    |grp_copy_weight_fmem2buf_1_fu_425_ap_start_reg  |  1|   0|    1|          0|
+    |mLoops_cast_cast2_i_s_reg_873                   |  7|   0|   10|          3|
+    |mLoops_reg_820                                  |  7|   0|    7|          0|
+    |m_reg_826                                       |  7|   0|    7|          0|
+    |nLoops_reg_847                                  |  2|   0|    2|          0|
+    |n_reg_853                                       |  6|   0|    6|          0|
+    |rLoops_reg_778                                  |  8|   0|    8|          0|
+    |r_reg_783                                       |  8|   0|    8|          0|
+    |start_once_reg                                  |  1|   0|    1|          0|
+    |tmp_203_cast6_i_i_i_reg_770                     |  8|   0|   32|         24|
+    |tmp_302_cast34_cast3_reg_863                    |  6|   0|   10|          4|
+    |tmp_412_reg_807                                 |  1|   0|    1|          0|
+    |tmp_414_reg_831                                 |  1|   0|    1|          0|
+    |tmp_422_reg_369                                 |  8|   0|    8|          0|
+    |tmp_423_reg_357                                 |  8|   0|    8|          0|
+    |tmp_424_reg_381                                 |  7|   0|    7|          0|
+    |tmp_425_reg_393                                 |  6|   0|    6|          0|
+    |tmp_426_reg_836                                 |  6|   0|   32|         26|
+    |tmp_427_reg_858                                 |  1|   0|    1|          0|
+    |tmp_83_cast5_i_i_i_reg_789                      |  8|   0|   32|         24|
+    |tmp_84_cast4_cast1_i_reg_868                    |  7|   0|   10|          3|
+    |tmp_84_cast4_i_i_i_reg_812                      |  7|   0|   32|         25|
+    +------------------------------------------------+---+----+-----+-----------+
+    |Total                                           |149|   0|  258|        109|
+    +------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+--------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |    Source Object   |    C Type    |
++---------------------------+-----+-----+------------+--------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |   load_data325137  | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |   load_data325137  | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |   load_data325137  | return value |
+|start_full_n               |  in |    1| ap_ctrl_hs |   load_data325137  | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |   load_data325137  | return value |
+|ap_continue                |  in |    1| ap_ctrl_hs |   load_data325137  | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |   load_data325137  | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |   load_data325137  | return value |
+|start_out                  | out |    1| ap_ctrl_hs |   load_data325137  | return value |
+|start_write                | out |    1| ap_ctrl_hs |   load_data325137  | return value |
+|m_axi_inputs_AWVALID       | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWREADY       |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWADDR        | out |   32|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWID          | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWLEN         | out |   32|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWSIZE        | out |    3|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWBURST       | out |    2|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWLOCK        | out |    2|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWCACHE       | out |    4|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWPROT        | out |    3|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWQOS         | out |    4|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWREGION      | out |    4|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_AWUSER        | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_WVALID        | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_WREADY        |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_WDATA         | out |   16|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_WSTRB         | out |    2|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_WLAST         | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_WID           | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_WUSER         | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARVALID       | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARREADY       |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARADDR        | out |   32|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARID          | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARLEN         | out |   32|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARSIZE        | out |    3|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARBURST       | out |    2|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARLOCK        | out |    2|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARCACHE       | out |    4|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARPROT        | out |    3|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARQOS         | out |    4|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARREGION      | out |    4|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_ARUSER        | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_RVALID        |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_RREADY        | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_RDATA         |  in |   16|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_RLAST         |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_RID           |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_RUSER         |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_RRESP         |  in |    2|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_BVALID        |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_BREADY        | out |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_BRESP         |  in |    2|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_BID           |  in |    1|    m_axi   |       inputs       |    pointer   |
+|m_axi_inputs_BUSER         |  in |    1|    m_axi   |       inputs       |    pointer   |
+|inputs_offset              |  in |   31|   ap_none  |    inputs_offset   |    scalar    |
+|inputs_offset1             |  in |   20|   ap_none  |   inputs_offset1   |    scalar    |
+|m_axi_weights_AWVALID      | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWREADY      |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWADDR       | out |   32|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWID         | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWLEN        | out |   32|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWSIZE       | out |    3|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWBURST      | out |    2|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWLOCK       | out |    2|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWCACHE      | out |    4|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWPROT       | out |    3|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWQOS        | out |    4|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWREGION     | out |    4|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_AWUSER       | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_WVALID       | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_WREADY       |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_WDATA        | out |   16|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_WSTRB        | out |    2|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_WLAST        | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_WID          | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_WUSER        | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARVALID      | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARREADY      |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARADDR       | out |   32|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARID         | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARLEN        | out |   32|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARSIZE       | out |    3|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARBURST      | out |    2|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARLOCK       | out |    2|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARCACHE      | out |    4|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARPROT       | out |    3|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARQOS        | out |    4|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARREGION     | out |    4|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_ARUSER       | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_RVALID       |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_RREADY       | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_RDATA        |  in |   16|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_RLAST        |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_RID          |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_RUSER        |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_RRESP        |  in |    2|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_BVALID       |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_BREADY       | out |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_BRESP        |  in |    2|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_BID          |  in |    1|    m_axi   |       weights      |    pointer   |
+|m_axi_weights_BUSER        |  in |    1|    m_axi   |       weights      |    pointer   |
+|weights_offset             |  in |   31|   ap_none  |   weights_offset   |    scalar    |
+|m_axi_betas_AWVALID        | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWREADY        |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWADDR         | out |   32|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWID           | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWLEN          | out |   32|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWSIZE         | out |    3|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWBURST        | out |    2|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWLOCK         | out |    2|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWCACHE        | out |    4|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWPROT         | out |    3|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWQOS          | out |    4|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWREGION       | out |    4|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_AWUSER         | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_WVALID         | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_WREADY         |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_WDATA          | out |   16|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_WSTRB          | out |    2|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_WLAST          | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_WID            | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_WUSER          | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARVALID        | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARREADY        |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARADDR         | out |   32|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARID           | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARLEN          | out |   32|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARSIZE         | out |    3|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARBURST        | out |    2|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARLOCK         | out |    2|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARCACHE        | out |    4|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARPROT         | out |    3|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARQOS          | out |    4|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARREGION       | out |    4|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_ARUSER         | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_RVALID         |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_RREADY         | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_RDATA          |  in |   16|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_RLAST          |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_RID            |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_RUSER          |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_RRESP          |  in |    2|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_BVALID         |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_BREADY         | out |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_BRESP          |  in |    2|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_BID            |  in |    1|    m_axi   |        betas       |    pointer   |
+|m_axi_betas_BUSER          |  in |    1|    m_axi   |        betas       |    pointer   |
+|betas_offset               |  in |   31|   ap_none  |    betas_offset    |    scalar    |
+|input_buffer_V_din         | out |   16|   ap_fifo  |   input_buffer_V   |    pointer   |
+|input_buffer_V_full_n      |  in |    1|   ap_fifo  |   input_buffer_V   |    pointer   |
+|input_buffer_V_write       | out |    1|   ap_fifo  |   input_buffer_V   |    pointer   |
+|weight_buffer_0_din        | out |   16|   ap_fifo  |   weight_buffer_0  |    pointer   |
+|weight_buffer_0_full_n     |  in |    1|   ap_fifo  |   weight_buffer_0  |    pointer   |
+|weight_buffer_0_write      | out |    1|   ap_fifo  |   weight_buffer_0  |    pointer   |
+|weight_buffer_1_din        | out |   16|   ap_fifo  |   weight_buffer_1  |    pointer   |
+|weight_buffer_1_full_n     |  in |    1|   ap_fifo  |   weight_buffer_1  |    pointer   |
+|weight_buffer_1_write      | out |    1|   ap_fifo  |   weight_buffer_1  |    pointer   |
+|weight_buffer_2_din        | out |   16|   ap_fifo  |   weight_buffer_2  |    pointer   |
+|weight_buffer_2_full_n     |  in |    1|   ap_fifo  |   weight_buffer_2  |    pointer   |
+|weight_buffer_2_write      | out |    1|   ap_fifo  |   weight_buffer_2  |    pointer   |
+|weight_buffer_3_din        | out |   16|   ap_fifo  |   weight_buffer_3  |    pointer   |
+|weight_buffer_3_full_n     |  in |    1|   ap_fifo  |   weight_buffer_3  |    pointer   |
+|weight_buffer_3_write      | out |    1|   ap_fifo  |   weight_buffer_3  |    pointer   |
+|weight_buffer_4_din        | out |   16|   ap_fifo  |   weight_buffer_4  |    pointer   |
+|weight_buffer_4_full_n     |  in |    1|   ap_fifo  |   weight_buffer_4  |    pointer   |
+|weight_buffer_4_write      | out |    1|   ap_fifo  |   weight_buffer_4  |    pointer   |
+|weight_buffer_5_din        | out |   16|   ap_fifo  |   weight_buffer_5  |    pointer   |
+|weight_buffer_5_full_n     |  in |    1|   ap_fifo  |   weight_buffer_5  |    pointer   |
+|weight_buffer_5_write      | out |    1|   ap_fifo  |   weight_buffer_5  |    pointer   |
+|weight_buffer_6_din        | out |   16|   ap_fifo  |   weight_buffer_6  |    pointer   |
+|weight_buffer_6_full_n     |  in |    1|   ap_fifo  |   weight_buffer_6  |    pointer   |
+|weight_buffer_6_write      | out |    1|   ap_fifo  |   weight_buffer_6  |    pointer   |
+|weight_buffer_7_din        | out |   16|   ap_fifo  |   weight_buffer_7  |    pointer   |
+|weight_buffer_7_full_n     |  in |    1|   ap_fifo  |   weight_buffer_7  |    pointer   |
+|weight_buffer_7_write      | out |    1|   ap_fifo  |   weight_buffer_7  |    pointer   |
+|weight_buffer_8_din        | out |   16|   ap_fifo  |   weight_buffer_8  |    pointer   |
+|weight_buffer_8_full_n     |  in |    1|   ap_fifo  |   weight_buffer_8  |    pointer   |
+|weight_buffer_8_write      | out |    1|   ap_fifo  |   weight_buffer_8  |    pointer   |
+|weight_buffer_9_din        | out |   16|   ap_fifo  |   weight_buffer_9  |    pointer   |
+|weight_buffer_9_full_n     |  in |    1|   ap_fifo  |   weight_buffer_9  |    pointer   |
+|weight_buffer_9_write      | out |    1|   ap_fifo  |   weight_buffer_9  |    pointer   |
+|weight_buffer_10_din       | out |   16|   ap_fifo  |  weight_buffer_10  |    pointer   |
+|weight_buffer_10_full_n    |  in |    1|   ap_fifo  |  weight_buffer_10  |    pointer   |
+|weight_buffer_10_write     | out |    1|   ap_fifo  |  weight_buffer_10  |    pointer   |
+|weight_buffer_11_din       | out |   16|   ap_fifo  |  weight_buffer_11  |    pointer   |
+|weight_buffer_11_full_n    |  in |    1|   ap_fifo  |  weight_buffer_11  |    pointer   |
+|weight_buffer_11_write     | out |    1|   ap_fifo  |  weight_buffer_11  |    pointer   |
+|weight_buffer_12_din       | out |   16|   ap_fifo  |  weight_buffer_12  |    pointer   |
+|weight_buffer_12_full_n    |  in |    1|   ap_fifo  |  weight_buffer_12  |    pointer   |
+|weight_buffer_12_write     | out |    1|   ap_fifo  |  weight_buffer_12  |    pointer   |
+|weight_buffer_13_din       | out |   16|   ap_fifo  |  weight_buffer_13  |    pointer   |
+|weight_buffer_13_full_n    |  in |    1|   ap_fifo  |  weight_buffer_13  |    pointer   |
+|weight_buffer_13_write     | out |    1|   ap_fifo  |  weight_buffer_13  |    pointer   |
+|weight_buffer_14_din       | out |   16|   ap_fifo  |  weight_buffer_14  |    pointer   |
+|weight_buffer_14_full_n    |  in |    1|   ap_fifo  |  weight_buffer_14  |    pointer   |
+|weight_buffer_14_write     | out |    1|   ap_fifo  |  weight_buffer_14  |    pointer   |
+|weight_buffer_15_din       | out |   16|   ap_fifo  |  weight_buffer_15  |    pointer   |
+|weight_buffer_15_full_n    |  in |    1|   ap_fifo  |  weight_buffer_15  |    pointer   |
+|weight_buffer_15_write     | out |    1|   ap_fifo  |  weight_buffer_15  |    pointer   |
+|beta_buffer_0_din          | out |   16|   ap_fifo  |    beta_buffer_0   |    pointer   |
+|beta_buffer_0_full_n       |  in |    1|   ap_fifo  |    beta_buffer_0   |    pointer   |
+|beta_buffer_0_write        | out |    1|   ap_fifo  |    beta_buffer_0   |    pointer   |
+|beta_buffer_1_din          | out |   16|   ap_fifo  |    beta_buffer_1   |    pointer   |
+|beta_buffer_1_full_n       |  in |    1|   ap_fifo  |    beta_buffer_1   |    pointer   |
+|beta_buffer_1_write        | out |    1|   ap_fifo  |    beta_buffer_1   |    pointer   |
+|beta_buffer_2_din          | out |   16|   ap_fifo  |    beta_buffer_2   |    pointer   |
+|beta_buffer_2_full_n       |  in |    1|   ap_fifo  |    beta_buffer_2   |    pointer   |
+|beta_buffer_2_write        | out |    1|   ap_fifo  |    beta_buffer_2   |    pointer   |
+|beta_buffer_3_din          | out |   16|   ap_fifo  |    beta_buffer_3   |    pointer   |
+|beta_buffer_3_full_n       |  in |    1|   ap_fifo  |    beta_buffer_3   |    pointer   |
+|beta_buffer_3_write        | out |    1|   ap_fifo  |    beta_buffer_3   |    pointer   |
+|beta_buffer_4_din          | out |   16|   ap_fifo  |    beta_buffer_4   |    pointer   |
+|beta_buffer_4_full_n       |  in |    1|   ap_fifo  |    beta_buffer_4   |    pointer   |
+|beta_buffer_4_write        | out |    1|   ap_fifo  |    beta_buffer_4   |    pointer   |
+|beta_buffer_5_din          | out |   16|   ap_fifo  |    beta_buffer_5   |    pointer   |
+|beta_buffer_5_full_n       |  in |    1|   ap_fifo  |    beta_buffer_5   |    pointer   |
+|beta_buffer_5_write        | out |    1|   ap_fifo  |    beta_buffer_5   |    pointer   |
+|beta_buffer_6_din          | out |   16|   ap_fifo  |    beta_buffer_6   |    pointer   |
+|beta_buffer_6_full_n       |  in |    1|   ap_fifo  |    beta_buffer_6   |    pointer   |
+|beta_buffer_6_write        | out |    1|   ap_fifo  |    beta_buffer_6   |    pointer   |
+|beta_buffer_7_din          | out |   16|   ap_fifo  |    beta_buffer_7   |    pointer   |
+|beta_buffer_7_full_n       |  in |    1|   ap_fifo  |    beta_buffer_7   |    pointer   |
+|beta_buffer_7_write        | out |    1|   ap_fifo  |    beta_buffer_7   |    pointer   |
+|beta_buffer_8_din          | out |   16|   ap_fifo  |    beta_buffer_8   |    pointer   |
+|beta_buffer_8_full_n       |  in |    1|   ap_fifo  |    beta_buffer_8   |    pointer   |
+|beta_buffer_8_write        | out |    1|   ap_fifo  |    beta_buffer_8   |    pointer   |
+|beta_buffer_9_din          | out |   16|   ap_fifo  |    beta_buffer_9   |    pointer   |
+|beta_buffer_9_full_n       |  in |    1|   ap_fifo  |    beta_buffer_9   |    pointer   |
+|beta_buffer_9_write        | out |    1|   ap_fifo  |    beta_buffer_9   |    pointer   |
+|beta_buffer_10_din         | out |   16|   ap_fifo  |   beta_buffer_10   |    pointer   |
+|beta_buffer_10_full_n      |  in |    1|   ap_fifo  |   beta_buffer_10   |    pointer   |
+|beta_buffer_10_write       | out |    1|   ap_fifo  |   beta_buffer_10   |    pointer   |
+|beta_buffer_11_din         | out |   16|   ap_fifo  |   beta_buffer_11   |    pointer   |
+|beta_buffer_11_full_n      |  in |    1|   ap_fifo  |   beta_buffer_11   |    pointer   |
+|beta_buffer_11_write       | out |    1|   ap_fifo  |   beta_buffer_11   |    pointer   |
+|beta_buffer_12_din         | out |   16|   ap_fifo  |   beta_buffer_12   |    pointer   |
+|beta_buffer_12_full_n      |  in |    1|   ap_fifo  |   beta_buffer_12   |    pointer   |
+|beta_buffer_12_write       | out |    1|   ap_fifo  |   beta_buffer_12   |    pointer   |
+|beta_buffer_13_din         | out |   16|   ap_fifo  |   beta_buffer_13   |    pointer   |
+|beta_buffer_13_full_n      |  in |    1|   ap_fifo  |   beta_buffer_13   |    pointer   |
+|beta_buffer_13_write       | out |    1|   ap_fifo  |   beta_buffer_13   |    pointer   |
+|beta_buffer_14_din         | out |   16|   ap_fifo  |   beta_buffer_14   |    pointer   |
+|beta_buffer_14_full_n      |  in |    1|   ap_fifo  |   beta_buffer_14   |    pointer   |
+|beta_buffer_14_write       | out |    1|   ap_fifo  |   beta_buffer_14   |    pointer   |
+|beta_buffer_15_din         | out |   16|   ap_fifo  |   beta_buffer_15   |    pointer   |
+|beta_buffer_15_full_n      |  in |    1|   ap_fifo  |   beta_buffer_15   |    pointer   |
+|beta_buffer_15_write       | out |    1|   ap_fifo  |   beta_buffer_15   |    pointer   |
+|data_buffer_V_din          | out |    1|   ap_fifo  |    data_buffer_V   |    pointer   |
+|data_buffer_V_full_n       |  in |    1|   ap_fifo  |    data_buffer_V   |    pointer   |
+|data_buffer_V_write        | out |    1|   ap_fifo  |    data_buffer_V   |    pointer   |
+|data_c_V_din               | out |   32|   ap_fifo  |      data_c_V      |    pointer   |
+|data_c_V_full_n            |  in |    1|   ap_fifo  |      data_c_V      |    pointer   |
+|data_c_V_write             | out |    1|   ap_fifo  |      data_c_V      |    pointer   |
+|data_r_V_din               | out |   32|   ap_fifo  |      data_r_V      |    pointer   |
+|data_r_V_full_n            |  in |    1|   ap_fifo  |      data_r_V      |    pointer   |
+|data_r_V_write             | out |    1|   ap_fifo  |      data_r_V      |    pointer   |
+|data_m_V_din               | out |   32|   ap_fifo  |      data_m_V      |    pointer   |
+|data_m_V_full_n            |  in |    1|   ap_fifo  |      data_m_V      |    pointer   |
+|data_m_V_write             | out |    1|   ap_fifo  |      data_m_V      |    pointer   |
+|data_n_V_din               | out |   32|   ap_fifo  |      data_n_V      |    pointer   |
+|data_n_V_full_n            |  in |    1|   ap_fifo  |      data_n_V      |    pointer   |
+|data_n_V_write             | out |    1|   ap_fifo  |      data_n_V      |    pointer   |
+|outputs_offset2            |  in |   21|   ap_none  |   outputs_offset2  |    scalar    |
+|outputs_offset_c_din       | out |   21|   ap_fifo  |  outputs_offset_c  |    pointer   |
+|outputs_offset_c_full_n    |  in |    1|   ap_fifo  |  outputs_offset_c  |    pointer   |
+|outputs_offset_c_write     | out |    1|   ap_fifo  |  outputs_offset_c  |    pointer   |
+|outputs_offset             |  in |   31|   ap_none  |   outputs_offset   |    scalar    |
+|outputs_offset_out_din     | out |   31|   ap_fifo  | outputs_offset_out |    pointer   |
+|outputs_offset_out_full_n  |  in |    1|   ap_fifo  | outputs_offset_out |    pointer   |
+|outputs_offset_out_write   | out |    1|   ap_fifo  | outputs_offset_out |    pointer   |
++---------------------------+-----+-----+------------+--------------------+--------------+
+

@@ -1,0 +1,166 @@
+
+
+================================================================
+== Vivado HLS Report for 'mac_3_9_1'
+================================================================
+* Date:           Sun Apr 28 16:00:10 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.604|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   19|   19|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|     34|    1667|    1202|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       -|    -|
+|Register         |        0|      -|     608|      96|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|     34|    2275|    1298|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      1|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |          Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT |
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |moblie_net_hadd_1bkb_U521  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U522  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U523  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U524  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U525  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U526  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U527  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hadd_1bkb_U528  |moblie_net_hadd_1bkb  |        0|      2|  106|  112|
+    |moblie_net_hmul_1cud_U529  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U530  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U531  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U532  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U533  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U534  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U535  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U536  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    |moblie_net_hmul_1cud_U537  |moblie_net_hmul_1cud  |        0|      2|   91|   34|
+    +---------------------------+----------------------+---------+-------+-----+-----+
+    |Total                      |                      |        0|     34| 1667| 1202|
+    +---------------------------+----------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    +-----------------------------+----+----+-----+-----------+
+    |             Name            | FF | LUT| Bits| Const Bits|
+    +-----------------------------+----+----+-----+-----------+
+    |input_regs_0_read_int_reg    |  16|   0|   16|          0|
+    |input_regs_1_read_int_reg    |  16|   0|   16|          0|
+    |input_regs_2_read_int_reg    |  16|   0|   16|          0|
+    |input_regs_3_read_int_reg    |  16|   0|   16|          0|
+    |input_regs_4_read_int_reg    |  16|   0|   16|          0|
+    |input_regs_5_read_int_reg    |  16|   0|   16|          0|
+    |input_regs_6_read_int_reg    |  16|   0|   16|          0|
+    |input_regs_7_read_int_reg    |  16|   0|   16|          0|
+    |input_regs_8_read_1_reg_161  |  16|   0|   16|          0|
+    |input_regs_8_read_int_reg    |  16|   0|   16|          0|
+    |tmp1_reg_251                 |  16|   0|   16|          0|
+    |tmp2_reg_256                 |  16|   0|   16|          0|
+    |tmp3_reg_281                 |  16|   0|   16|          0|
+    |tmp4_reg_261                 |  16|   0|   16|          0|
+    |tmp5_reg_276                 |  16|   0|   16|          0|
+    |tmp6_reg_266                 |  16|   0|   16|          0|
+    |tmp_5_0_1_reg_211            |  16|   0|   16|          0|
+    |tmp_5_0_2_reg_216            |  16|   0|   16|          0|
+    |tmp_5_1_1_reg_226            |  16|   0|   16|          0|
+    |tmp_5_1_2_reg_231            |  16|   0|   16|          0|
+    |tmp_5_1_reg_221              |  16|   0|   16|          0|
+    |tmp_5_2_1_reg_241            |  16|   0|   16|          0|
+    |tmp_5_2_2_reg_246            |  16|   0|   16|          0|
+    |tmp_5_2_reg_236              |  16|   0|   16|          0|
+    |tmp_5_reg_206                |  16|   0|   16|          0|
+    |tmp_reg_271                  |  16|   0|   16|          0|
+    |input_regs_8_read_1_reg_161  |  64|  32|   16|          0|
+    |tmp4_reg_261                 |  64|  32|   16|          0|
+    |tmp_reg_271                  |  64|  32|   16|          0|
+    +-----------------------------+----+----+-----+-----------+
+    |Total                        | 608|  96|  464|          0|
+    +-----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------+-----+-----+------------+-------------------+--------------+
+|     RTL Ports     | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++-------------------+-----+-----+------------+-------------------+--------------+
+|ap_clk             |  in |    1| ap_ctrl_hs |    mac<3, 9>.1    | return value |
+|ap_rst             |  in |    1| ap_ctrl_hs |    mac<3, 9>.1    | return value |
+|ap_return          | out |   16| ap_ctrl_hs |    mac<3, 9>.1    | return value |
+|input_regs_0_read  |  in |   16|   ap_none  | input_regs_0_read |    scalar    |
+|input_regs_1_read  |  in |   16|   ap_none  | input_regs_1_read |    scalar    |
+|input_regs_2_read  |  in |   16|   ap_none  | input_regs_2_read |    scalar    |
+|input_regs_3_read  |  in |   16|   ap_none  | input_regs_3_read |    scalar    |
+|input_regs_4_read  |  in |   16|   ap_none  | input_regs_4_read |    scalar    |
+|input_regs_5_read  |  in |   16|   ap_none  | input_regs_5_read |    scalar    |
+|input_regs_6_read  |  in |   16|   ap_none  | input_regs_6_read |    scalar    |
+|input_regs_7_read  |  in |   16|   ap_none  | input_regs_7_read |    scalar    |
+|input_regs_8_read  |  in |   16|   ap_none  | input_regs_8_read |    scalar    |
++-------------------+-----+-----+------------+-------------------+--------------+
+

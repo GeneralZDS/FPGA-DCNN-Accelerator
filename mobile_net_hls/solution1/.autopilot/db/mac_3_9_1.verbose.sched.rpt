@@ -1,0 +1,358 @@
+
+
+================================================================
+== Vivado HLS Report for 'mac_3_9_1'
+================================================================
+* Date:           Sun Apr 28 15:49:51 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.604|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   19|   19|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 20
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 20
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 20, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.09>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%input_regs_8_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_8_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 21 'read' 'input_regs_8_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%input_regs_7_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_7_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 22 'read' 'input_regs_7_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%input_regs_6_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_6_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 23 'read' 'input_regs_6_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%input_regs_5_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_5_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 24 'read' 'input_regs_5_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%input_regs_4_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_4_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 25 'read' 'input_regs_4_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%input_regs_3_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_3_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 26 'read' 'input_regs_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%input_regs_2_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_2_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 27 'read' 'input_regs_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%input_regs_1_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_1_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 28 'read' 'input_regs_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%input_regs_0_read_1 = call half @_ssdm_op_Read.ap_auto.half(half %input_regs_0_read)" [mobile_net_hls_v1/conv.hpp:34]   --->   Operation 29 'read' 'input_regs_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [4/4] (2.09ns)   --->   "%tmp_5 = fmul half %input_regs_0_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 30 'hmul' 'tmp_5' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 31 [4/4] (2.09ns)   --->   "%tmp_5_0_1 = fmul half %input_regs_1_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 31 'hmul' 'tmp_5_0_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [4/4] (2.09ns)   --->   "%tmp_5_0_2 = fmul half %input_regs_2_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 32 'hmul' 'tmp_5_0_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [4/4] (2.09ns)   --->   "%tmp_5_1 = fmul half %input_regs_3_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 33 'hmul' 'tmp_5_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 34 [4/4] (2.09ns)   --->   "%tmp_5_1_1 = fmul half %input_regs_4_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 34 'hmul' 'tmp_5_1_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 35 [4/4] (2.09ns)   --->   "%tmp_5_1_2 = fmul half %input_regs_5_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 35 'hmul' 'tmp_5_1_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 36 [4/4] (2.09ns)   --->   "%tmp_5_2 = fmul half %input_regs_6_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 36 'hmul' 'tmp_5_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 37 [4/4] (2.09ns)   --->   "%tmp_5_2_1 = fmul half %input_regs_7_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 37 'hmul' 'tmp_5_2_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 2 <SV = 1> <Delay = 2.09>
+ST_2 : Operation 38 [3/4] (2.09ns)   --->   "%tmp_5 = fmul half %input_regs_0_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 38 'hmul' 'tmp_5' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 39 [3/4] (2.09ns)   --->   "%tmp_5_0_1 = fmul half %input_regs_1_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 39 'hmul' 'tmp_5_0_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 40 [3/4] (2.09ns)   --->   "%tmp_5_0_2 = fmul half %input_regs_2_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 40 'hmul' 'tmp_5_0_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 41 [3/4] (2.09ns)   --->   "%tmp_5_1 = fmul half %input_regs_3_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 41 'hmul' 'tmp_5_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 42 [3/4] (2.09ns)   --->   "%tmp_5_1_1 = fmul half %input_regs_4_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 42 'hmul' 'tmp_5_1_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 43 [3/4] (2.09ns)   --->   "%tmp_5_1_2 = fmul half %input_regs_5_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 43 'hmul' 'tmp_5_1_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 44 [3/4] (2.09ns)   --->   "%tmp_5_2 = fmul half %input_regs_6_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 44 'hmul' 'tmp_5_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 45 [3/4] (2.09ns)   --->   "%tmp_5_2_1 = fmul half %input_regs_7_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 45 'hmul' 'tmp_5_2_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 3 <SV = 2> <Delay = 2.09>
+ST_3 : Operation 46 [2/4] (2.09ns)   --->   "%tmp_5 = fmul half %input_regs_0_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 46 'hmul' 'tmp_5' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 47 [2/4] (2.09ns)   --->   "%tmp_5_0_1 = fmul half %input_regs_1_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 47 'hmul' 'tmp_5_0_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 48 [2/4] (2.09ns)   --->   "%tmp_5_0_2 = fmul half %input_regs_2_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 48 'hmul' 'tmp_5_0_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 49 [2/4] (2.09ns)   --->   "%tmp_5_1 = fmul half %input_regs_3_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 49 'hmul' 'tmp_5_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 50 [2/4] (2.09ns)   --->   "%tmp_5_1_1 = fmul half %input_regs_4_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 50 'hmul' 'tmp_5_1_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 51 [2/4] (2.09ns)   --->   "%tmp_5_1_2 = fmul half %input_regs_5_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 51 'hmul' 'tmp_5_1_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 52 [2/4] (2.09ns)   --->   "%tmp_5_2 = fmul half %input_regs_6_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 52 'hmul' 'tmp_5_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [2/4] (2.09ns)   --->   "%tmp_5_2_1 = fmul half %input_regs_7_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 53 'hmul' 'tmp_5_2_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 2.09>
+ST_4 : Operation 54 [1/4] (2.09ns)   --->   "%tmp_5 = fmul half %input_regs_0_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 54 'hmul' 'tmp_5' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 55 [1/4] (2.09ns)   --->   "%tmp_5_0_1 = fmul half %input_regs_1_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 55 'hmul' 'tmp_5_0_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 56 [1/4] (2.09ns)   --->   "%tmp_5_0_2 = fmul half %input_regs_2_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 56 'hmul' 'tmp_5_0_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 57 [1/4] (2.09ns)   --->   "%tmp_5_1 = fmul half %input_regs_3_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 57 'hmul' 'tmp_5_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 58 [1/4] (2.09ns)   --->   "%tmp_5_1_1 = fmul half %input_regs_4_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 58 'hmul' 'tmp_5_1_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 59 [1/4] (2.09ns)   --->   "%tmp_5_1_2 = fmul half %input_regs_5_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 59 'hmul' 'tmp_5_1_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 60 [1/4] (2.09ns)   --->   "%tmp_5_2 = fmul half %input_regs_6_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 60 'hmul' 'tmp_5_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 61 [1/4] (2.09ns)   --->   "%tmp_5_2_1 = fmul half %input_regs_7_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 61 'hmul' 'tmp_5_2_1' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 3.60>
+ST_5 : Operation 62 [4/4] (2.09ns)   --->   "%tmp_5_2_2 = fmul half %input_regs_8_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 62 'hmul' 'tmp_5_2_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 63 [4/4] (3.60ns)   --->   "%tmp1 = fadd half %tmp_5, %tmp_5_0_1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 63 'hadd' 'tmp1' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 64 [4/4] (3.60ns)   --->   "%tmp2 = fadd half %tmp_5_0_2, %tmp_5_1_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 64 'hadd' 'tmp2' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 65 [4/4] (3.60ns)   --->   "%tmp4 = fadd half %tmp_5_1_1, %tmp_5_1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 65 'hadd' 'tmp4' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 66 [4/4] (3.60ns)   --->   "%tmp6 = fadd half %tmp_5_2_1, %tmp_5_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 66 'hadd' 'tmp6' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 3.60>
+ST_6 : Operation 67 [3/4] (2.09ns)   --->   "%tmp_5_2_2 = fmul half %input_regs_8_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 67 'hmul' 'tmp_5_2_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 68 [3/4] (3.60ns)   --->   "%tmp1 = fadd half %tmp_5, %tmp_5_0_1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 68 'hadd' 'tmp1' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 69 [3/4] (3.60ns)   --->   "%tmp2 = fadd half %tmp_5_0_2, %tmp_5_1_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 69 'hadd' 'tmp2' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 70 [3/4] (3.60ns)   --->   "%tmp4 = fadd half %tmp_5_1_1, %tmp_5_1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 70 'hadd' 'tmp4' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 71 [3/4] (3.60ns)   --->   "%tmp6 = fadd half %tmp_5_2_1, %tmp_5_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 71 'hadd' 'tmp6' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 3.60>
+ST_7 : Operation 72 [2/4] (2.09ns)   --->   "%tmp_5_2_2 = fmul half %input_regs_8_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 72 'hmul' 'tmp_5_2_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 73 [2/4] (3.60ns)   --->   "%tmp1 = fadd half %tmp_5, %tmp_5_0_1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 73 'hadd' 'tmp1' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 74 [2/4] (3.60ns)   --->   "%tmp2 = fadd half %tmp_5_0_2, %tmp_5_1_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 74 'hadd' 'tmp2' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 75 [2/4] (3.60ns)   --->   "%tmp4 = fadd half %tmp_5_1_1, %tmp_5_1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 75 'hadd' 'tmp4' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 76 [2/4] (3.60ns)   --->   "%tmp6 = fadd half %tmp_5_2_1, %tmp_5_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 76 'hadd' 'tmp6' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 3.60>
+ST_8 : Operation 77 [1/4] (2.09ns)   --->   "%tmp_5_2_2 = fmul half %input_regs_8_read_1, undef" [mobile_net_hls_v1/conv.hpp:47]   --->   Operation 77 'hmul' 'tmp_5_2_2' <Predicate = true> <Delay = 2.09> <Core = "HMul">   --->   Core 90 'HMul' <Latency = 3> <II = 1> <Delay = 2.09> <FuncUnit> <Opcode : 'hmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 78 [1/4] (3.60ns)   --->   "%tmp1 = fadd half %tmp_5, %tmp_5_0_1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 78 'hadd' 'tmp1' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 79 [1/4] (3.60ns)   --->   "%tmp2 = fadd half %tmp_5_0_2, %tmp_5_1_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 79 'hadd' 'tmp2' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 80 [1/4] (3.60ns)   --->   "%tmp4 = fadd half %tmp_5_1_1, %tmp_5_1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 80 'hadd' 'tmp4' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 81 [1/4] (3.60ns)   --->   "%tmp6 = fadd half %tmp_5_2_1, %tmp_5_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 81 'hadd' 'tmp6' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 3.60>
+ST_9 : Operation 82 [4/4] (3.60ns)   --->   "%tmp = fadd half %tmp2, %tmp1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 82 'hadd' 'tmp' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 83 [4/4] (3.60ns)   --->   "%tmp5 = fadd half %tmp6, %tmp_5_2_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 83 'hadd' 'tmp5' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 3.60>
+ST_10 : Operation 84 [3/4] (3.60ns)   --->   "%tmp = fadd half %tmp2, %tmp1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 84 'hadd' 'tmp' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 85 [3/4] (3.60ns)   --->   "%tmp5 = fadd half %tmp6, %tmp_5_2_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 85 'hadd' 'tmp5' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 3.60>
+ST_11 : Operation 86 [2/4] (3.60ns)   --->   "%tmp = fadd half %tmp2, %tmp1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 86 'hadd' 'tmp' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 87 [2/4] (3.60ns)   --->   "%tmp5 = fadd half %tmp6, %tmp_5_2_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 87 'hadd' 'tmp5' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 3.60>
+ST_12 : Operation 88 [1/4] (3.60ns)   --->   "%tmp = fadd half %tmp2, %tmp1" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 88 'hadd' 'tmp' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 89 [1/4] (3.60ns)   --->   "%tmp5 = fadd half %tmp6, %tmp_5_2_2" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 89 'hadd' 'tmp5' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 3.60>
+ST_13 : Operation 90 [4/4] (3.60ns)   --->   "%tmp3 = fadd half %tmp5, %tmp4" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 90 'hadd' 'tmp3' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 3.60>
+ST_14 : Operation 91 [3/4] (3.60ns)   --->   "%tmp3 = fadd half %tmp5, %tmp4" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 91 'hadd' 'tmp3' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 3.60>
+ST_15 : Operation 92 [2/4] (3.60ns)   --->   "%tmp3 = fadd half %tmp5, %tmp4" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 92 'hadd' 'tmp3' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 3.60>
+ST_16 : Operation 93 [1/4] (3.60ns)   --->   "%tmp3 = fadd half %tmp5, %tmp4" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 93 'hadd' 'tmp3' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 3.60>
+ST_17 : Operation 94 [4/4] (3.60ns)   --->   "%sum_1_2 = fadd half %tmp3, %tmp" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 94 'hadd' 'sum_1_2' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 3.60>
+ST_18 : Operation 95 [3/4] (3.60ns)   --->   "%sum_1_2 = fadd half %tmp3, %tmp" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 95 'hadd' 'sum_1_2' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 3.60>
+ST_19 : Operation 96 [2/4] (3.60ns)   --->   "%sum_1_2 = fadd half %tmp3, %tmp" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 96 'hadd' 'sum_1_2' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 3.60>
+ST_20 : Operation 97 [1/4] (3.60ns)   --->   "%sum_1_2 = fadd half %tmp3, %tmp" [mobile_net_hls_v1/conv.hpp:68]   --->   Operation 97 'hadd' 'sum_1_2' <Predicate = true> <Delay = 3.60> <Core = "HAddSub">   --->   Core 89 'HAddSub' <Latency = 3> <II = 1> <Delay = 3.60> <FuncUnit> <Opcode : 'hadd' 'hsub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 98 [1/1] (0.00ns)   --->   "ret half %sum_1_2" [mobile_net_hls_v1/conv.hpp:106]   --->   Operation 98 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.2ns, clock uncertainty: 0.525ns.
+
+ <State 1>: 2.1ns
+The critical path consists of the following:
+	wire read on port 'input_regs_7_read' (mobile_net_hls_v1/conv.hpp:34) [11]  (0 ns)
+	'hmul' operation ('tmp_5_2_1', mobile_net_hls_v1/conv.hpp:47) [26]  (2.1 ns)
+
+ <State 2>: 2.1ns
+The critical path consists of the following:
+	'hmul' operation ('tmp_5', mobile_net_hls_v1/conv.hpp:47) [19]  (2.1 ns)
+
+ <State 3>: 2.1ns
+The critical path consists of the following:
+	'hmul' operation ('tmp_5', mobile_net_hls_v1/conv.hpp:47) [19]  (2.1 ns)
+
+ <State 4>: 2.1ns
+The critical path consists of the following:
+	'hmul' operation ('tmp_5', mobile_net_hls_v1/conv.hpp:47) [19]  (2.1 ns)
+
+ <State 5>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp1', mobile_net_hls_v1/conv.hpp:68) [28]  (3.6 ns)
+
+ <State 6>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp1', mobile_net_hls_v1/conv.hpp:68) [28]  (3.6 ns)
+
+ <State 7>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp1', mobile_net_hls_v1/conv.hpp:68) [28]  (3.6 ns)
+
+ <State 8>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp1', mobile_net_hls_v1/conv.hpp:68) [28]  (3.6 ns)
+
+ <State 9>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp', mobile_net_hls_v1/conv.hpp:68) [30]  (3.6 ns)
+
+ <State 10>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp', mobile_net_hls_v1/conv.hpp:68) [30]  (3.6 ns)
+
+ <State 11>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp', mobile_net_hls_v1/conv.hpp:68) [30]  (3.6 ns)
+
+ <State 12>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp', mobile_net_hls_v1/conv.hpp:68) [30]  (3.6 ns)
+
+ <State 13>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp3', mobile_net_hls_v1/conv.hpp:68) [34]  (3.6 ns)
+
+ <State 14>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp3', mobile_net_hls_v1/conv.hpp:68) [34]  (3.6 ns)
+
+ <State 15>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp3', mobile_net_hls_v1/conv.hpp:68) [34]  (3.6 ns)
+
+ <State 16>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('tmp3', mobile_net_hls_v1/conv.hpp:68) [34]  (3.6 ns)
+
+ <State 17>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('sum_1_2', mobile_net_hls_v1/conv.hpp:68) [35]  (3.6 ns)
+
+ <State 18>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('sum_1_2', mobile_net_hls_v1/conv.hpp:68) [35]  (3.6 ns)
+
+ <State 19>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('sum_1_2', mobile_net_hls_v1/conv.hpp:68) [35]  (3.6 ns)
+
+ <State 20>: 3.6ns
+The critical path consists of the following:
+	'hadd' operation ('sum_1_2', mobile_net_hls_v1/conv.hpp:68) [35]  (3.6 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

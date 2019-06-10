@@ -1,0 +1,224 @@
+
+
+================================================================
+== Vivado HLS Report for 'copy_input_fmem2buff_4'
+================================================================
+* Date:           Sun Apr 28 16:04:25 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        mobile_net_hls_v1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.20|     3.675|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  869|  869|  869|  869|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  868|  868|       434|          -|          -|     2|    no    |
+        | + Loop 1.1  |  432|  432|        27|          -|          -|    16|    no    |
+        |  ++ zds2    |   17|   17|         3|          1|          1|    16|    yes   |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     192|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     146|    -|
+|Register         |        -|      -|     170|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|     170|     338|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name           | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |base_addr1_d1_4_fu_276_p2          |     +    |      0|  0|  25|          18|           9|
+    |base_addr1_d2_4_fu_294_p2          |     +    |      0|  0|  25|          18|           5|
+    |i_fu_288_p2                        |     +    |      0|  0|  15|           5|           1|
+    |sum2_fu_261_p2                     |     +    |      0|  0|  39|          32|          32|
+    |tmp_106_fu_252_p2                  |     +    |      0|  0|  26|          19|          19|
+    |tn_13_fu_230_p2                    |     +    |      0|  0|   9|           2|           1|
+    |tr_5_fu_242_p2                     |     +    |      0|  0|  15|           5|           1|
+    |ap_block_pp0_stage0_01001          |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state12_pp0_stage0_iter1  |    and   |      0|  0|   2|           1|           1|
+    |exitcond1_fu_225_p2                |   icmp   |      0|  0|   8|           2|           2|
+    |exitcond3_fu_236_p2                |   icmp   |      0|  0|  11|           5|           6|
+    |exitcond_fu_282_p2                 |   icmp   |      0|  0|  11|           5|           6|
+    |ap_enable_pp0                      |    xor   |      0|  0|   2|           1|           2|
+    |ap_enable_reg_pp0_iter1            |    xor   |      0|  0|   2|           2|           1|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                              |          |      0|  0| 192|         116|          87|
+    +-----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------------+----+-----------+-----+-----------+
+    |                 Name                | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                            |  56|         13|    1|         13|
+    |ap_enable_reg_pp0_iter1              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter2              |   9|          2|    1|          2|
+    |ap_sig_ioackin_m_axi_inputs_ARREADY  |   9|          2|    1|          2|
+    |base_addr1_d2_reg_147                |   9|          2|   18|         36|
+    |base_addr1_d_reg_168                 |   9|          2|   18|         36|
+    |i2_reg_190                           |   9|          2|    5|         10|
+    |inputs_blk_n_AR                      |   9|          2|    1|          2|
+    |inputs_blk_n_R                       |   9|          2|    1|          2|
+    |tn_reg_157                           |   9|          2|    2|          4|
+    |tr_reg_179                           |   9|          2|    5|         10|
+    +-------------------------------------+----+-----------+-----+-----------+
+    |Total                                | 146|         33|   54|        119|
+    +-------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------+----+----+-----+-----------+
+    |                 Name                | FF | LUT| Bits| Const Bits|
+    +-------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                            |  12|   0|   12|          0|
+    |ap_enable_reg_pp0_iter0              |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1              |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2              |   1|   0|    1|          0|
+    |ap_reg_ioackin_m_axi_inputs_ARREADY  |   1|   0|    1|          0|
+    |base_addr1_d2_reg_147                |  18|   0|   18|          0|
+    |base_addr1_d_reg_168                 |  18|   0|   18|          0|
+    |exitcond_reg_347                     |   1|   0|    1|          0|
+    |exitcond_reg_347_pp0_iter1_reg       |   1|   0|    1|          0|
+    |i2_reg_190                           |   5|   0|    5|          0|
+    |inputs_addr_reg_336                  |  32|   0|   32|          0|
+    |inputs_offset_cast_c_reg_315         |  18|   0|   19|          1|
+    |inputs_offset_cast_reg_305           |  31|   0|   32|          1|
+    |tmp_595_reg_356                      |  16|   0|   16|          0|
+    |tn_13_reg_323                        |   2|   0|    2|          0|
+    |tn_reg_157                           |   2|   0|    2|          0|
+    |tr_5_reg_331                         |   5|   0|    5|          0|
+    |tr_reg_179                           |   5|   0|    5|          0|
+    +-------------------------------------+----+----+-----+-----------+
+    |Total                                | 170|   0|  172|          2|
+    +-------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+------------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++-----------------------+-----+-----+------------+------------------------+--------------+
+|ap_clk                 |  in |    1| ap_ctrl_hs | copy_input_fmem2buff.4 | return value |
+|ap_rst                 |  in |    1| ap_ctrl_hs | copy_input_fmem2buff.4 | return value |
+|ap_start               |  in |    1| ap_ctrl_hs | copy_input_fmem2buff.4 | return value |
+|ap_done                | out |    1| ap_ctrl_hs | copy_input_fmem2buff.4 | return value |
+|ap_idle                | out |    1| ap_ctrl_hs | copy_input_fmem2buff.4 | return value |
+|ap_ready               | out |    1| ap_ctrl_hs | copy_input_fmem2buff.4 | return value |
+|m_axi_inputs_AWVALID   | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWREADY   |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWADDR    | out |   32|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWID      | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWLEN     | out |   32|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWSIZE    | out |    3|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWBURST   | out |    2|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWLOCK    | out |    2|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWCACHE   | out |    4|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWPROT    | out |    3|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWQOS     | out |    4|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWREGION  | out |    4|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_AWUSER    | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_WVALID    | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_WREADY    |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_WDATA     | out |   16|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_WSTRB     | out |    2|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_WLAST     | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_WID       | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_WUSER     | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARVALID   | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARREADY   |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARADDR    | out |   32|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARID      | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARLEN     | out |   32|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARSIZE    | out |    3|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARBURST   | out |    2|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARLOCK    | out |    2|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARCACHE   | out |    4|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARPROT    | out |    3|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARQOS     | out |    4|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARREGION  | out |    4|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_ARUSER    | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_RVALID    |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_RREADY    | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_RDATA     |  in |   16|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_RLAST     |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_RID       |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_RUSER     |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_RRESP     |  in |    2|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_BVALID    |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_BREADY    | out |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_BRESP     |  in |    2|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_BID       |  in |    1|    m_axi   |         inputs         |    pointer   |
+|m_axi_inputs_BUSER     |  in |    1|    m_axi   |         inputs         |    pointer   |
+|inputs_offset          |  in |   31|   ap_none  |      inputs_offset     |    scalar    |
+|inputs_offset1         |  in |   18|   ap_none  |     inputs_offset1     |    scalar    |
+|input_buffer_V_din     | out |   16|   ap_fifo  |     input_buffer_V     |    pointer   |
+|input_buffer_V_full_n  |  in |    1|   ap_fifo  |     input_buffer_V     |    pointer   |
+|input_buffer_V_write   | out |    1|   ap_fifo  |     input_buffer_V     |    pointer   |
+|n                      |  in |   10|   ap_none  |            n           |    scalar    |
+|nLoops                 |  in |    2|   ap_none  |         nLoops         |    scalar    |
+|input_cntl_V_din       | out |    1|   ap_fifo  |      input_cntl_V      |    pointer   |
+|input_cntl_V_full_n    |  in |    1|   ap_fifo  |      input_cntl_V      |    pointer   |
+|input_cntl_V_write     | out |    1|   ap_fifo  |      input_cntl_V      |    pointer   |
++-----------------------+-----+-----+------------+------------------------+--------------+
+
