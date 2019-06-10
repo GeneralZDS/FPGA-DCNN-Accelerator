@@ -17,5 +17,5 @@
 
 **关 键 词**：DCNN， FPGA， HLS， 快速度， 低功耗， 高精度，小尺寸
 
-想要了解更多, 请参考本人的[毕设论文](http://www.mdpi.com/2072-4292/10/4/516)及实验代码（包含算法优化阶段的python代码：[efficient_net_tensorflow](https://github.com/GeneralZDS/FPGA-DCNN-Accelerator/tree/master/efficient_net_tensorflow)以及硬件实现阶段的HLS C++代码：。其中conv.hpp即为本文所实现的DCNN HLS函数库，该函数库不同于普通的C++函数库，其结合HLS #pragma命令实现了本文所采用的在FPGA上减少资源、降低功耗及提高速度的方法）.
+想要了解更多, 请参考本人的[毕设论文](https://github.com/GeneralZDS/FPGA-DCNN-Accelerator/blob/master/1601120103-%E8%B5%B5%E4%B8%9C%E5%8D%87-%E5%9F%BA%E4%BA%8EHLS%E7%9A%84%E9%AB%98%E6%95%88%E6%B7%B1%E5%BA%A6%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CFPGA%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95-%E9%80%9A%E4%BF%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F-%E6%9D%8E%E4%BA%91%E6%9D%BE.pdf)及实验代码（包含算法优化阶段的python代码：[efficient_net_tensorflow](https://github.com/GeneralZDS/FPGA-DCNN-Accelerator/tree/master/efficient_net_tensorflow)以及硬件实现阶段的HLS C++代码：[mobile_net_hls](https://github.com/GeneralZDS/FPGA-DCNN-Accelerator/tree/master/mobile_net_hls)。其中conv.hpp即为本文所实现的DCNN HLS函数库，该函数库不同于普通的C++函数库，其结合HLS #pragma命令实现了本文所采用的在FPGA上减少资源、降低功耗及提高速度的方法）.
 
