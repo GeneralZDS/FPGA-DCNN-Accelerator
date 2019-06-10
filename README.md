@@ -14,7 +14,7 @@
 * 编写了DCNN函数模板库并提出了一种设计空间探索模型Design Space Exploration。为解决传统FPGA设计灵活性、可重用性和可扩展性低的问题，本文充分利用了HLS基于C开发的优势，使用C++的模板功能编写了DCNN所需的部分函数并汇集成库，参数化了各配置信息，规范了输入输出接口，以及提出了一种设计空间探索模型Design Space Exploration。使得后续研究人员可以很方便地对该HLS库修改和扩充，并且不用局限于本文所设计的EfficientNet架构，可以根据自身需求按本文给出的评估方式去调用本文编写的函数库并设置参数，来实现适用于自己的网络。<br/>
 
 
-<font face="黑体">关 键 词：</font>DCNN， FPGA， HLS， 快速度， 低功耗， 高精度，小尺寸
+**关 键 词**：DCNN， FPGA， HLS， 快速度， 低功耗， 高精度，小尺寸
 
 
 For more details, please refer to our [rs paper](http://www.mdpi.com/2072-4292/10/4/516).
