@@ -33,17 +33,17 @@ dtype relu(dtype data);
 template<int K, int K_size>
 dtype mac(dtype input_regs[K_size], dtype weight_regs[K_size])
 {
-#pragma HLS INLINE off
+
 	dtype temp[K][K];
-#pragma HLS ARRAY_PARTITION variable=temp complete dim=0
+
 
 
 	for (int i = 0; i < K; i++)
 	{
-#pragma HLS UNROLL
+
 		for (int j = 0; j < K; j++)
 		{
-#pragma HLS UNROLL
+
 			temp[i][j] = input_regs[i * K + j] * weight_regs[i * K + j];
 		}
 	}
@@ -52,10 +52,10 @@ dtype mac(dtype input_regs[K_size], dtype weight_regs[K_size])
 
 	for (int i = 0; i < K; i++)
 	{
-#pragma HLS UNROLL
+
 		for (int j = 0; j < K; j++)
 		{
-#pragma HLS UNROLL
+
 			mid[i] += temp[i][j];
 		}
 	}
@@ -64,7 +64,7 @@ dtype mac(dtype input_regs[K_size], dtype weight_regs[K_size])
 
 	for (int i = 0; i < K; i++)
 	{
-#pragma HLS UNROLL
+
 		sum += mid[i];
 	}
 
@@ -92,10 +92,10 @@ dtype mac(dtype input_regs[K_size], dtype weight_regs[K_size])
 
 	for (int i = 0; i < K; i++)
 	{
-#pragma HLS UNROLL
+
 		for (int j = 0; j < K; j++)
 		{
-#pragma HLS UNROLL
+
 			if (weight_regs[i * K + j] >= (dtype)0)
 				sum += input_regs[i * (Tc + K - 1) + j];
 			else
@@ -108,11 +108,11 @@ dtype mac(dtype input_regs[K_size], dtype weight_regs[K_size])
 template<int Tc, int K>
 void input_regs_shift(dtype input_regs[(K - 1) * (Tc + K - 1) + K], dtype in_data)
 {
-#pragma HLS INLINE
+
 
 	for (int index = 0; index < (K - 1) * (Tc + K - 1) + K - 1; index++)
 	{
-#pragma HLS UNROLL
+
 		input_regs[index] = input_regs[index + 1];
 	}
 	input_regs[(K - 1) * (Tc + K - 1) + K - 1] = in_data;
@@ -126,10 +126,10 @@ public:
 	template<int Tm>
 	void copy_beta_fbuffer2regs(stream<dtype> beta_buffer[Tm], dtype beta_regs[Tm], int mLoops)
 	{
-#pragma HLS INLINE
+
 		for (int tm = 0; tm < Tm; tm++)
 		{
-#pragma HLS UNROLL
+
 			if (tm < mLoops)
 				 beta_buffer[tm].read_nb(beta_regs[tm]);
 		}
@@ -137,15 +137,15 @@ public:
 	template<int Tm, int K, int K_size>
 	void copy_weight_fbuffer2regs(stream<dtype> weight_buffer[Tm], dtype weight_regs[Tm][K_size], int mLoops)
 	{
-#pragma HLS INLINE
+
 		for (int i = 0; i < K; i++)
 		{
 			for (int j = 0; j < K; j++)
 			{
-#pragma HLS PIPELINE II=1
+
 				for (int tm = 0; tm < Tm; tm++)
 				{
-#pragma HLS UNROLL
+
 					if (tm < mLoops)
 						 weight_buffer[tm].read_nb(weight_regs[tm][i * K + j]);
 				}
@@ -163,31 +163,30 @@ public:
 		int base_addr2_d1 = base_addr2;
 		for (int tn = 0; tn < nLoops; tn++)
 		{
-#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+
 			int base_addr1_d2 = base_addr1_d1;
 			int base_addr2_d2 = base_addr2_d1;
 			for (int tr = 0; tr < rLoops + (K - 1); tr++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=4 max=18
+
 				if ((r + tr < ((K - 1) >> 1)) || (r + tr > R - 1 + ((K - 1) >> 1)))
 				{
 					zds1:for (int i = 0; i < cLoops + (K - 1) ; i ++)
-#pragma HLS PIPELINE II=1
+
 						input_buffer.write_nb((dtype)0);
 				}
 				else if (Tc >= C)
 				{
 					zds9:for (int i = 0; i < ((K - 1) >> 1) ; i ++)
-#pragma HLS PIPELINE II=1
+
 						input_buffer.write_nb((dtype)0);
 
 					zds2:for (int i = 0; i < C ; i ++)
-#pragma HLS PIPELINE II=1
+
 						input_buffer.write_nb(((dtype *)(inputs + base_addr1_d2))[i]);
 
 					zds8:for (int i = 0; i < ((K - 1) - ((K - 1) >> 1)) ; i ++)
-#pragma HLS PIPELINE II=1
+
 						input_buffer.write_nb((dtype)0);
 				}
 				else
@@ -196,26 +195,25 @@ public:
 					{
 
 						zds7:for (int i = 0; i < ((K - 1) >> 1) ; i ++)
-#pragma HLS PIPELINE II=1
+
 							input_buffer.write_nb((dtype)0);
 						zds3:for (int i = 0; i < (Tc + ((K - 1) - ((K - 1) >> 1))) ; i ++)
-#pragma HLS PIPELINE II=1
+
 							input_buffer.write_nb(((dtype *)(inputs + base_addr1_d2))[i]);
 					}
 					else if (c + Tc >= C)
 					{
 						zds4:for (int i = 0; i < (cLoops + ((K - 1) >> 1)) ; i ++)
-#pragma HLS PIPELINE II=1
+
 							input_buffer.write_nb(((dtype *)(inputs + base_addr2_d2))[i]);
 						zds6:for (int i = 0; i < ((K - 1) - ((K - 1) >> 1)) ; i ++)
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=31
+
 							input_buffer.write_nb((dtype)0);
 					}
 					else
 					{
 						zds5:for (int i = 0; i < (Tc + (K - 1)) ; i ++)
-#pragma HLS PIPELINE II=1
+
 							input_buffer.write_nb(((dtype *)(inputs + base_addr2_d2))[i]);
 					}
 				}
@@ -235,7 +233,7 @@ public:
 		if (n <= 0)
 		{
 			for (int i = 0; i < mLoops ; i ++)
-#pragma HLS PIPELINE II=1
+
 				beta_buffer[i].write_nb(((dtype *)(betas + m))[i]);
 		}
 		beta_cntl.write_nb(end_flag);
@@ -249,16 +247,14 @@ public:
 		int base_addr_d1 = base_addr;
 		for (int tn = 0; tn < nLoops; tn++)
 		{
-#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+
 			int base_addr_d2 = base_addr_d1;
 			for (int tm = 0; tm < mLoops; tm++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=2 max=32
+
 				for (int i = 0; i < K_size; i++)
 				{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS PIPELINE II=1
+
 					weight_buffer[tm].write_nb(((dtype *)(weights + base_addr_d2))[i]);
 				}
 				base_addr_d2 += K_size;
@@ -276,11 +272,11 @@ public:
 		bool progress_flag;
 
 		stream<bool> input_cntl;
-#pragma HLS STREAM variable=input_cntl depth=1
+
 		stream<bool> weight_cntl;
-#pragma HLS STREAM variable=weight_cntl depth=1
+
 		stream<bool> beta_cntl;
-#pragma HLS STREAM variable=beta_cntl depth=1
+
 
 		int cLoops;
 		int rLoops;
@@ -335,20 +331,19 @@ public:
 	void copy_output_fbuffer2mem(dtype *outputs, stream<dtype> output_buffer[Tm], int m,
 			int r, int c, int mLoops, int cLoops, int rLoops)
 	{
-#pragma HLS INLINE
+
 		int base_addr = m  * (M_size / S / S) + (r / S) * (C / S) + (c / S);
 		int base_addr_d1 = base_addr;
 		for (int tm = 0; tm < mLoops; tm++)
 		{
-#pragma HLS LOOP_TRIPCOUNT min=2 max=32
+
 			int base_addr_d2 = base_addr_d1;
 			for (int tr_divS = 0; tr_divS < (rLoops / S); tr_divS++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=1 max=8
+
 				for (int i = 0; i < (cLoops / S); i++)
 				{
-#pragma HLS PIPELINE II=1
+
 					output_buffer[tm].read_nb(((dtype *)(outputs + base_addr_d2))[i]);
 				}
 				base_addr_d2 += (C / S);
@@ -418,23 +413,22 @@ public:
 		int nLoops;
 
 		dtype input_regs[(K - 1) * (Tc + K - 1) + K];
-#pragma HLS ARRAY_PARTITION variable=input_regs complete dim=0
+
 		dtype weight_regs[Tm][K_size];
-#pragma HLS ARRAY_PARTITION variable=weight_regs complete dim=0
+
 		dtype beta_regs[Tm];
-#pragma HLS ARRAY_PARTITION variable=beta_regs complete dim=0
+
 		dtype output_temp[Tm][Tr][Tc];
-#pragma HLS RESOURCE variable=output_temp core=RAM_S2P_BRAM
-#pragma HLS ARRAY_PARTITION variable=output_temp complete dim=1
+
 
 		dtype input_temp[K_size];
-#pragma HLS ARRAY_PARTITION variable=input_temp complete dim=0
+
 		dtype weight_temp[Tm][K_size];
-#pragma HLS ARRAY_PARTITION variable=weight_temp complete dim=0
+
 
 		while(1)
 		{
-#pragma HLS LOOP_FLATTEN off
+
 			while(1)
 				if((!data_buffer.empty())&&(!result_buffer.full()))
 					break;
@@ -454,8 +448,7 @@ public:
 
 			nloop:for (int tn = 0; tn < nLoops; tn++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+
 
 				copy_weight_fbuffer2regs<Tm, K, K_size>(weight_buffer, weight_regs, mLoops);
 
@@ -464,7 +457,7 @@ public:
 				{
 					for (int shift_cnt_c = 0; shift_cnt_c < (Tc + K - 1); shift_cnt_c++)
 					{
-#pragma HLS PIPELINE II=1
+
 						if (shift_cnt_c >= cLoops + (K - 1))
 							input_shift_dat = 0;
 						else
@@ -475,12 +468,11 @@ public:
 
 				rloop:for (int tr = 0; tr < rLoops; tr++)
 				{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=2 max=16
+
 
 					for (int shift_cnt_c = 0; shift_cnt_c < (K - 1); shift_cnt_c++)
 					{
-#pragma HLS PIPELINE II=1
+
 						input_buffer.read_nb(input_shift_dat);
 						input_regs_shift<Tc, K>(input_regs, input_shift_dat);
 
@@ -489,28 +481,27 @@ public:
 					cloop:for (int tc = 0; tc < cLoops; tc++)
 					{
 
-#pragma HLS LOOP_TRIPCOUNT min=2 max=32
-#pragma HLS PIPELINE II=1
+
 						input_buffer.read_nb(input_shift_dat);
 						input_regs_shift<Tc, K>(input_regs, input_shift_dat);
 
 						for (int i = 0; i < K; i++)
-#pragma HLS UNROLL
+
 							for (int j = 0; j < K; j++)
 							{
-#pragma HLS UNROLL
+
 								if ((tr % S == (S - 1)) && (tc % S == (S - 1)))
 									input_temp[i * K + j] = input_regs[i * (Tc + K -1) + j];
 								else
 									input_temp[i * K + j] = (dtype)0;
 							}
 						for (int i = 0; i < K; i++)
-#pragma HLS UNROLL
+
 							for (int j = 0; j < K; j++)
-#pragma HLS UNROLL
+
 								for (int tm = 0; tm < Tm; tm++)
 								{
-#pragma HLS UNROLL
+
 									if (tm < mLoops)
 									{
 										if ((tr % S == (S - 1)) && (tc % S == (S - 1)))
@@ -535,7 +526,7 @@ public:
 									else
 									{
 										zxm1:{
-											#pragma HLS LATENCY max=1
+
 										acc_dat = output_temp[tm][tr][tc] + mac_dat;
 										}
 									}
@@ -555,8 +546,7 @@ public:
 
 					for (int shift_cnt_c = 0; shift_cnt_c < (Tc + K - 1) - (cLoops + (K - 1)); shift_cnt_c++)
 					{
-#pragma HLS LOOP_TRIPCOUNT min=0 max=31
-#pragma HLS PIPELINE II=1
+
 						input_shift_dat = 0;
 						input_regs_shift<Tc, K>(input_regs, input_shift_dat);
 
@@ -584,41 +574,38 @@ public:
 	void apply(dtype *inputs, dtype *weights, dtype *betas, dtype *outputs, stream<bool>& cntl)
 	{
 		stream<dtype> input_buffer;
-#pragma HLS RESOURCE variable=input_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=input_buffer depth=1296 dim=1//[2][Tn][Tr + (K - 1)][Tc + (K - 1)]
+
 		stream<dtype> weight_buffer[Tm];
-#pragma HLS RESOURCE variable=weight_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=weight_buffer depth=36//[2][Tn][Tm][K_size]
+
 		stream<dtype> beta_buffer[Tm];
-#pragma HLS STREAM variable=beta_buffer depth=2//[2][Tm]
+
 		stream<dtype> output_buffer[Tm];
-#pragma HLS RESOURCE variable=output_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=output_buffer depth=512//[2][Tm][Tr*Tc]
+
 
 		stream<bool> data_buffer;
-#pragma HLS STREAM variable=data_buffer depth=2
+
 		stream<bool> result_buffer;
-#pragma HLS STREAM variable=result_buffer depth=2
+
 
 		stream<int> data_c;
-#pragma HLS STREAM variable=data_c depth=2
+
 		stream<int> data_r;
-#pragma HLS STREAM variable=data_r depth=2
+
 		stream<int> data_m;
-#pragma HLS STREAM variable=data_m depth=2
+
 		stream<int> data_n;
-#pragma HLS STREAM variable=data_n depth=2
+
 
 		stream<int> result_c;
-#pragma HLS STREAM variable=result_c depth=2
-		stream<int> result_r;
-#pragma HLS STREAM variable=result_r depth=2
-		stream<int> result_m;
-#pragma HLS STREAM variable=result_m depth=2
-		stream<int> result_n;
-#pragma HLS STREAM variable=result_n depth=2
 
-#pragma HLS DATAFLOW
+		stream<int> result_r;
+
+		stream<int> result_m;
+
+		stream<int> result_n;
+
+
+
 
 		load_data<N, M, R, C, Tn, Tm, Tr, Tc, K, M_size, K_size>(inputs, weights, betas,
 				input_buffer, weight_buffer, beta_buffer, data_buffer, data_c, data_r, data_m, data_n);
@@ -643,31 +630,30 @@ public:
 		int base_addr2_d1 = base_addr2;
 		for (int tn = 0; tn < nLoops; tn++)
 		{
-#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+
 			int base_addr1_d2 = base_addr1_d1;
 			int base_addr2_d2 = base_addr2_d1;
 			for (int tr = 0; tr < rLoops + (K - 1); tr++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=4 max=18
+
 				if ((r + tr < ((K - 1) >> 1)) || (r + tr > R - 1 + ((K - 1) >> 1)))
 				{
 					zds1:for (int i = 0; i < cLoops + (K - 1) ; i ++)
-#pragma HLS PIPELINE II=1
+
 						input_buffer.write_nb((dtype)0);
 				}
 				else if (Tc >= C)
 				{
 					zds9:for (int i = 0; i < ((K - 1) >> 1) ; i ++)
-#pragma HLS PIPELINE II=1
+
 						input_buffer.write_nb((dtype)0);
 
 					zds2:for (int i = 0; i < C ; i ++)
-#pragma HLS PIPELINE II=1
+
 						input_buffer.write_nb(((dtype *)(inputs + base_addr1_d2))[i]);
 
 					zds8:for (int i = 0; i < ((K - 1) - ((K - 1) >> 1)) ; i ++)
-#pragma HLS PIPELINE II=1
+
 						input_buffer.write_nb((dtype)0);
 				}
 				else
@@ -676,26 +662,25 @@ public:
 					{
 
 						zds7:for (int i = 0; i < ((K - 1) >> 1) ; i ++)
-#pragma HLS PIPELINE II=1
+
 							input_buffer.write_nb((dtype)0);
 						zds3:for (int i = 0; i < (Tc + ((K - 1) - ((K - 1) >> 1))) ; i ++)
-#pragma HLS PIPELINE II=1
+
 							input_buffer.write_nb(((dtype *)(inputs + base_addr1_d2))[i]);
 					}
 					else if (c + Tc >= C)
 					{
 						zds4:for (int i = 0; i < (cLoops + ((K - 1) >> 1)) ; i ++)
-#pragma HLS PIPELINE II=1
+
 							input_buffer.write_nb(((dtype *)(inputs + base_addr2_d2))[i]);
 						zds6:for (int i = 0; i < ((K - 1) - ((K - 1) >> 1)) ; i ++)
-#pragma HLS PIPELINE II=1
-#pragma HLS LOOP_TRIPCOUNT min=1 max=31
+
 							input_buffer.write_nb((dtype)0);
 					}
 					else
 					{
 						zds5:for (int i = 0; i < (Tc + (K - 1)) ; i ++)
-#pragma HLS PIPELINE II=1
+
 							input_buffer.write_nb(((dtype *)(inputs + base_addr2_d2))[i]);
 					}
 				}
@@ -714,7 +699,7 @@ public:
 		bool end_flag;
 		if ((r <= 0) && ( c <= 0))
 			for (int i = 0; i < nLoops ; i ++)
-#pragma HLS PIPELINE II=1
+
 				beta_buffer.write_nb(((dtype *)(betas + n))[i]);
 		beta_cntl.write_nb(end_flag);
 	}
@@ -729,11 +714,10 @@ public:
 		if ((r <= 0) && ( c <= 0))
 			for (int tn = 0; tn < nLoops; tn++)
 			{
-#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+
 				for (int i = 0; i < K_size; i++)
 				{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS PIPELINE II=1
+
 					weight_buffer[i].write_nb(((dtype *)(weights + base_addr1_d1))[i]);
 				}
 				base_addr1_d1 += K_size;
@@ -750,11 +734,11 @@ public:
 		bool progress_flag;
 
 		stream<bool> input_cntl;
-#pragma HLS STREAM variable=input_cntl depth=1
+
 		stream<bool> weight_cntl;
-#pragma HLS STREAM variable=weight_cntl depth=1
+
 		stream<bool> beta_cntl;
-#pragma HLS STREAM variable=beta_cntl depth=1
+
 
 		int cLoops;
 		int rLoops;
@@ -806,20 +790,19 @@ public:
 	void copy_output_fbuffer2mem(dtype *outputs, stream<dtype> output_buffer[Tn], int n,
 			int r, int c, int nLoops, int cLoops, int rLoops)
 	{
-#pragma HLS INLINE
+
 		int base_addr = n  * (M_size / S / S) + (r / S) * (C / S) + (c / S);
 		int base_addr_d1 = base_addr;
 		for (int tn = 0; tn < nLoops; tn++)
 		{
-#pragma HLS LOOP_TRIPCOUNT min=2 max=32
+
 			int base_addr_d2 = base_addr_d1;
 			for (int tr_divS = 0; tr_divS < (rLoops / S); tr_divS++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=1 max=8
+
 				for (int i = 0; i < (cLoops / S); i++)
 				{
-#pragma HLS PIPELINE II=1
+
 					output_buffer[tn].read_nb(((dtype *)(outputs + base_addr_d2))[i]);
 				}
 				base_addr_d2 += (C / S);
@@ -885,20 +868,20 @@ public:
 		int nLoops;
 
 		dtype input_regs[(K - 1) * (Tc + K - 1) + K];
-#pragma HLS ARRAY_PARTITION variable=input_regs complete dim=0
+
 		dtype weight_regs[Tn][K_size];
-#pragma HLS ARRAY_PARTITION variable=weight_regs complete dim=0
+
 		dtype beta_regs[Tn];
-#pragma HLS RESOURCE variable=beta_regs core=RAM_S2P_BRAM
+
 
 		dtype input_temp[K_size];
-#pragma HLS ARRAY_PARTITION variable=input_temp complete dim=0
+
 		dtype weight_temp[K_size];
-#pragma HLS ARRAY_PARTITION variable=weight_temp complete dim=0
+
 
 		while(1)
 		{
-#pragma HLS LOOP_FLATTEN off
+
 			while(1)
 				if((!data_buffer.empty())&&(!result_buffer.full()))
 					break;
@@ -913,15 +896,14 @@ public:
 
 			nloop:for (int tn = 0; tn < nLoops; tn++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=2 max=2
+
 
 				if ((r <= 0) && (c <= 0))
 				{
 					beta_buffer.read_nb(beta_regs[tn]);
 
 					for (int i = 0; i < K_size; i++)
-#pragma HLS UNROLL
+
 						weight_buffer[i].read_nb(weight_regs[tn][i]);
 				}
 
@@ -930,7 +912,7 @@ public:
 				{
 					for (int shift_cnt_c = 0; shift_cnt_c < (Tc + K - 1); shift_cnt_c++)
 					{
-#pragma HLS PIPELINE II=1
+
 						if (shift_cnt_c >= cLoops + (K - 1))
 							input_shift_dat = 0;
 						else
@@ -941,12 +923,11 @@ public:
 
 				rloop:for (int tr = 0; tr < rLoops; tr++)
 				{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=2 max=16
+
 
 					for (int shift_cnt_c = 0; shift_cnt_c < (K - 1); shift_cnt_c++)
 					{
-#pragma HLS PIPELINE II=1
+
 						input_buffer.read_nb(input_shift_dat);
 						input_regs_shift<Tc, K>(input_regs, input_shift_dat);
 
@@ -954,24 +935,24 @@ public:
 
 					cloop:for (int tc = 0; tc < cLoops; tc++)
 					{
-#pragma HLS PIPELINE II=1
+
 						input_buffer.read_nb(input_shift_dat);
 						input_regs_shift<Tc, K>(input_regs, input_shift_dat);
 
 						for (int i = 0; i < K; i++)
-#pragma HLS UNROLL
+
 							for (int j = 0; j < K; j++)
 							{
-#pragma HLS UNROLL
+
 								if ((tr % S == (S - 1)) && (tc % S == (S - 1)))
 									input_temp[i * K + j] = input_regs[i * (Tc + K -1) + j];
 								else
 									input_temp[i * K + j] = (dtype)0;
 							}
 						for (int i = 0; i < K; i++)
-#pragma HLS UNROLL
+
 							for (int j = 0; j < K; j++)
-#pragma HLS UNROLL
+
 							{
 								if ((tr % S == (S - 1)) && (tc % S == (S - 1)))
 									weight_temp[i * K + j] = weight_regs[tn][i * K + j];
@@ -990,8 +971,7 @@ public:
 
 					for (int shift_cnt_c = 0; shift_cnt_c < (Tc + K - 1) - (cLoops + (K - 1)); shift_cnt_c++)
 					{
-#pragma HLS LOOP_TRIPCOUNT min=0 max=31
-#pragma HLS PIPELINE II=1
+
 						input_shift_dat = 0;
 						input_regs_shift<Tc, K>(input_regs, input_shift_dat);
 
@@ -1015,38 +995,34 @@ public:
 	void apply(dtype *inputs, dtype *weights, dtype *betas, dtype *outputs, stream<bool>& cntl)
 	{
 		stream<dtype> input_buffer;
-#pragma HLS RESOURCE variable=input_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=input_buffer depth=1296//[2][Tn][(Tr + K - 1)*(Tc + K - 1)]
+
 		stream<dtype> weight_buffer[K_size];
-#pragma HLS RESOURCE variable=weight_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=weight_buffer depth=4//[2][Tn][K_size]
+
 		stream<dtype> beta_buffer;
-#pragma HLS RESOURCE variable=beta_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=beta_buffer depth=4//[2][Tn]
+
 		stream<dtype> output_buffer[Tn];
-#pragma HLS RESOURCE variable=output_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=output_buffer depth=512//[2][Tm][Tr*Tc]
+
 
 		stream<bool> data_buffer;
-#pragma HLS STREAM variable=data_buffer depth=2
+
 		stream<bool> result_buffer;
-#pragma HLS STREAM variable=result_buffer depth=2
+
 
 		stream<int> data_c;
-#pragma HLS STREAM variable=data_c depth=2
+
 		stream<int> data_r;
-#pragma HLS STREAM variable=data_r depth=2
+
 		stream<int> data_n;
-#pragma HLS STREAM variable=data_n depth=2
+
 
 		stream<int> result_c;
-#pragma HLS STREAM variable=result_c depth=2
-		stream<int> result_r;
-#pragma HLS STREAM variable=result_r depth=2
-		stream<int> result_n;
-#pragma HLS STREAM variable=result_n depth=2
 
-#pragma HLS DATAFLOW
+		stream<int> result_r;
+
+		stream<int> result_n;
+
+
+
 
 		load_data<N, R, C, Tn, Tr, Tc, K, M_size, K_size>(inputs, weights, betas,
 				input_buffer, weight_buffer, beta_buffer, data_buffer,data_c, data_r, data_n);
@@ -1076,20 +1052,18 @@ public:
 	void copy_input_fmem2buffer(dtype *inputs, stream<dtype>& input_buffer, int n, int r, int c,
 			int nLoops, int rLoops, int cLoops)
 	{
-#pragma HLS INLINE
+
 		int base_addr = n * M_size + r * C + c;
 		int base_addr_d1 = base_addr;
 		for (int tn = 0; tn < nLoops; tn++)
 		{
-#pragma HLS LOOP_TRIPCOUNT min=1 max=8
+
 			for (int tr = 0; tr < rLoops; tr++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=1 max=8
+
 				int base_addr_d2 = base_addr_d1 + tr * C;
 				for (int i = 0; i < cLoops ; i ++)
-		#pragma HLS LOOP_FLATTEN off
-		#pragma HLS PIPELINE II=1
+
 					input_buffer.write_nb(((dtype *)(inputs + base_addr_d2))[i]);
 			}
 			base_addr_d1 += M_size;
@@ -1134,12 +1108,12 @@ public:
 	void copy_output_fbuffer2mem(dtype *outputs, stream<dtype>& output_buffer, int n, int r, int c,
 			int nLoops, int rLoops, int cLoops)
 	{
-#pragma HLS INLINE
+
 		if ((r + rLoops >= R) && (c + cLoops >= C))
 		{
 			for (int i = 0; i < nLoops ; i ++)
 			{
-#pragma HLS PIPELINE II=1
+
 				output_buffer.read_nb(((dtype *)(outputs + n))[i]);
 			}
 		}
@@ -1161,7 +1135,7 @@ public:
 
 		while(1)
 		{
-#pragma HLS LOOP_FLATTEN off
+
 			while(1)
 				if(!result_buffer.empty())
 					break;
@@ -1203,12 +1177,12 @@ public:
 		static int block_cnt = 0;
 
 		dtype output_temp[Tn];
-#pragma HLS RESOURCE variable=output_temp core=RAM_S2P_BRAM
+
 		dtype output_reg;
 
 		while(1)
 		{
-#pragma HLS LOOP_FLATTEN off
+
 			while(1)
 				if((!data_buffer.empty())&&(!result_buffer.full()))
 					break;
@@ -1225,17 +1199,17 @@ public:
 
 			nloop:for (int tn = 0; tn < nLoops; tn++)
 			{
-#pragma HLS LOOP_TRIPCOUNT min=1 max=8
+
 				if ((r <= 0) && (c <= 0))
 					output_temp[tn] = dtype(0);
 				dtype acc_datftr = dtype(0);
 				rloop:for (int tr = 0; tr < rLoops; tr++)
 				{
-#pragma HLS LOOP_TRIPCOUNT min=1 max=8
+
 					dtype acc_datftc = dtype(0);
 					cloop:for (int tc = 0; tc < cLoops; tc++)
 					{
-#pragma HLS LOOP_TRIPCOUNT min=1 max=8
+
 						dtype input_reg;
 						input_buffer.read_nb(input_reg);
 						acc_datftc += input_reg;
@@ -1270,32 +1244,31 @@ public:
 	void apply(dtype *inputs, dtype *outputs, stream<bool>& cntl)
 	{
 		stream<dtype> input_buffer;
-#pragma HLS RESOURCE variable=input_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=input_buffer depth=2*Tn*Tr*Tc//[2][Tn][Tr][Tc]
+
+
 		stream<dtype> output_buffer;
-#pragma HLS RESOURCE variable=output_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=output_buffer depth=16//[2][Tn]
+
 
 		stream<bool> data_buffer;
-#pragma HLS STREAM variable=data_buffer depth=2
+
 		stream<bool> result_buffer;
-#pragma HLS STREAM variable=result_buffer depth=2
+
 
 		stream<int> data_n;
-#pragma HLS STREAM variable=data_n depth=2
+
 		stream<int> data_r;
-#pragma HLS STREAM variable=data_r depth=2
+
 		stream<int> data_c;
-#pragma HLS STREAM variable=data_c depth=2
+
 
 		stream<int> result_n;
-#pragma HLS STREAM variable=result_n depth=2
-		stream<int> result_r;
-#pragma HLS STREAM variable=result_r depth=2
-		stream<int> result_c;
-#pragma HLS STREAM variable=result_c depth=2
 
-#pragma HLS DATAFLOW
+		stream<int> result_r;
+
+		stream<int> result_c;
+
+
+
 
 		load_data<N, R, C, Tn, Tr, Tc, M_size>(inputs, input_buffer, data_buffer,
 				data_n, data_r, data_c);
@@ -1323,7 +1296,7 @@ public:
 	{
 		bool end_flag;
 		for (int i = 0; i < nLoops ; i ++)
-#pragma HLS PIPELINE II=1
+
 			input_buffer.write_nb(((dtype *)(inputs + n))[i]);
 		input_cntl.write_nb(end_flag);
 	}
@@ -1334,7 +1307,7 @@ public:
 		if (n <= 0)
 		{
 			for (int i = 0; i < mLoops ; i ++)
-#pragma HLS PIPELINE II=1
+
 				beta_buffer.write_nb(((dtype *)(betas + m))[i]);
 		}
 		beta_cntl.write_nb(end_flag);
@@ -1348,11 +1321,10 @@ public:
 		int base_addr_d1 = base_addr;
 		for (int tm = 0; tm < mLoops; tm++)
 		{
-#pragma HLS LOOP_TRIPCOUNT min=1 max=4
+
 			for (int i = 0; i < nLoops; i++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS PIPELINE II=1
+
 				weight_buffer.write_nb(((dtype *)(weights + base_addr_d1))[i]);
 			}
 			base_addr_d1 += N;
@@ -1367,11 +1339,11 @@ public:
 		bool progress_flag;
 
 		stream<bool> input_cntl;
-#pragma HLS STREAM variable=input_cntl depth=1
+
 		stream<bool> weight_cntl;
-#pragma HLS STREAM variable=weight_cntl depth=1
+
 		stream<bool> beta_cntl;
-#pragma HLS STREAM variable=beta_cntl depth=1
+
 
 		int mLoops;
 		int nLoops;
@@ -1417,11 +1389,11 @@ public:
 	}
 	void copy_output_fbuffer2mem(dtype *outputs, stream<dtype>& output_buffer, int n, int m, int mLoops)
 	{
-#pragma HLS INLINE
+
 
 		for (int i = 0; i < mLoops ; i ++)
 		{
-#pragma HLS PIPELINE II=1
+
 			dtype temp;
 			output_buffer.read_nb(temp);
 			((dtype *)(outputs + m))[i] = temp;
@@ -1441,7 +1413,7 @@ public:
 
 		while(1)
 		{
-#pragma HLS LOOP_FLATTEN off
+
 			while(1)
 				if(!result_buffer.empty())
 					break;
@@ -1480,13 +1452,13 @@ public:
 		dtype beta_reg;
 		dtype weight_reg;
 		dtype input_regs[Tn];
-#pragma HLS RESOURCE variable=input_regs core=RAM_S2P_BRAM
+
 		dtype output_temp[Tm];
-#pragma HLS RESOURCE variable=output_temp core=RAM_S2P_BRAM
+
 
 		while(1)
 		{
-#pragma HLS LOOP_FLATTEN off
+
 			while(1)
 				if((!data_buffer.empty())&&(!result_buffer.full()))
 					break;
@@ -1499,14 +1471,12 @@ public:
 
 			mloop:for (int tm = 0; tm < mLoops; tm++)
 			{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=1 max=4
+
 
 				dtype mac_dat = 0;
 				nloop:for (int tn = 0; tn < nLoops; tn++)
 				{
-#pragma HLS LOOP_FLATTEN off
-#pragma HLS LOOP_TRIPCOUNT min=1 max=32
+
 					if (tm <= 0)
 						input_buffer.read_nb(input_regs[tn]);
 					weight_buffer.read_nb(weight_reg);
@@ -1543,34 +1513,29 @@ public:
 	void apply(dtype *inputs, dtype *weights, dtype *betas, dtype *outputs, stream<bool>& cntl)
 	{
 		stream<dtype> input_buffer;
-#pragma HLS RESOURCE variable=input_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=input_buffer depth=64//[2][Tn]
+
 		stream<dtype> weight_buffer;
-#pragma HLS RESOURCE variable=weight_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=weight_buffer depth=256//[2][Tm][Tn][1]
+
 		stream<dtype> beta_buffer;
-#pragma HLS RESOURCE variable=beta_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=beta_buffer depth=8//[2][Tm]
+
 		stream<dtype> output_buffer;
-#pragma HLS RESOURCE variable=output_buffer core=FIFO_BRAM
-#pragma HLS STREAM variable=output_buffer depth=8//[2][Tm]
 
 		stream<bool> data_buffer;
-#pragma HLS STREAM variable=data_buffer depth=2
+
 		stream<bool> result_buffer;
-#pragma HLS STREAM variable=result_buffer depth=2
+
 
 		stream<int> data_m;
-#pragma HLS STREAM variable=data_m depth=2
+
 		stream<int> data_n;
-#pragma HLS STREAM variable=data_n depth=2
+
 
 		stream<int> result_m;
-#pragma HLS STREAM variable=result_m depth=2
-		stream<int> result_n;
-#pragma HLS STREAM variable=result_n depth=2
 
-#pragma HLS DATAFLOW
+		stream<int> result_n;
+
+
+
 
 		load_data<N, M, Tn, Tm>(inputs, weights, betas,
 				input_buffer, weight_buffer, beta_buffer, data_buffer, data_m, data_n);
@@ -1607,7 +1572,7 @@ void first_layer(dtype *inputs, dtype *weights, dtype *betas, dtype *outputs, in
 	bool pingpang_flag = 0;
 	bool end_flag;
 	stream<bool> cntl;
-#pragma HLS STREAM variable=cntl depth=1
+
 
 	for(int i = 0; i < 1; i++)
 	{
@@ -1639,7 +1604,7 @@ void inter_layer(dtype *inputs, dtype *weights, dtype *betas, dtype *outputs, in
 	bool pingpang_flag = 0;
 	bool end_flag;
 	stream<bool> cntl;
-#pragma HLS STREAM variable=cntl depth=1
+
 
 	while(1)
 	{
@@ -1670,7 +1635,7 @@ void penult_layer(dtype *inputs, dtype *outputs, int inputs_ofst,
 	bool pingpang_flag = 0;
 	bool end_flag;
 	stream<bool> cntl;
-#pragma HLS STREAM variable=cntl depth=1
+
 
 	while(1)
 	{
@@ -1700,7 +1665,7 @@ void last_layer(dtype *inputs, dtype *weights, dtype *betas, dtype *outputs, int
 	bool pingpang_flag = 0;
 	bool end_flag;
 	stream<bool> cntl;
-#pragma HLS STREAM variable=cntl depth=1
+
 
 	while(1)
 	{
@@ -1780,11 +1745,11 @@ void load_data(dtype *inputs, dtype *weights, dtype *betas,
 	bool progress_flag;
 
 	stream<bool> input_cntl;
-#pragma HLS STREAM variable=input_cntl depth=1
+
 	stream<bool> weight_cntl;
-#pragma HLS STREAM variable=weight_cntl depth=1
+
 	stream<bool> beta_cntl;
-#pragma HLS STREAM variable=beta_cntl depth=1
+
 
 	int cLoops;
 	int rLoops;
@@ -1838,11 +1803,11 @@ void load_data(dtype *inputs, dtype *weights, dtype *betas,
 void load_data(stream<bool>& task_cntrlfpre, stream<bool>& task_cntrl2nxt){
 	bool end_flag;
 	stream<bool> input_cntl;
-#pragma HLS STREAM variable=input_cntl depth=1
+
 	stream<bool> weight_cntl;
-#pragma HLS STREAM variable=weight_cntl depth=1
+
 	stream<bool> bias_cntl;
-#pragma HLS STREAM variable=bias_cntl depth=1
+
 	bool input_end_flag;
 	bool weight_end_flag;
 	bool bias_end_flag;
@@ -1874,9 +1839,9 @@ void load_data(stream<bool>& task_cntrlfpre, stream<bool>& task_cntrl2nxt){
 dtype temp;
 
 for (int i = 0; i < 3; i++)
-#pragma HLS UNROLL
+
 	for (int j = 0; j < 3; j++)
-#pragma HLS UNROLL
+
 		temp = input_regs[i *3 + j] * weight_regs[i *3 + j];*/
 
 /*for (int r = 0; r < R; r++)
